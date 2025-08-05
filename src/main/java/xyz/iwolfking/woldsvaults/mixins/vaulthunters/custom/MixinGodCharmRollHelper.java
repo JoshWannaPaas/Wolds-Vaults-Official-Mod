@@ -13,6 +13,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import xyz.iwolfking.woldsvaults.api.helper.GameruleHelper;
+import xyz.iwolfking.woldsvaults.init.ModGameRules;
 
 import java.util.Optional;
 
@@ -20,7 +22,7 @@ import java.util.Optional;
 public class MixinGodCharmRollHelper {
     @Inject(method = "initializeGodCharm", at = @At(value = "INVOKE", target = "Liskallia/vault/gear/GodCharmRollHelper;getPrefixSlotsForRarity(Liskallia/vault/gear/VaultGearRarity;)I"))
     private static void addAffinityImplicit(ItemStack stack, Player player, CallbackInfo ci, @Local Optional<VaultGod> godOpt, @Local VaultGearData data) {
-        if(godOpt.isPresent()) {
+        if(godOpt.isPresent() && GameruleHelper.isEnabled(ModGameRules.ENABLE_OLD_AFFINITY_HANDLING, player.getLevel())) {
             VaultGod god = godOpt.get();
 
             VaultGearRarity rarity = data.getRarity();

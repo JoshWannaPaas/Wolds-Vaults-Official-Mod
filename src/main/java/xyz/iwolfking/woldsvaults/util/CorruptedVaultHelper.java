@@ -590,10 +590,13 @@ public class CorruptedVaultHelper {
         }
     }
 
-    public static void preventFruits(CorruptedObjective obj) {
+    public static void preventFruits(CorruptedObjective obj, Vault vault) {
         CommonEvents.FRUIT_EATEN.register(obj,  (data) -> {
-            data.setTime(0);
-            data.getPlayer().displayClientMessage(new TextComponent("Seems pointless...").withStyle(ChatFormatting.RED), true);
+            Vault playerVault = VaultUtils.getVault(data.getPlayer().getLevel()).orElse(null);
+            if(playerVault != null && playerVault.equals(vault)) {
+                data.setTime(0);
+                data.getPlayer().displayClientMessage(new TextComponent("Seems pointless...").withStyle(ChatFormatting.RED), true);
+            }
         });
     }
 
@@ -779,7 +782,7 @@ public class CorruptedVaultHelper {
                         return;
                     }
 
-                    data.setTemplate(data.getLayout().getRoom(key.get(vault.get(Vault.VERSION)), vault.get(Vault.VERSION), data.getRegion(), data.getRandom(), data.getSettings()));
+                    data.setTemplate(data.getLayout().getRoom(key.get(vault.get(Vault.VERSION)), vault, vault.get(Vault.VERSION), data.getRegion(), data.getRandom(), data.getSettings()));
                     ResourceLocation theme = vault.get(Vault.WORLD).get(WorldManager.THEME);
                     ResourceLocation id = new ResourceLocation(theme.toString().replace("classic_vault_", "universal_"));
                     PaletteKey palette = VaultRegistry.PALETTE.getKey(id);

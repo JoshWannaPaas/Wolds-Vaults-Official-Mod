@@ -5,9 +5,11 @@ import iskallia.vault.item.crystal.CrystalData;
 import iskallia.vault.world.data.PlayerGreedData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -24,8 +26,10 @@ import xyz.iwolfking.woldsvaults.api.WoldDataLoaders;
 import xyz.iwolfking.woldsvaults.config.forge.WoldsVaultsConfig;
 import xyz.iwolfking.woldsvaults.data.discovery.DiscoveredRecipesData;
 import xyz.iwolfking.woldsvaults.data.discovery.DiscoveredThemesData;
+import xyz.iwolfking.woldsvaults.data.recipes.CachedInfuserRecipeData;
 import xyz.iwolfking.woldsvaults.events.LivingEntityEvents;
 import xyz.iwolfking.woldsvaults.events.RegisterCommandEventHandler;
+import xyz.iwolfking.woldsvaults.events.client.ClientSetupEvents;
 import xyz.iwolfking.woldsvaults.init.*;
 import xyz.iwolfking.woldsvaults.init.ModNetwork;
 import xyz.iwolfking.woldsvaults.api.lib.PlayerGreedDataExtension;
@@ -46,6 +50,7 @@ public class WoldsVaults {
     public WoldsVaults() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, WoldsVaultsConfig.COMMON_SPEC, "woldsvaults-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, WoldsVaultsConfig.CLIENT_SPEC, "woldsvaults-client.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, WoldsVaultsConfig.SERVER_SPEC, "woldsvaults-server.toml");
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
@@ -57,12 +62,14 @@ public class WoldsVaults {
         modEventBus.addGenericListener(CustomVaultGearRegistryEntry.class, ModCustomVaultGearEntries::registerGearEntries);
 
         MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, this::onPlayerLoggedIn);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, this::onLevelLoad);
         MinecraftForge.EVENT_BUS.addListener(RegisterCommandEventHandler::woldsvaults_registerCommandsEvent);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
         ModCatalystModels.registerModels();
         ModInscriptionModels.registerModels();
+        ModFTBQuestsTaskTypes.init();
         MinecraftForge.EVENT_BUS.addListener(WoldDataLoaders::initProcessors);
     }
 
@@ -76,16 +83,28 @@ public class WoldsVaults {
         LivingEntityEvents.init();
         new AdditionalModels();
         ModVaultFilterAttributes.initAttributes();
+        ModGameRules.initialize();
         NetworkHandler.onCommonSetup();
         CrystalData.OBJECTIVE.register("brb_speedrun", SpeedrunCrystalObjective.class, SpeedrunCrystalObjective::new);
         BETTER_COMBAT_PRESENT = LoadingModList.get().getModFileById("bettercombat") != null;
     }
+
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         EnchantedEventsRegistry.addEvents();
         BrutalBossesRegistry.init();
+    }
+
+    public void onLevelLoad(WorldEvent.Load event) {
+        if(CachedInfuserRecipeData.shouldCache()) {
+            if(event.getWorld() instanceof Level) {
+                CachedInfuserRecipeData.cacheCatalysts((Level) event.getWorld());
+                CachedInfuserRecipeData.cacheIngredients((Level) event.getWorld());
+            }
+        }
+
     }
 
     public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {

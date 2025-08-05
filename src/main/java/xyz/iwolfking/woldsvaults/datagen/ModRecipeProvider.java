@@ -74,6 +74,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         'V', new ResourceLocation("the_vault", "vault_essence_1")
                 ))));
 
+        //TODO: Crystal Seal Alchemy recipe
+
         ShapedRecipeBuilder.shaped(ModBlocks.VAULT_INFUSER_BLOCK)
                 .define('A', iskallia.vault.init.ModItems.CHROMATIC_IRON_INGOT)
                 .define('B', Blocks.FURNACE)
@@ -339,14 +341,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 40,
                 9
         ).unlockedBy("has_pog", has(iskallia.vault.init.ModItems.POG)).save(pFinishedRecipeConsumer);
-
-        new InfuserRecipeBuilder(
-                iskallia.vault.init.ModItems.SOUL_SHARD,
-                iskallia.vault.init.ModItems.BOUNTY_PEARL,
-                ModItems.SOUL_ICHOR,
-                80,
-                256
-        ).unlockedBy("has_soul_shard", has(iskallia.vault.init.ModItems.SOUL_SHARD)).save(pFinishedRecipeConsumer);
 
         new InfuserRecipeBuilder(
                 iskallia.vault.init.ModItems.VAULT_ESSENCE,

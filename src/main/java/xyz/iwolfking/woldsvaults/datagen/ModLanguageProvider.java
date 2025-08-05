@@ -3,6 +3,7 @@ package xyz.iwolfking.woldsvaults.datagen;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 import xyz.iwolfking.woldsvaults.WoldsVaults;
+import xyz.iwolfking.woldsvaults.init.ModItems;
 
 public class ModLanguageProvider extends LanguageProvider {
 
@@ -12,10 +13,19 @@ public class ModLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        add("item.woldsvaults.rotten_heart", "Rotten Heart");
+        add("item.woldsvaults.rotten_apple", "Rotten Apple");
+        add("item.woldsvaults.verdant_globule", "Verdant Globule");
+        add("item.woldsvaults.erratic_ember", "Erratic Ember");
+        add("item.woldsvaults.refined_powder", "Refined Powder");
+        add("item.woldsvaults.auric_crystal", "Auric Crystal");
         add("curios.identifier.shard_pouch", "Shard Pouch");
         add("curios.identifier.trinket_pouch", "Trinket Pouch");
         add("curios.identifier.green_trinket", "Green Trinket");
         add("curios.modifiers.trinket_pouch", "Pouch Modifiers");
+        add("ftbquests.task.woldsvaults.vault_level", "Vault Level");
+        add("ftbquests.task.woldsvaults.enter_vault", "Enter Vault");
+        add("ftbquests.task.woldsvaults.complete_bounty", "Complete Bounty");
         add("item.scannable.vault_ores_module", "Scanner Module: Vault Ores");
         add("item.scannable.vault_chests_module", "Scanner Module: All Chests");
         add("item.scannable.vault_chests_module_living", "Scanner Module: Living Chests");
@@ -112,7 +122,9 @@ public class ModLanguageProvider extends LanguageProvider {
         add("block.woldsvaults.fractured_obelisk", "Fractured Obelisk");
         add("block.woldsvaults.monolith_controller", "Monolith Controller");
         add("block.woldsvaults.vault_crate_corrupt", "Corrupted Vault Crate");
+        add("block.woldsvaults.vault_crate_alchemy", "Alchemy Vault Crate");
         add("block.woldsvaults.nullite_ore", "Nullite Ore");
+        add("block.woldsvaults.doll_dismantler", "Doll Blender");
         add("entity.the_vault.wold", "Wold");
         add("entity.woldsvaults.green_ghost", "Toxic Ghost");
         add("entity.woldsvaults.black_ghost", "Unholy Ghost");
@@ -137,7 +149,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.woldsvaults.waxing_augmenter", "Waxing Augmenter");
         add("item.woldsvaults.waning_augmenter", "Waning Augmenter");
         add("item.woldsvaults.repair_augmenter", "Repair Augmenter");
-        add("item.woldsvaults.crystal_reinforcement", "Crystal Reinforcement");
+        add("item.woldsvaults.crystal_reinforcement", "Prismatic Reinforcement");
         add("item.woldsvaults.resonating_reinforcement", "Resonating Reinforcement");
         add("item.woldsvaults.stylish_focus", "Stylish Focus");
         add("item.woldsvaults.chiseling_focus", "Chiseling Focus");
@@ -196,7 +208,9 @@ public class ModLanguageProvider extends LanguageProvider {
         add("effect.woldsvaults.rerolled", "Reroll Cooldown");
         add("woldsvaults.key.cherish_item", "Cherish Item");
         add("key.woldsvaults.cherish_item", "Cherish Item");
-        add("key.woldsvaults.category", "Wold's Vaults");
+        add("key.woldsvaults.open_wolds_vaults_config", "Open Wold's Vaults Config Screen");
+        add("key.woldsvaults.is_feather_fixed", "Toggle Prismatic Feather Fix");
+        add("key.category.woldsvaults", "Wold's Vaults");
         add("the_vault.gear_modification.reforge_weapon_type.description", "Reforges weapon type");
         add("the_vault.gear_modification.add_unusual_modifier.description", "Add unusual modifier");
         add("the_vault.gear_modification.add_unusual_modifier.no_modifiers", "No additional modifiers available");
@@ -210,8 +224,6 @@ public class ModLanguageProvider extends LanguageProvider {
         add("create.item_attributes.has_unusual.inverted", "doesn't have an unusual modifier");
         add("create.item_attributes.has_divine", "is Divine");
         add("create.item_attributes.has_divine.inverted", "isn't Divine");
-        add("create.item_attributes.has_living", "is Living");
-        add("create.item_attributes.has_living.inverted", "isn't Living");
         add("create.item_attributes.unusual_prefix", "has an unusual \");%1$s\" prefix");
         add("create.item_attributes.unusual_prefix.inverted", "doesn't have an unusual \");%1$s\" prefix");
         add("create.item_attributes.unusual_suffix", "has an unusual \");%1$s\" suffix");
@@ -280,7 +292,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.woldsvaults.chroma_core", "Chroma Core");
         add("item.woldsvaults.filter_necklace", "Filter Necklace");
         add("item.woldsvaults.crystal_seal_raid_rock_infinite_hard", "Brutal Raid Rock (Infinite)");
-        add("vhatcaniroll.screen.title.etching", "Etchings");
         add("item.the_vault.tool.material.nullite", "Nullite");
+        add("block.the_vault.block_gem_wutodie_slab", "Wutodie Slab");
+        add("block.the_vault.block_gem_wutodie_wall", "Wutodie Wall");
+        add("block.the_vault.block_gem_wutodie_stairs", "Wutodie Stairs");
+        add("item.woldsvaults.crystal_seal_alchemy", "Seal of the Alchemist");
     }
 }

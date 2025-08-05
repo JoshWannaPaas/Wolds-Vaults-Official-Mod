@@ -1,5 +1,6 @@
 package xyz.iwolfking.woldsvaults.init;
 
+import org.checkerframework.checker.units.qual.A;
 import xyz.iwolfking.vhapi.api.data.api.CustomRecyclerOutputs;
 import xyz.iwolfking.vhapi.api.loaders.workstation.lib.CustomVaultRecyclerConfig;
 import xyz.iwolfking.woldsvaults.config.*;
@@ -27,6 +28,7 @@ public class ModConfigs {
     public static HauntedBraziersConfig HAUNTED_BRAZIERS;
     public static EnchantedElixirConfig ENCHANTED_ELIXIR;
     public static CorruptedObjectiveConfig CORRUPTED_OBJECTIVE;
+    public static AlchemyObjectiveConfig ALCHEMY_OBJECTIVE;
 
     public static AugmentRecipesConfig AUGMENT_RECIPES;
     public static ModBoxRecipesConfig MOD_BOX_RECIPES_CONFIG;
@@ -51,6 +53,7 @@ public class ModConfigs {
     public static VaultGearRarityColorConfig VAULT_GEAR_RARITY_COLOR_CONFIG = new VaultGearRarityColorConfig();
     public static TrinketPouchConfig TRINKET_POUCH = new TrinketPouchConfig();
     public static RecipeUnlocksConfig RECIPE_UNLOCKS = new RecipeUnlocksConfig();
+    public static ResearchExclusionConfig RESEARCH_EXCLUSIONS = new ResearchExclusionConfig();
 
     public static void preregister() {
         VAULT_GEAR_RARITY_COLOR_CONFIG = new VaultGearRarityColorConfig().readConfig();
@@ -72,6 +75,7 @@ public class ModConfigs {
         HAUNTED_BRAZIERS = new HauntedBraziersConfig().readConfig();
         ENCHANTED_ELIXIR = new EnchantedElixirConfig().readConfig();
         CORRUPTED_OBJECTIVE = new CorruptedObjectiveConfig().readConfig();
+        ALCHEMY_OBJECTIVE = new AlchemyObjectiveConfig().readConfig();
         AUGMENT_RECIPES = new AugmentRecipesConfig().readConfig();
         MOD_BOX_RECIPES_CONFIG = new ModBoxRecipesConfig().readConfig();
         THEME_TOOLTIPS = new ThemeTooltipsConfig().readConfig();
@@ -90,5 +94,6 @@ public class ModConfigs {
         TRINKET_POUCH = new TrinketPouchConfig().readConfig();
         RECIPE_UNLOCKS = new RecipeUnlocksConfig().readConfig();
         WEAVING_RECIPES_CONFIG = new WeavingRecipesConfig().readConfig();
+        RESEARCH_EXCLUSIONS = new ResearchExclusionConfig().readConfig();
     }
 }

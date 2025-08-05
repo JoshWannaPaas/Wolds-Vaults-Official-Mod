@@ -1,7 +1,6 @@
 package xyz.iwolfking.woldsvaults.mixins.plugins;
 
 import com.bawnorton.mixinsquared.api.MixinCanceller;
-import iskallia.vault.mixin.MixinWorldChunk;
 import net.minecraftforge.fml.loading.LoadingModList;
 
 import java.util.List;
@@ -28,6 +27,18 @@ public class WoldMixinCanceller implements MixinCanceller {
 
         if(LoadingModList.get().getModFileById("placebo") != null) {
             if(s.equals("shadows.placebo.mixin.ItemStackMixin")) {
+                return true;
+            }
+        }
+      
+        if(LoadingModList.get().getModFileById("black_market_tweaks") != null) {
+            if(s.equals("dev.attackeight.black_market_tweaks.mixin.ServerboundResetBlackMarketTradesMessageMixin")) {
+                return true;
+            }
+        }
+
+        if(LoadingModList.get().getModFileById("puzzleslib") != null){
+            if(s.equals("fuzs.puzzleslib.mixin.client.MinecraftForgeMixin")) {
                 return true;
             }
         }
