@@ -56,11 +56,7 @@ public class EnchantedElixirObjective extends ElixirObjective {
 
     @Override
     public void initServer(VirtualWorld world, Vault vault) {
-<<<<<<< HEAD
-        NormalizedHelper.handleAddingNormalizedToVault(vault, world);
-=======
         ObjectiveHelper.handleAddingNormalizedToVault(vault, world);
->>>>>>> upstream/master
         super.initServer(world, vault);
     }
 

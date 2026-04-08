@@ -588,11 +588,7 @@ public class CorruptedVaultHelper {
             Vault playerVault = VaultUtils.getVault(data.getPlayer().getLevel()).orElse(null);
             if(playerVault != null && playerVault.equals(vault)) {
                 data.setTime(0);
-<<<<<<< HEAD:src/main/java/xyz/iwolfking/woldsvaults/util/CorruptedVaultHelper.java
-                data.getPlayer().displayClientMessage(new TextComponent("Seems pointless...").withStyle(ChatFormatting.RED), true);
-=======
                 data.getPlayer().displayClientMessage(new TranslatableComponent("vault_objective.woldsvaults.corrupted_fruit_disable").withStyle(ChatFormatting.RED), true);
->>>>>>> upstream/master:src/main/java/xyz/iwolfking/woldsvaults/api/util/CorruptedVaultHelper.java
             }
         });
     }

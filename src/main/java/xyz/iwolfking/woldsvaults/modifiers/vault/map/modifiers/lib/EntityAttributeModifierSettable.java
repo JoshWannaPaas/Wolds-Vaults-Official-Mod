@@ -119,11 +119,7 @@ public class EntityAttributeModifierSettable<P extends SettableValueVaultModifie
 
     public enum ModifierType {
         @SerializedName("max_health_additive")
-<<<<<<< HEAD
-        MAX_HEALTH_ADDITIVE(List.of(new ResourceLocation("generic.max_health")), AttributeModifier.Operation.ADDITION, EntityAttributeModifierSettable.ModifierType.Constants.DESCRIPTION_FORMATTER_ADDITIVE_INT),
-=======
         MAX_HEALTH_ADDITIVE(List.of(ResourceLocation.parse("generic.max_health")), AttributeModifier.Operation.ADDITION, EntityAttributeModifierSettable.ModifierType.Constants.DESCRIPTION_FORMATTER_ADDITIVE_INT),
->>>>>>> upstream/master
         @SerializedName("max_health_additive_percentile")
         MAX_HEALTH_ADDITIVE_PERCENTILE(List.of(ResourceLocation.parse("generic.max_health")), AttributeModifier.Operation.MULTIPLY_BASE, EntityAttributeModifierSettable.ModifierType.Constants.DESCRIPTION_FORMATTER_ADDITIVE_PERCENTILE),
         @SerializedName("max_health_multiplicative_percentile")

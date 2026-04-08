@@ -23,21 +23,14 @@ import xyz.iwolfking.woldsvaults.items.*;
 import xyz.iwolfking.woldsvaults.items.alchemy.CatalystItem;
 import xyz.iwolfking.woldsvaults.items.alchemy.DecoPotionItem;
 import xyz.iwolfking.woldsvaults.items.alchemy.AlchemyIngredientItem;
-<<<<<<< HEAD
-=======
 import xyz.iwolfking.woldsvaults.items.filter_necklace.FilterNecklaceItem;
->>>>>>> upstream/master
 import xyz.iwolfking.woldsvaults.items.fruits.HastyPomegranteItem;
 import xyz.iwolfking.woldsvaults.items.fruits.PoltergeistPlum;
 import xyz.iwolfking.woldsvaults.items.fruits.WisdomFruitItem;
 import xyz.iwolfking.woldsvaults.items.gear.*;
 import xyz.iwolfking.woldsvaults.items.rings.*;
 
-<<<<<<< HEAD
-import java.util.Random;
-=======
 import java.util.*;
->>>>>>> upstream/master
 
 import static iskallia.vault.init.ModItems.GEAR_GROUP;
 import static iskallia.vault.init.ModItems.VAULT_MOD_GROUP;
@@ -55,10 +48,7 @@ public class ModItems {
     public static ItemVaultCrystalSeal CRYSTAL_SEAL_WARRIOR;
     public static ItemVaultCrystalSeal CRYSTAL_SEAL_CORRUPT;
     public static ItemVaultCrystalSeal CRYSTAL_SEAL_ALCHEMY;
-<<<<<<< HEAD
-=======
     public static ItemVaultCrystalSeal CRYSTAL_SEAL_SURVIVOR;
->>>>>>> upstream/master
     public static ItemVaultCrystalSeal CRYSTAL_SEAL_RAID_ROCK_INFINITE_HARD;
 
 
@@ -242,10 +232,7 @@ public class ModItems {
         registry.register(CRYSTAL_SEAL_WARRIOR);
         registry.register(CRYSTAL_SEAL_CORRUPT);
         registry.register(CRYSTAL_SEAL_ALCHEMY);
-<<<<<<< HEAD
-=======
         registry.register(CRYSTAL_SEAL_SURVIVOR);
->>>>>>> upstream/master
         registry.register(CRYSTAL_SEAL_RAID_ROCK_INFINITE_HARD);
         registry.register(BATTLESTAFF);
         registry.register(TRIDENT);
@@ -356,10 +343,7 @@ public class ModItems {
         registry.register(RECIPE_BLUEPRINT);
         registry.register(CHROMA_CORE);
         registry.register(FILTER_NECKLACE);
-<<<<<<< HEAD
-=======
         registry.register(COMPANION_REROLLER);
->>>>>>> upstream/master
 
         registry.register(ROTTEN_HEART);
         registry.register(ROTTEN_APPLE);
@@ -374,8 +358,6 @@ public class ModItems {
         registry.register(CATALYST_FOCUSING);
         registry.register(CATALYST_TEMPORAL);
         registry.register(CATALYST_UNSTABLE);
-<<<<<<< HEAD
-=======
 
         registry.register(POGGING_SEED_BASE);
         registry.register(ECHOING_SEED_BASE);
@@ -386,7 +368,6 @@ public class ModItems {
         });
         registry.register(RAINBOW_UNOBTANIUM);
 
->>>>>>> upstream/master
     }
 
     static {
@@ -399,11 +380,8 @@ public class ModItems {
         CRYSTAL_SEAL_WARRIOR = new ItemVaultCrystalSeal(WoldsVaults.id("crystal_seal_warrior"));
         CRYSTAL_SEAL_CORRUPT = new ItemVaultCrystalSeal(WoldsVaults.id("crystal_seal_corrupt"));
         CRYSTAL_SEAL_ALCHEMY = new ItemVaultCrystalSeal(WoldsVaults.id("crystal_seal_alchemy"));
-<<<<<<< HEAD
-=======
         CRYSTAL_SEAL_SURVIVOR = new ItemVaultCrystalSeal(WoldsVaults.id("crystal_seal_survivor"));
 
->>>>>>> upstream/master
         CRYSTAL_SEAL_RAID_ROCK_INFINITE_HARD = new ItemVaultCrystalSeal(WoldsVaults.id("crystal_seal_raid_rock_infinite_hard"));
         UBER_CHAOS_CATALYST = new BasicItem(WoldsVaults.id("uber_chaos_catalyst"), (new Item.Properties()).tab(ModCreativeTabs.WOLDS_VAULTS));
         GREEDY_VAULT_ROCK = new BasicItem(WoldsVaults.id("greedy_vault_rock"), (new Item.Properties()).tab(ModCreativeTabs.WOLDS_VAULTS));

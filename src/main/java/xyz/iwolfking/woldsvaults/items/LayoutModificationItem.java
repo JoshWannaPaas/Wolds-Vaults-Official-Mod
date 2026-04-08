@@ -4,21 +4,9 @@ import iskallia.vault.config.VaultCrystalConfig;
 import iskallia.vault.core.random.JavaRandom;
 import iskallia.vault.core.random.RandomSource;
 import iskallia.vault.core.vault.Vault;
-<<<<<<< HEAD
-import iskallia.vault.init.ModConfigs;
-import iskallia.vault.item.core.DataTransferItem;
-import iskallia.vault.item.core.VaultLevelItem;
-import iskallia.vault.item.crystal.layout.ClassicCircleCrystalLayout;
-import iskallia.vault.item.crystal.layout.ClassicInfiniteCrystalLayout;
-import iskallia.vault.item.crystal.layout.ClassicPolygonCrystalLayout;
-import iskallia.vault.item.crystal.layout.ClassicSpiralCrystalLayout;
-import iskallia.vault.item.crystal.layout.CrystalLayout;
-import net.minecraft.ChatFormatting;
-=======
 import iskallia.vault.item.core.DataTransferItem;
 import iskallia.vault.item.core.VaultLevelItem;
 import iskallia.vault.item.crystal.layout.CrystalLayout;
->>>>>>> upstream/master
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.IntTag;

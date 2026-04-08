@@ -6,10 +6,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.Tesselator;
 import iskallia.vault.VaultMod;
 import iskallia.vault.client.gui.helper.LightmapHelper;
-<<<<<<< HEAD
-import iskallia.vault.client.render.IVaultOptions;
-=======
->>>>>>> upstream/master
 import iskallia.vault.core.Version;
 import iskallia.vault.core.data.adapter.Adapters;
 import iskallia.vault.core.data.key.FieldKey;
@@ -28,11 +24,8 @@ import iskallia.vault.core.vault.player.Listener;
 import iskallia.vault.core.vault.stat.StatCollector;
 import iskallia.vault.core.world.storage.VirtualWorld;
 import iskallia.vault.entity.champion.ChampionLogic;
-<<<<<<< HEAD
-=======
 import iskallia.vault.init.ModOptions;
 import iskallia.vault.options.types.ObjectiveHudSettings;
->>>>>>> upstream/master
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -53,23 +46,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
-<<<<<<< HEAD
-import xyz.iwolfking.woldsvaults.blocks.tiles.BrewingAltarTileEntity;
-import xyz.iwolfking.woldsvaults.config.AlchemyObjectiveConfig;
-import xyz.iwolfking.woldsvaults.events.vaultevents.BrewingAltarBrewEvent;
-import xyz.iwolfking.woldsvaults.events.vaultevents.WoldCommonEvents;
-import xyz.iwolfking.woldsvaults.events.vaultevents.client.WoldClientEvents;
-import xyz.iwolfking.woldsvaults.init.ModConfigs;
-import xyz.iwolfking.woldsvaults.items.alchemy.AlchemyIngredientItem;
-import xyz.iwolfking.woldsvaults.items.alchemy.CatalystItem;
-import xyz.iwolfking.woldsvaults.objectives.data.alchemy.AlchemyTasks;
-import xyz.iwolfking.woldsvaults.util.MessageFunctions;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-=======
 import xyz.iwolfking.woldsvaults.api.util.GameruleHelper;
 import xyz.iwolfking.woldsvaults.api.util.SigilUtils;
 import xyz.iwolfking.woldsvaults.blocks.tiles.BrewingAltarTileEntity;
@@ -85,7 +61,6 @@ import xyz.iwolfking.woldsvaults.objectives.data.alchemy.AlchemyTasks;
 import xyz.iwolfking.woldsvaults.api.util.VaultModifierUtils;
 
 import java.util.*;
->>>>>>> upstream/master
 
 public class AlchemyObjective extends Objective {
     public static final ResourceLocation HUD = VaultMod.id("textures/gui/alchemy/hud.png");
@@ -96,11 +71,8 @@ public class AlchemyObjective extends Objective {
     private static final FieldKey<Float> OBJECTIVE_PROBABILITY = FieldKey.of("objective_probability", Float.class).with(Version.v1_2, Adapters.FLOAT, DISK.all()).register(FIELDS);
     private static final FieldKey<Float> PROGRESS = FieldKey.of("progress", Float.class).with(Version.v1_31, Adapters.FLOAT, DISK.all().or(CLIENT.all())).register(FIELDS);
     private static final FieldKey<Float> REQUIRED_PROGRESS = FieldKey.of("required_progress", Float.class).with(Version.v1_31, Adapters.FLOAT, DISK.all().or(CLIENT.all())).register(FIELDS);
-<<<<<<< HEAD
-=======
     private static final FieldKey<Boolean> FULLY_OVERSTACKED = FieldKey.of("fully_overstacked", Boolean.class).with(Version.v1_31, Adapters.BOOLEAN, DISK.all().or(CLIENT.all())).register(FIELDS);
     private static final FieldKey<Integer> OVERSTACK_ALLOWANCE = FieldKey.of("overstack_allowance", Integer.class).with(Version.v1_31, Adapters.INT, DISK.all().or(CLIENT.all())).register(FIELDS);
->>>>>>> upstream/master
 
 
     public static final FieldKey<Integer> VAULT_LEVEL = FieldKey.of("vault_level", Integer.class)
@@ -114,19 +86,13 @@ public class AlchemyObjective extends Objective {
     }
 
     protected AlchemyObjective(float objectiveProbability, int vaultLevel, float requiredProgress) {
-<<<<<<< HEAD
-=======
         Random random = new Random();
->>>>>>> upstream/master
         this.set(OBJECTIVE_PROBABILITY, objectiveProbability);
         this.set(PROGRESS, 0F);
         this.set(VAULT_LEVEL, vaultLevel);
         this.set(REQUIRED_PROGRESS, requiredProgress);
-<<<<<<< HEAD
-=======
         this.set(FULLY_OVERSTACKED, false);
         this.set(OVERSTACK_ALLOWANCE, random.nextInt(100, 1001));
->>>>>>> upstream/master
     }
 
     public static AlchemyObjective of(float objectiveProbability, int vaultLevel, float requiredProgress) {
@@ -200,11 +166,8 @@ public class AlchemyObjective extends Objective {
         CommonEvents.ENTITY_DROPS.register(this, (data) -> {handleChampionDeath(data, vault, world);});
         WoldCommonEvents.BREWING_ALTAR_BREW_EVENT.register(this, (data -> handleBrewEvent(data, vault, world)));
 
-<<<<<<< HEAD
-=======
         SigilUtils.addStacksFromSigil(vault);
 
->>>>>>> upstream/master
         // Call super.tickListener() on listener leave, to generate a crate at the end so we can process all the crate quantity modifier at the end
         // there is probably a better way, but i am lazy, lmao
         CommonEvents.LISTENER_LEAVE.register(this,
@@ -242,30 +205,12 @@ public class AlchemyObjective extends Objective {
     @Override
     @OnlyIn(Dist.CLIENT)
     public boolean render(Vault vault, PoseStack poseStack, Window window, float v, Player player) {
-<<<<<<< HEAD
-        int midX = window.getGuiScaledWidth() / 2;
-=======
         int midX = 0;
->>>>>>> upstream/master
         Font font = Minecraft.getInstance().font;
         MultiBufferSource.BufferSource buffer = MultiBufferSource.immediate(Tesselator.getInstance().getBuilder());
         Component txt;
 
         if (this.get(PROGRESS) >= this.get(REQUIRED_PROGRESS)) {
-<<<<<<< HEAD
-            txt = new TextComponent("Brew more ").withStyle(Style.EMPTY.withColor(0xFFFFFF))
-                    .append(new TextComponent("Potions ").withStyle(Style.EMPTY.withColor(0xF0E68C)))
-                    .append(new TextComponent("for ").withStyle(Style.EMPTY.withColor(0xFFFFFF)))
-                    .append(new TextComponent("Crate Quantity").withStyle(Style.EMPTY.withColor(0x38C9C0)))
-                    .append(new TextComponent(", or Exit to complete ").withStyle(Style.EMPTY.withColor(0xFFFFFF)))
-                    .append(new TextComponent("the Vault").withStyle(Style.EMPTY.withColor(0xF0E68C)))
-                    .append(new TextComponent("!").withStyle(Style.EMPTY.withColor(0xFFFFFF)));
-
-            FormattedCharSequence var21 = txt.getVisualOrderText();
-            float var22 = (float)midX - (float)font.width(txt) / 2.0F;
-            font.drawInBatch(var21, var22, 9.0F, -1, true, poseStack.last().pose(), buffer, false, 0, LightmapHelper.getPackedFullbrightCoords());
-            buffer.endBatch();
-=======
             if(!this.get(FULLY_OVERSTACKED)) {
                 txt = new TextComponent("Brew more ").withStyle(Style.EMPTY.withColor(0xFFFFFF))
                         .append(new TextComponent("Potions ").withStyle(Style.EMPTY.withColor(0xF0E68C)))
@@ -288,18 +233,13 @@ public class AlchemyObjective extends Objective {
                 buffer.endBatch();
             }
 
->>>>>>> upstream/master
         } else {
             float current = this.get(PROGRESS);
             float goal = this.get(REQUIRED_PROGRESS);
             txt = new TextComponent(String.format("%.1f%%", current * 100))
                     .append(new TextComponent(" / "))
                     .append(new TextComponent(String.format("%.1f%%", goal * 100)));
-<<<<<<< HEAD
-            float userScale = ((IVaultOptions)Minecraft.getInstance().options).getObjectiveScale();
-=======
             float userScale = ModOptions.OBJECTIVES_HUD_SETTINGS.getValue().getSettings("alchemy").getScale();
->>>>>>> upstream/master
             poseStack.pushPose();
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
@@ -461,12 +401,9 @@ public class AlchemyObjective extends Objective {
 
         // Check if it crossed the threshold this brew
         if (oldProgress < this.get(REQUIRED_PROGRESS) && newProgress > this.get(REQUIRED_PROGRESS)) {
-<<<<<<< HEAD
-=======
             if(this.get(FULLY_OVERSTACKED)) {
                 return;
             }
->>>>>>> upstream/master
             // Only count overflow amount above the requirement
             float overflow = newProgress - this.get(REQUIRED_PROGRESS);
             int crateAmount = (int) (overflow * 100);
@@ -490,13 +427,10 @@ public class AlchemyObjective extends Objective {
             int crateAmount = (int) (percentage * 100);
 
             if (crateAmount > 0) {
-<<<<<<< HEAD
-=======
                 if(this.get(FULLY_OVERSTACKED)) {
                     return;
                 }
 
->>>>>>> upstream/master
                 VaultModifier<?> crateQuantity = VaultModifierRegistry.get(VaultMod.id("crate_quantity"));
                 vault.get(Vault.MODIFIERS).addModifier(crateQuantity, crateAmount, true, random);
 
@@ -508,8 +442,6 @@ public class AlchemyObjective extends Objective {
                                 Util.NIL_UUID
                         )
                 );
-<<<<<<< HEAD
-=======
 
 
                 if(!GameruleHelper.isEnabled(ModGameRules.UNLIMITED_ALCHEMY_OVERSTACKING, world.getLevel()) && VaultModifierUtils.hasCountOfModifiers(vault, VaultMod.id("crate_quantity"), this.get(OVERSTACK_ALLOWANCE))) {
@@ -522,7 +454,6 @@ public class AlchemyObjective extends Objective {
                     );
                 }
 
->>>>>>> upstream/master
             }
         }
 

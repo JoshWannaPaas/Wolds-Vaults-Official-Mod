@@ -1,13 +1,6 @@
-<<<<<<< HEAD:src/main/java/xyz/iwolfking/woldsvaults/api/helper/ItemStackHooks.java
-package xyz.iwolfking.woldsvaults.api.helper;
-
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
-=======
 package xyz.iwolfking.woldsvaults.api.util;
 
 import net.minecraft.server.level.ServerPlayer;
->>>>>>> upstream/master:src/main/java/xyz/iwolfking/woldsvaults/api/util/ItemStackHooks.java
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;

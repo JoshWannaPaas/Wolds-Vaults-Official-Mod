@@ -13,16 +13,8 @@ import xyz.iwolfking.woldsvaults.config.forge.WoldsVaultsConfig;
 @Mixin(value = VaultMinimapModule.class, remap = false)
 public class MixinVaultMapOverlay {
 
-<<<<<<< HEAD
-    @Unique
-    private static boolean woldsvaults$shouldShowMap;
-
-    @Inject(method = "render", at = @At("HEAD"), cancellable = true)
-    private void cancelRender(ForgeIngameGui gui, PoseStack poseStack, float partialTick, int width, int height, CallbackInfo ci) {
-=======
     @Inject(method = "renderVault", at = @At("HEAD"), cancellable = true)
     private void cancelRender(ModuleRenderContext context, Vault vault, Listener listener, CallbackInfo ci) {
->>>>>>> upstream/master
         if(!WoldsVaultsConfig.CLIENT.showVanillaVaultMap.get()) {
             ci.cancel();
         }

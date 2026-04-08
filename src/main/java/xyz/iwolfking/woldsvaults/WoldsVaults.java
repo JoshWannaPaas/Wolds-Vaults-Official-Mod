@@ -5,13 +5,9 @@ import iskallia.vault.world.data.PlayerGreedData;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-<<<<<<< HEAD
-import net.minecraft.world.level.Level;
-=======
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
->>>>>>> upstream/master
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -35,23 +31,13 @@ import xyz.iwolfking.woldsvaults.integration.cctweaked.CCTweakedSetup;
 import xyz.iwolfking.woldsvaults.integration.vhapi.loaders.WoldDataLoaders;
 import xyz.iwolfking.woldsvaults.client.init.ModParticles;
 import xyz.iwolfking.woldsvaults.config.forge.WoldsVaultsConfig;
-<<<<<<< HEAD
-import xyz.iwolfking.woldsvaults.data.discovery.DiscoveredRecipesData;
-import xyz.iwolfking.woldsvaults.data.discovery.DiscoveredThemesData;
-import xyz.iwolfking.woldsvaults.data.recipes.CachedInfuserRecipeData;
-=======
 import xyz.iwolfking.woldsvaults.api.data.discovery.DiscoveredRecipesData;
 import xyz.iwolfking.woldsvaults.api.data.discovery.DiscoveredThemesData;
 import xyz.iwolfking.woldsvaults.api.data.recipes.CachedInfuserRecipeData;
->>>>>>> upstream/master
 import xyz.iwolfking.woldsvaults.events.LivingEntityEvents;
 import xyz.iwolfking.woldsvaults.events.MissingMappingsEvents;
 import xyz.iwolfking.woldsvaults.events.RegisterCommandEventHandler;
-<<<<<<< HEAD
-import xyz.iwolfking.woldsvaults.events.client.ClientSetupEvents;
-=======
 import xyz.iwolfking.woldsvaults.events.ServerKiller;
->>>>>>> upstream/master
 import xyz.iwolfking.woldsvaults.init.*;
 import xyz.iwolfking.woldsvaults.init.ModNetwork;
 import xyz.iwolfking.woldsvaults.api.lib.PlayerGreedDataExtension;
@@ -85,11 +71,8 @@ public class WoldsVaults {
 
         MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, this::onPlayerLoggedIn);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, this::onLevelLoad);
-<<<<<<< HEAD
-=======
         MinecraftForge.EVENT_BUS.addGenericListener(Block.class, MissingMappingsEvents::onMissingMappings);
         MinecraftForge.EVENT_BUS.addGenericListener(Item.class, MissingMappingsEvents::onMissingMappingsItem);
->>>>>>> upstream/master
         MinecraftForge.EVENT_BUS.addListener(RegisterCommandEventHandler::woldsvaults_registerCommandsEvent);
 
         ModParticles.REGISTRY.register(modEventBus);
@@ -98,16 +81,12 @@ public class WoldsVaults {
         MinecraftForge.EVENT_BUS.register(this);
         ModCatalystModels.registerModels();
         ModInscriptionModels.registerModels();
-<<<<<<< HEAD
-        ModFTBQuestsTaskTypes.init();
-=======
         ModCrystalObjectives.init();
         ModFTBQuestsTaskTypes.init();
         if(LoadingModList.get().getModFileById("computercraft") != null) {
             CCTweakedSetup.init();
         }
 
->>>>>>> upstream/master
         MinecraftForge.EVENT_BUS.addListener(WoldDataLoaders::initProcessors);
         ModCompressibleBlocks.addBuiltInBlocks();
     }
@@ -127,21 +106,13 @@ public class WoldsVaults {
         new AdditionalModels();
         ModVaultFilterAttributes.initAttributes();
         ModGameRules.initialize();
-<<<<<<< HEAD
-=======
         ModLayoutDefinitions.init();
->>>>>>> upstream/master
         NetworkHandler.onCommonSetup();
         DelayedExecutionHelper.init();
         ModVaultEvents.init();
         BETTER_COMBAT_PRESENT = LoadingModList.get().getModFileById("bettercombat") != null;
     }
 
-<<<<<<< HEAD
-
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-=======
->>>>>>> upstream/master
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         BrutalBossesRegistry.init();
@@ -149,16 +120,6 @@ public class WoldsVaults {
         if(WoldsVaultsConfig.SERVER.enableServerKiller.get()) {
             ServerKiller.register();
         }
-    }
-
-    public void onLevelLoad(WorldEvent.Load event) {
-        if(CachedInfuserRecipeData.shouldCache()) {
-            if(event.getWorld() instanceof Level) {
-                CachedInfuserRecipeData.cacheCatalysts((Level) event.getWorld());
-                CachedInfuserRecipeData.cacheIngredients((Level) event.getWorld());
-            }
-        }
-
     }
 
     public void onLevelLoad(WorldEvent.Load event) {

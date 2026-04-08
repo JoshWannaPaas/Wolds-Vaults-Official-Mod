@@ -16,11 +16,7 @@ import java.util.Map;
 public abstract class MixinRoyalePresetConfig {
 
     @Inject(method = "apply", at = @At("TAIL"))
-<<<<<<< HEAD
-    private static void setTrinketPouch(ServerPlayer player, String presetKey, Map<String, Integer> preset, CallbackInfo ci) {
-=======
     private static void setTrinketPouch(ServerPlayer player, String presetKey, int vaultLevel, Map<String, Integer> preset, CallbackInfo ci) {
->>>>>>> upstream/master
         IntegrationCurios.setCurioItemStack(player, TrinketPouchItem.create(WoldsVaults.id("prismatic"), true), "trinket_pouch", 0);
     }
 }

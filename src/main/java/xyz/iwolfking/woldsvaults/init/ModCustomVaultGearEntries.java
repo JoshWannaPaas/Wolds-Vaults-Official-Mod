@@ -23,12 +23,8 @@ public class ModCustomVaultGearEntries {
         event.getRegistry().register(PLUSHIE);
         event.getRegistry().register(RANG);
         event.getRegistry().register(MAP);
-<<<<<<< HEAD
-        SortableVaultItems.addGear(ModItems.BATTLESTAFF, ModItems.TRIDENT, ModItems.PLUSHIE, ModItems.LOOT_SACK, ModItems.RANG);
-=======
         if (ModList.get().isLoaded("vault_hunters_jewel_sorting")) {
             SortableVaultItems.addGear(ModItems.BATTLESTAFF, ModItems.TRIDENT, ModItems.PLUSHIE, ModItems.LOOT_SACK, ModItems.RANG, ModItems.MAP);
         }
->>>>>>> upstream/master
     }
 }

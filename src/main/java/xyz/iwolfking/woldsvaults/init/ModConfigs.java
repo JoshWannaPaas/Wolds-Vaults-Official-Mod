@@ -1,6 +1,5 @@
 package xyz.iwolfking.woldsvaults.init;
 
-import org.checkerframework.checker.units.qual.A;
 import xyz.iwolfking.vhapi.api.data.api.CustomRecyclerOutputs;
 import xyz.iwolfking.vhapi.api.loaders.workstation.lib.CustomVaultRecyclerConfig;
 import xyz.iwolfking.woldsvaults.config.*;
@@ -29,10 +28,7 @@ public class ModConfigs {
     public static EnchantedElixirConfig ENCHANTED_ELIXIR;
     public static CorruptedObjectiveConfig CORRUPTED_OBJECTIVE;
     public static AlchemyObjectiveConfig ALCHEMY_OBJECTIVE;
-<<<<<<< HEAD
-=======
     public static SurvivalObjectiveConfig SURVIVAL_OBJECTIVE;
->>>>>>> upstream/master
 
     public static AugmentRecipesConfig AUGMENT_RECIPES;
     public static ModBoxRecipesConfig MOD_BOX_RECIPES_CONFIG;
@@ -51,11 +47,7 @@ public class ModConfigs {
     public static GreedVaultAltarIngredientsConfig GREED_VAULT_ALTAR_INGREDIENTS;
     public static TrinketPouchConfig TRINKET_POUCH = new TrinketPouchConfig();
     public static RecipeUnlocksConfig RECIPE_UNLOCKS = new RecipeUnlocksConfig();
-<<<<<<< HEAD
-    public static ResearchExclusionConfig RESEARCH_EXCLUSIONS = new ResearchExclusionConfig();
-=======
     public static EtchedVaultLayoutConfig ETCHED_VAULT_LAYOUT = new EtchedVaultLayoutConfig();
->>>>>>> upstream/master
 
     public static TimeTrialCompetitionConfig TIME_TRIAL_COMPETITION = new TimeTrialCompetitionConfig();
 
@@ -78,10 +70,7 @@ public class ModConfigs {
         ENCHANTED_ELIXIR = new EnchantedElixirConfig().readConfig();
         CORRUPTED_OBJECTIVE = new CorruptedObjectiveConfig().readConfig();
         ALCHEMY_OBJECTIVE = new AlchemyObjectiveConfig().readConfig();
-<<<<<<< HEAD
-=======
         SURVIVAL_OBJECTIVE = new SurvivalObjectiveConfig().readConfig();
->>>>>>> upstream/master
         AUGMENT_RECIPES = new AugmentRecipesConfig().readConfig();
         MOD_BOX_RECIPES_CONFIG = new ModBoxRecipesConfig().readConfig();
         CUSTOM_RECYCLER_CONFIG = new CustomVaultRecyclerConfig().readConfig();
@@ -97,12 +86,8 @@ public class ModConfigs {
         TRINKET_POUCH = new TrinketPouchConfig().readConfig();
         RECIPE_UNLOCKS = new RecipeUnlocksConfig().readConfig();
         WEAVING_RECIPES_CONFIG = new WeavingRecipesConfig().readConfig();
-<<<<<<< HEAD
-        RESEARCH_EXCLUSIONS = new ResearchExclusionConfig().readConfig();
-=======
         TIME_TRIAL_COMPETITION = new TimeTrialCompetitionConfig().readConfig();
         ETCHED_VAULT_LAYOUT = new EtchedVaultLayoutConfig().readConfig();
         VAULT_FRUIT_CONFIG = new VaultFruitConfig().readConfig();
->>>>>>> upstream/master
     }
 }

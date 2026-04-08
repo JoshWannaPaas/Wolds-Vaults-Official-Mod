@@ -1,8 +1,4 @@
-<<<<<<< HEAD:src/main/java/xyz/iwolfking/woldsvaults/events/vaultevents/client/TooltipEvent.java
-package xyz.iwolfking.woldsvaults.events.vaultevents.client;
-=======
 package xyz.iwolfking.woldsvaults.client.events;
->>>>>>> upstream/master:src/main/java/xyz/iwolfking/woldsvaults/client/events/TooltipEvent.java
 
 import iskallia.vault.core.event.ForgeEvent;
 import net.minecraftforge.common.MinecraftForge;

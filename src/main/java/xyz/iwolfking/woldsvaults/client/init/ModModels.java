@@ -4,10 +4,6 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
-<<<<<<< HEAD:src/main/java/xyz/iwolfking/woldsvaults/init/client/ModModels.java
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-=======
->>>>>>> upstream/master:src/main/java/xyz/iwolfking/woldsvaults/client/init/ModModels.java
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
@@ -20,7 +16,6 @@ import net.p3pp3rf1y.sophisticatedbackpacks.backpack.BackpackItem;
 import net.p3pp3rf1y.sophisticatedbackpacks.backpack.wrapper.BackpackWrapper;
 import net.p3pp3rf1y.sophisticatedcore.util.WorldHelper;
 import xyz.iwolfking.woldsvaults.blocks.models.MonolithControllerModel;
-import xyz.iwolfking.woldsvaults.client.renderers.DollDismantlingRenderer;
 import xyz.iwolfking.woldsvaults.init.ModBlocks;
 import xyz.iwolfking.woldsvaults.init.ModItems;
 
@@ -32,13 +27,10 @@ public class ModModels {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.GATEWAY_CHANNELING_BLOCK, RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BREWING_ALTAR, RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.DOLL_DISMANTLING_BLOCK, RenderType.cutout());
-<<<<<<< HEAD:src/main/java/xyz/iwolfking/woldsvaults/init/client/ModModels.java
-=======
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRATE_CRACKER_BLOCK, RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.DECO_MONOLITH_BLOCK, RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.GRAVEYARD_LOOT_BLOCK, RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.TIME_TRIAL_TROPHY_BLOCK, RenderType.cutout());
->>>>>>> upstream/master:src/main/java/xyz/iwolfking/woldsvaults/client/init/ModModels.java
     }
 
 

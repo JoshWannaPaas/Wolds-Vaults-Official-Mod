@@ -42,15 +42,8 @@ import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-<<<<<<< HEAD
-import xyz.iwolfking.woldsvaults.api.helper.NormalizedHelper;
-import xyz.iwolfking.woldsvaults.config.forge.WoldsVaultsConfig;
-import xyz.iwolfking.woldsvaults.mixins.vaulthunters.accessors.BingoObjectiveAccessor;
-import xyz.iwolfking.woldsvaults.util.VaultModifierUtils;
-=======
 import xyz.iwolfking.woldsvaults.api.util.ObjectiveHelper;
 import xyz.iwolfking.woldsvaults.mixins.vaulthunters.accessors.BingoObjectiveAccessor;
->>>>>>> upstream/master
 
 import java.util.Iterator;
 import java.util.List;
@@ -62,11 +55,7 @@ public class BallisticBingoObjective extends BingoObjective {
     public static final FieldKey<Task> TASK;
     public static final FieldKey<TaskSource> TASK_SOURCE;
     public static final FieldKey<Integer> JOINED;
-<<<<<<< HEAD
-    public static final FieldKey<TaskMap> TASKS;
-=======
     public static final FieldKey<BingoObjective.TaskMap> TASKS;
->>>>>>> upstream/master
     private boolean pvp;
     private int lastScaledJoined = -1;
 
@@ -77,14 +66,11 @@ public class BallisticBingoObjective extends BingoObjective {
         return (BallisticBingoObjective)(new BallisticBingoObjective()).set(TASK, task);
     }
 
-<<<<<<< HEAD
-=======
     public static BallisticBingoObjective of(BingoTask task, int width, int height) {
         task.getConfig().setSize(width, height);
         return (BallisticBingoObjective) (new BallisticBingoObjective()).set(TASK, task).set(TASKS, new TaskMap());
     }
 
->>>>>>> upstream/master
     public TaskContext getContext(VirtualWorld world, Vault vault) {
         this.setIfAbsent(TASK_SOURCE, () -> EntityTaskSource.ofUuids(JavaRandom.ofInternal((Long)vault.get(Vault.SEED)), new UUID[0]));
         return TaskContext.of((TaskSource)this.get(TASK_SOURCE), world.getServer()).setVault(vault);
@@ -153,11 +139,7 @@ public class BallisticBingoObjective extends BingoObjective {
 
     @Override
     public void initServer(VirtualWorld world, Vault vault) {
-<<<<<<< HEAD
-        NormalizedHelper.handleAddingNormalizedToVault(vault, world);
-=======
         ObjectiveHelper.handleAddingNormalizedToVault(vault, world);
->>>>>>> upstream/master
 
         this.pvp = ((Objectives)vault.get(Vault.OBJECTIVES)).forEach(PvPObjective.class, (obj) -> true);
         CommonEvents.LISTENER_JOIN.register(this, (data) -> {
@@ -166,17 +148,10 @@ public class BallisticBingoObjective extends BingoObjective {
                 if (patt4799$temp instanceof Runner) {
                     Runner runner = (Runner)patt4799$temp;
                     if (this.pvp) {
-<<<<<<< HEAD
-                        if (!((TaskMap)this.get(TASKS)).containsKey(runner.getId())) {
-                            BingoTask board = (BingoTask)((BingoTask)this.get(TASK)).copy();
-                            board.onAttach(((BingoObjectiveAccessor)this).getContext(world, vault, runner.getId()));
-                            ((TaskMap)this.get(TASKS)).put(runner.getId(), board);
-=======
                         if (!((BingoObjective.TaskMap)this.get(TASKS)).containsKey(runner.getId())) {
                             BingoTask board = (BingoTask)((BingoTask)this.get(TASK)).copy();
                             board.onAttach(((BingoObjectiveAccessor)this).getContext(world, vault, runner.getId()));
                             ((BingoObjective.TaskMap)this.get(TASKS)).put(runner.getId(), board);
->>>>>>> upstream/master
                         }
                     } else {
                         Object patt5225$temp = this.get(TASK_SOURCE);
@@ -197,11 +172,7 @@ public class BallisticBingoObjective extends BingoObjective {
                 if (patt5575$temp instanceof Runner) {
                     Runner runner = (Runner)patt5575$temp;
                     if (this.pvp) {
-<<<<<<< HEAD
-                        BingoTask board = (BingoTask)((TaskMap)this.get(TASKS)).remove(runner.getId());
-=======
                         BingoTask board = (BingoTask)((BingoObjective.TaskMap)this.get(TASKS)).remove(runner.getId());
->>>>>>> upstream/master
                         if (board != null) {
                             board.onDetach();
                         }
@@ -221,11 +192,7 @@ public class BallisticBingoObjective extends BingoObjective {
             for(Runner runner : ((Listeners)vault.get(Vault.LISTENERS)).getAll(Runner.class)) {
                 BingoTask board = (BingoTask)((BingoTask)this.get(TASK)).copy();
                 board.onAttach(((BingoObjectiveAccessor)this).getContext(world, vault, runner.getId()));
-<<<<<<< HEAD
-                ((TaskMap)this.get(TASKS)).put(runner.getId(), board);
-=======
                 ((BingoObjective.TaskMap)this.get(TASKS)).put(runner.getId(), board);
->>>>>>> upstream/master
             }
 
             ((Task)this.get(TASK)).onDetach();
@@ -249,11 +216,7 @@ public class BallisticBingoObjective extends BingoObjective {
         }
 
         if (this.pvp) {
-<<<<<<< HEAD
-            ((TaskMap)this.get(TASKS)).forEach((uuid, task) -> {
-=======
             ((BingoObjective.TaskMap)this.get(TASKS)).forEach((uuid, task) -> {
->>>>>>> upstream/master
                 if (task instanceof BingoTask bingo) {
                     bingo.onTick(((BingoObjectiveAccessor)this).getContext(world, vault, uuid));
                 }
@@ -270,11 +233,7 @@ public class BallisticBingoObjective extends BingoObjective {
         if (world.getTickCount() % 20 == 0) {
             int joined = (Integer)this.getOr(JOINED, 0);
             if (this.pvp) {
-<<<<<<< HEAD
-                ((TaskMap)this.get(TASKS)).values().forEach((task) -> {
-=======
                 (this.get(TASKS)).values().forEach((task) -> {
->>>>>>> upstream/master
                     if (task instanceof BingoTask root) {
                         for(int index = 0; index < root.getWidth() * root.getHeight(); ++index) {
                             if (!root.isCompleted(index)) {
@@ -353,11 +312,7 @@ public class BallisticBingoObjective extends BingoObjective {
 
         if (listener instanceof Runner runner) {
             if (this.pvp) {
-<<<<<<< HEAD
-                BingoTask task = (BingoTask)((TaskMap)this.get(TASKS)).get(runner.getId());
-=======
                 BingoTask task = (BingoTask)((BingoObjective.TaskMap)this.get(TASKS)).get(runner.getId());
->>>>>>> upstream/master
                 if (task != null && task.getCompletedBingos() > 0) {
                     (this.get(CHILDREN)).forEach(child -> child.tickListener(world, vault, listener));
                 }
@@ -392,11 +347,7 @@ public class BallisticBingoObjective extends BingoObjective {
                 TaskRendererContext context = new TaskRendererContext((PoseStack)null, 0.0F, MultiBufferSource.immediate(Tesselator.getInstance().getBuilder()), Minecraft.getInstance().font);
                 UUID uuid = Minecraft.getInstance().player != null ? Minecraft.getInstance().player.getUUID() : null;
                 context.setUuid(uuid);
-<<<<<<< HEAD
-                Task task = this.pvp && uuid != null ? (Task)((TaskMap)this.get(TASKS)).get(uuid) : (Task)this.get(TASK);
-=======
                 Task task = this.pvp && uuid != null ? (Task)((BingoObjective.TaskMap)this.get(TASKS)).get(uuid) : (Task)this.get(TASK);
->>>>>>> upstream/master
                 if (task != null && task.onMouseScrolled(event.getScrollDelta(), context)) {
                     event.setCanceled(true);
                 }
@@ -428,11 +379,7 @@ public class BallisticBingoObjective extends BingoObjective {
             }
         }
 
-<<<<<<< HEAD
-        Task task = this.pvp ? (Task)((TaskMap)this.get(TASKS)).get(player.getUUID()) : (Task)this.get(TASK);
-=======
         Task task = this.pvp ? (this.get(TASKS)).get(player.getUUID()) : (Task)this.get(TASK);
->>>>>>> upstream/master
         if (task == null) {
             return true;
         } else {
@@ -467,13 +414,8 @@ public class BallisticBingoObjective extends BingoObjective {
 
     public void onScroll(Player player, double delta) {
         if (this.pvp) {
-<<<<<<< HEAD
-            if (((TaskMap)this.get(TASKS)).containsKey(player.getUUID())) {
-                Task t = (Task)((TaskMap)this.get(TASKS)).get(player.getUUID());
-=======
             if ((this.get(TASKS)).containsKey(player.getUUID())) {
                 Task t = (Task)(this.get(TASKS)).get(player.getUUID());
->>>>>>> upstream/master
                 if (t instanceof BingoTask board) {
                     board.progressBingoLine(player.getUUID(), delta < (double)0.0F ? 1 : -1);
                 }
@@ -516,10 +458,6 @@ public class BallisticBingoObjective extends BingoObjective {
         TASK = FieldKey.of("task", Task.class).with(Version.v1_27, Adapters.TASK_NBT, DISK.all().or(CLIENT.all())).register(FIELDS);
         TASK_SOURCE = FieldKey.of("task_source", TaskSource.class).with(Version.v1_27, Adapters.TASK_SOURCE_NBT, DISK.all().or(CLIENT.all())).register(FIELDS);
         JOINED = FieldKey.of("joined", Integer.class).with(Version.v1_27, Adapters.INT_SEGMENTED_3, DISK.all().or(CLIENT.all())).register(FIELDS);
-<<<<<<< HEAD
-        TASKS = FieldKey.of("tasks", TaskMap.class).with(Version.v1_38, CompoundAdapter.of(TaskMap::new), DISK.all().or(CLIENT.all())).register(FIELDS);
-=======
         TASKS = FieldKey.of("tasks", BingoObjective.TaskMap.class).with(Version.v1_38, CompoundAdapter.of(BingoObjective.TaskMap::new), DISK.all().or(CLIENT.all())).register(FIELDS);
->>>>>>> upstream/master
     }
 }

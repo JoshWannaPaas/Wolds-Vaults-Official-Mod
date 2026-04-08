@@ -8,20 +8,14 @@ import xyz.iwolfking.woldsvaults.WoldsVaults;
 public class ModKeybinds {
     public static KeyMapping isFeatherFixed;
     public static KeyMapping openWoldsVaultsConfig;
-<<<<<<< HEAD:src/main/java/xyz/iwolfking/woldsvaults/init/client/ModKeybinds.java
-=======
     public static KeyMapping toggleBetterCombat;
     public static KeyMapping openInventoryHUD;
->>>>>>> upstream/master:src/main/java/xyz/iwolfking/woldsvaults/client/init/ModKeybinds.java
 
     public static void registerKeyBinds() {
         isFeatherFixed = registerKeyMapping("is_feather_fixed", -1);
         openWoldsVaultsConfig = registerKeyMapping("open_wolds_vaults_config", GLFW.GLFW_KEY_DELETE);
-<<<<<<< HEAD:src/main/java/xyz/iwolfking/woldsvaults/init/client/ModKeybinds.java
-=======
         toggleBetterCombat = registerKeyMapping("toggle_better_combat", GLFW.GLFW_KEY_PERIOD);
         openInventoryHUD = registerKeyMapping("open_inventory_hud", GLFW.GLFW_KEY_O);
->>>>>>> upstream/master:src/main/java/xyz/iwolfking/woldsvaults/client/init/ModKeybinds.java
     }
 
     private static KeyMapping registerKeyMapping(String name, int keyCode) {

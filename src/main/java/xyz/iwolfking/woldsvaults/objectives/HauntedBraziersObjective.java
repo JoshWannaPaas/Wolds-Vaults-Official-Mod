@@ -97,16 +97,12 @@ public class HauntedBraziersObjective extends MonolithObjective {
 
     @Override
     public void initServer(VirtualWorld world, Vault vault) {
-<<<<<<< HEAD
-        NormalizedHelper.handleAddingNormalizedToVault(vault, world);
-=======
         ObjectiveHelper.handleAddingNormalizedToVault(vault, world);
 
         ObjectiveHelper.addInitModifiersToVault(vault, resourceLocations -> {
             resourceLocations.add(WoldsVaults.id("ghost_town"));
             resourceLocations.add(VaultMod.id("haunting"));
         });
->>>>>>> upstream/master
 
         CommonEvents.OBJECTIVE_PIECE_GENERATION.register(this, data -> {
             this.ifPresent(OBJECTIVE_PROBABILITY, probability -> data.setProbability(probability));

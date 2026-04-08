@@ -1,11 +1,5 @@
-<<<<<<< HEAD:src/main/java/xyz/iwolfking/woldsvaults/util/VoxelShapeUtils.java
-package xyz.iwolfking.woldsvaults.util;
-
-import java.nio.charset.StandardCharsets;
-=======
 package xyz.iwolfking.woldsvaults.api.util;
 
->>>>>>> upstream/master:src/main/java/xyz/iwolfking/woldsvaults/api/util/VoxelShapeUtils.java
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

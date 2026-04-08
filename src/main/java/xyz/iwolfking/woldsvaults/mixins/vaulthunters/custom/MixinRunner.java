@@ -1,11 +1,8 @@
 package xyz.iwolfking.woldsvaults.mixins.vaulthunters.custom;
 
 import iskallia.vault.VaultMod;
-<<<<<<< HEAD
-=======
 import iskallia.vault.core.event.CommonEvents;
 import iskallia.vault.core.event.common.FruitEatenEvent;
->>>>>>> upstream/master
 import iskallia.vault.core.vault.Vault;
 import iskallia.vault.core.vault.VaultUtils;
 import iskallia.vault.core.vault.modifier.spi.VaultModifier;
@@ -17,14 +14,10 @@ import iskallia.vault.init.ModGearAttributes;
 import iskallia.vault.skill.base.LearnableSkill;
 import iskallia.vault.skill.base.Skill;
 import iskallia.vault.skill.tree.ExpertiseTree;
-<<<<<<< HEAD
-import iskallia.vault.util.InventoryUtil;
-=======
 import iskallia.vault.snapshot.AttributeSnapshot;
 import iskallia.vault.snapshot.AttributeSnapshotHelper;
 import iskallia.vault.util.InventoryUtil;
 import iskallia.vault.util.calc.PlayerStat;
->>>>>>> upstream/master
 import iskallia.vault.world.data.PlayerExpertisesData;
 import iskallia.vault.world.data.ServerVaults;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -36,25 +29,19 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-<<<<<<< HEAD
-=======
 import xyz.iwolfking.woldsvaults.WoldsVaults;
 import xyz.iwolfking.woldsvaults.api.lib.IRottenFruit;
 import xyz.iwolfking.woldsvaults.api.util.WoldVaultUtils;
 import xyz.iwolfking.woldsvaults.init.ModConfigs;
->>>>>>> upstream/master
 import xyz.iwolfking.woldsvaults.items.alchemy.AlchemyIngredientItem;
 import xyz.iwolfking.woldsvaults.items.alchemy.CatalystItem;
 import xyz.iwolfking.woldsvaults.modifiers.vault.RemoveBlacklistModifier;
 import xyz.iwolfking.woldsvaults.api.util.VaultModifierUtils;
 
 import java.util.List;
-<<<<<<< HEAD
-=======
 import java.util.Optional;
 import java.util.Random;
 
->>>>>>> upstream/master
 @Mixin(value = Runner.class, remap = false)
 public abstract class MixinRunner extends Listener {
 

@@ -1,12 +1,7 @@
 package xyz.iwolfking.woldsvaults.mixins.vaulthunters.recipes;
 
-<<<<<<< HEAD
-import iskallia.vault.item.crystal.recipe.AnvilRecipe;
-import iskallia.vault.item.crystal.recipe.AnvilRecipes;
-=======
 import iskallia.vault.recipe.anvil.AnvilRecipe;
 import iskallia.vault.recipe.anvil.AnvilRecipes;
->>>>>>> upstream/master
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -52,10 +47,7 @@ public abstract class MixinAnvilRecipes {
         woldsVaults$register(new LayoutModificationRecipe());
         woldsVaults$register(new SetWeaponTypeFocusRecipe());
         woldsVaults$register(new MapModificationRecipe());
-<<<<<<< HEAD
-=======
         woldsVaults$register(new SoulboundEnchantmentRecipe());
->>>>>>> upstream/master
     }
 
     @Unique

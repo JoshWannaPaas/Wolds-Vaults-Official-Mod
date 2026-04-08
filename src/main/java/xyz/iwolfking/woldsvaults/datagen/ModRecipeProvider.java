@@ -125,8 +125,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_infuser", has(ModBlocks.VAULT_INFUSER_BLOCK))
                 .save(pFinishedRecipeConsumer);
 
-        //TODO: Crystal Seal Alchemy recipe
-
         ShapedRecipeBuilder.shaped(ModBlocks.VAULT_INFUSER_BLOCK)
                 .define('A', iskallia.vault.init.ModItems.CHROMATIC_IRON_INGOT)
                 .define('B', Blocks.FURNACE)

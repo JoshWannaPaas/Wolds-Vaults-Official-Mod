@@ -1,8 +1,4 @@
-<<<<<<< HEAD:src/main/java/xyz/iwolfking/woldsvaults/events/vaultevents/BrewingAltarBrewEvent.java
-package xyz.iwolfking.woldsvaults.events.vaultevents;
-=======
 package xyz.iwolfking.woldsvaults.events.vault;
->>>>>>> upstream/master:src/main/java/xyz/iwolfking/woldsvaults/events/vault/BrewingAltarBrewEvent.java
 
 import iskallia.vault.core.event.Event;
 import net.minecraft.core.BlockPos;

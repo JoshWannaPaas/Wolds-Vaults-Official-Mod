@@ -21,11 +21,7 @@ public class WoldMixinCanceller implements MixinCanceller {
         }
       
         if(LoadingModList.get().getModFileById("black_market_tweaks") != null) {
-<<<<<<< HEAD
-            if(s.equals("dev.attackeight.black_market_tweaks.mixin.ServerboundResetBlackMarketTradesMessageMixin")) {
-=======
             if(s.equals("dev.attackeight.black_market_tweaks.mixin.BlackMarketTileEntityMixin")) {
->>>>>>> upstream/master
                 return true;
             }
         }
@@ -35,8 +31,6 @@ public class WoldMixinCanceller implements MixinCanceller {
                 return true;
             }
         }
-<<<<<<< HEAD
-=======
 
         if(s.equals("com.dog.serverportals.mixin.PlayerListMixin")) {
             return true;
@@ -66,7 +60,6 @@ public class WoldMixinCanceller implements MixinCanceller {
 
 
 
->>>>>>> upstream/master
 
         return false;
     }

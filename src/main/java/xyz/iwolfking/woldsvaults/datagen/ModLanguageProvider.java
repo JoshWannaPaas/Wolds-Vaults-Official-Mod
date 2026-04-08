@@ -9,9 +9,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.data.LanguageProvider;
 import xyz.iwolfking.vhapi.api.registry.objective.CustomObjectiveRegistryEntry;
 import xyz.iwolfking.woldsvaults.WoldsVaults;
-<<<<<<< HEAD
-import xyz.iwolfking.woldsvaults.init.ModItems;
-=======
 import xyz.iwolfking.woldsvaults.api.core.vault_events.VaultEvent;
 import xyz.iwolfking.woldsvaults.api.core.vault_events.VaultEventSystem;
 import xyz.iwolfking.woldsvaults.init.*;
@@ -22,7 +19,6 @@ import xyz.iwolfking.woldsvaults.integration.vaultfilters.VaultDollCompletedAttr
 import xyz.iwolfking.woldsvaults.objectives.data.EnchantedEventsRegistry;
 
 import java.util.LinkedHashMap;
->>>>>>> upstream/master
 
 public class ModLanguageProvider extends LanguageProvider {
 
@@ -48,8 +44,6 @@ public class ModLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-<<<<<<< HEAD
-=======
         ModCustomVaultObjectiveEntries.getEntries().forEach(customObjectiveRegistryEntry -> {
             add(customObjectiveRegistryEntry, customObjectiveRegistryEntry.getName());
         });
@@ -130,7 +124,6 @@ public class ModLanguageProvider extends LanguageProvider {
         add("util.woldsvaults.objective_text", "Objective: ");
         add("util.woldsvaults.vault_modifier_added", "%1$s was added to the Vault!");
         add("util.woldsvaults.timed_modifier_added", "%1$s added %2$s to the Vault for %3$s seconds!");
->>>>>>> upstream/master
         add("item.woldsvaults.rotten_heart", "Rotten Heart");
         add("item.woldsvaults.rotten_apple", "Rotten Apple");
         add("item.woldsvaults.verdant_globule", "Verdant Globule");
@@ -272,18 +265,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add("block.woldsvaults.mob_barrier_red", "Mob Barrier");
         add("block.woldsvaults.fractured_obelisk", "Fractured Obelisk");
         add("block.woldsvaults.monolith_controller", "Monolith Controller");
-<<<<<<< HEAD
-        add("block.woldsvaults.vault_crate_corrupt", "Corrupted Vault Crate");
-        add("block.woldsvaults.vault_crate_alchemy", "Alchemy Vault Crate");
-        add("block.woldsvaults.nullite_ore", "Nullite Ore");
-        add("block.woldsvaults.doll_dismantler", "Doll Blender");
-        add("entity.the_vault.wold", "Wold");
-=======
         add("block.woldsvaults.nullite_ore", "Nullite Ore");
         add("block.woldsvaults.doll_dismantler", "Doll Blender");
         add("block.woldsvaults.tombstone", "Tombstone");
         add(ModEntities.WOLD, "Wold");
->>>>>>> upstream/master
         add("entity.woldsvaults.green_ghost", "Toxic Ghost");
         add("entity.woldsvaults.black_ghost", "Unholy Ghost");
         add("entity.woldsvaults.blue_ghost", "Chilly Ghost");
@@ -374,10 +359,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("woldsvaults.key.cherish_item", "Cherish Item");
         add("key.woldsvaults.cherish_item", "Cherish Item");
         add("key.woldsvaults.open_wolds_vaults_config", "Open Wold's Vaults Config Screen");
-<<<<<<< HEAD
-=======
         add("key.woldsvaults.toggle_better_combat", "Toggle Better Combat");
->>>>>>> upstream/master
         add("key.woldsvaults.is_feather_fixed", "Toggle Prismatic Feather Fix");
         add("key.category.woldsvaults", "Wold's Vaults");
         add("the_vault.gear_modification.reforge_weapon_type.description", "Reforges weapon type");
@@ -395,20 +377,6 @@ public class ModLanguageProvider extends LanguageProvider {
         add("create.item_attributes.has_unusual.inverted", "doesn't have an unusual modifier");
         add("create.item_attributes.has_divine", "is Divine");
         add("create.item_attributes.has_divine.inverted", "isn't Divine");
-<<<<<<< HEAD
-        add("create.item_attributes.unusual_prefix", "has an unusual \");%1$s\" prefix");
-        add("create.item_attributes.unusual_prefix.inverted", "doesn't have an unusual \");%1$s\" prefix");
-        add("create.item_attributes.unusual_suffix", "has an unusual \");%1$s\" suffix");
-        add("create.item_attributes.unusual_suffix.inverted", "doesn't have an unusual \");%1$s\" suffix");
-        add("create.item_attributes.offering_items", "is an Boss Rune with a Guaranteed \");%1$s\"");
-        add("create.item_attributes.offering_items.inverted", "isn't an Boss Rune with a Guaranteed \");%1$s\"");
-        add("create.item_attributes.offering_modifier", "has a \");%1$s\" Boss Rune modifier");
-        add("create.item_attributes.offering_modifier.inverted", "doesn't have a \");%1$s\" Boss Rune modifier");
-        add("create.item_attributes.targeted_mod_box_research", "is a Targeted Mod Box for the \");%1$s\" research");
-        add("create.item_attributes.targeted_mod_box_research.inverted", "isn't a Targeted Mod Box for the \");%1$s\" research");
-        add("create.item_attributes.antique_name", "is a \");%1$s\" Antique");
-        add("create.item_attributes.antique_name.inverted", "isn't a \");%1$s\" Antique");
-=======
         add("create.item_attributes.unusual_prefix", "has an unusual \"%1$s\" prefix");
         add("create.item_attributes.unusual_prefix.inverted", "doesn't have an unusual \"%1$s\" prefix");
         add("create.item_attributes.unusual_suffix", "has an unusual \"%1$s\" suffix");
@@ -421,7 +389,6 @@ public class ModLanguageProvider extends LanguageProvider {
         add("create.item_attributes.targeted_mod_box_research.inverted", "isn't a Targeted Mod Box for the \"%1$s\" research");
         add("create.item_attributes.antique_name", "is a \"%1$s\" Antique");
         add("create.item_attributes.antique_name.inverted", "isn't a \"%1$s\" Antique");
->>>>>>> upstream/master
         add("create.item_attributes.rotten_offering", "is a rotten Boss Rune");
         add("create.item_attributes.rotten_offering.inverted", "isn't a rotten Boss Rune");
         add("create.item_attributes.etched_layout_type", "is an Etched Vault Layout with a \"%1$s\" layout");
@@ -493,8 +460,6 @@ public class ModLanguageProvider extends LanguageProvider {
         add("block.the_vault.block_gem_wutodie_wall", "Wutodie Wall");
         add("block.the_vault.block_gem_wutodie_stairs", "Wutodie Stairs");
         add("item.woldsvaults.crystal_seal_alchemy", "Seal of the Alchemist");
-<<<<<<< HEAD
-=======
         add("trinket_pouch.woldsvaults.standard", "Standard Trinket Pouch");
         add("trinket_pouch.woldsvaults.basic_alt_r", "Beginner's Trinket Pouch (Alt)");
         add("trinket_pouch.woldsvaults.basic_alt_g", "Beginner's Trinket Pouch (Alt)");
@@ -605,7 +570,6 @@ public class ModLanguageProvider extends LanguageProvider {
             }
         });
 
->>>>>>> upstream/master
     }
 
     public static final LinkedHashMap<String, String> REGISTERED_LANGUAGE_KEYS = new LinkedHashMap<>();

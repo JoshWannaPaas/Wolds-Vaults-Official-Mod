@@ -3,12 +3,9 @@ package xyz.iwolfking.woldsvaults.api.util;
 import iskallia.vault.VaultMod;
 import iskallia.vault.config.gear.VaultEtchingConfig;
 import iskallia.vault.config.gear.VaultGearTierConfig;
-<<<<<<< HEAD:src/main/java/xyz/iwolfking/woldsvaults/api/helper/WoldGearModifierHelper.java
-=======
 import iskallia.vault.gear.VaultGearModifierHelper;
 import iskallia.vault.gear.VaultGearRarity;
 import iskallia.vault.gear.VaultGearType;
->>>>>>> upstream/master:src/main/java/xyz/iwolfking/woldsvaults/api/util/WoldGearModifierHelper.java
 import iskallia.vault.gear.attribute.VaultGearModifier;
 import iskallia.vault.gear.data.VaultGearData;
 import iskallia.vault.gear.item.VaultGearItem;
@@ -181,8 +178,6 @@ public class WoldGearModifierHelper {
             return GearModification.Result.makeSuccess();
         }
     }
-<<<<<<< HEAD:src/main/java/xyz/iwolfking/woldsvaults/api/helper/WoldGearModifierHelper.java
-=======
 
     public static GearModification.Result addEtching(ItemStack gearStack, ItemStack etchingStack) {
         if (!gearStack.isEmpty() && !etchingStack.isEmpty()) {
@@ -245,5 +240,4 @@ public class WoldGearModifierHelper {
         }
     }
 
->>>>>>> upstream/master:src/main/java/xyz/iwolfking/woldsvaults/api/util/WoldGearModifierHelper.java
 }

@@ -7,11 +7,7 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-<<<<<<< HEAD
-import xyz.iwolfking.woldsvaults.gui.menus.FilterNecklaceMenu;
-=======
 import xyz.iwolfking.woldsvaults.items.filter_necklace.menus.FilterNecklaceMenu;
->>>>>>> upstream/master
 
 public class FilterNecklaceContainerScreen extends AbstractContainerScreen<FilterNecklaceMenu> {
     public static final ResourceLocation CONTAINER_BACKGROUND = ResourceLocation.parse("textures/gui/container/generic_54.png");

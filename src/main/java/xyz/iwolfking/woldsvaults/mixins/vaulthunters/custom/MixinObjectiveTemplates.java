@@ -20,12 +20,9 @@ public class MixinObjectiveTemplates {
             cir.setReturnValue(ModObjectiveTemplates.CORRUPTED_OBJECTIVE_TEMPLATE);
         } else if (objective instanceof AlchemyObjective) {
             cir.setReturnValue(ModObjectiveTemplates.ALCHEMY_OBJECTIVE_TEMPLATE);
-<<<<<<< HEAD
-=======
         }
         else if(objective instanceof SurvivalObjective) {
             cir.setReturnValue(ModObjectiveTemplates.SURVIVAL_OBJECTIVE_TEMPLATE);
->>>>>>> upstream/master
         }
     }
 }

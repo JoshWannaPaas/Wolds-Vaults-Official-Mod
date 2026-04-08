@@ -1,14 +1,6 @@
 package xyz.iwolfking.woldsvaults.mixins.blackmarkettweaks;
 
 import dev.attackeight.black_market_tweaks.BlackMarketTweaks;
-<<<<<<< HEAD
-import iskallia.vault.block.entity.BlackMarketTileEntity;
-import iskallia.vault.block.entity.base.FilteredInputInventoryTileEntity;
-import iskallia.vault.container.oversized.OverSizedInventory;
-import iskallia.vault.integration.IntegrationRefinedStorage;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-=======
 import dev.attackeight.black_market_tweaks.extension.BlackMarketInventory;
 import iskallia.vault.block.entity.BlackMarketTileEntity;
 import iskallia.vault.block.entity.base.FilteredInputInventoryTileEntity;
@@ -20,7 +12,6 @@ import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
->>>>>>> upstream/master
 import net.minecraft.world.Container;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -28,22 +19,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
-<<<<<<< HEAD
-import org.spongepowered.asm.mixin.Mixin;
-=======
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import xyz.iwolfking.woldsvaults.init.ModItems;
->>>>>>> upstream/master
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-<<<<<<< HEAD
-@Mixin(value = BlackMarketTileEntity.class)
-public class MixinBlackMarketTileEntity extends BlockEntity implements FilteredInputInventoryTileEntity {
-=======
 @Restriction(
         require = {
                 @Condition(type = Condition.Type.MOD, value = "black_market_tweaks")
@@ -55,13 +38,10 @@ public class MixinBlackMarketTileEntity extends BlockEntity implements FilteredI
     @Unique
     public final OverSizedInventory bmt$inventory = new OverSizedInventory.FilteredInsert(1, this, (slot, stack) -> stack.is(ModItems.SOUL_ICHOR));
 
->>>>>>> upstream/master
     public MixinBlackMarketTileEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
     }
 
-<<<<<<< HEAD
-=======
     @Override
     public void load(@NotNull CompoundTag tag) {
         this.bmt$inventory.load(tag);
@@ -92,7 +72,6 @@ public class MixinBlackMarketTileEntity extends BlockEntity implements FilteredI
         return this.bmt$inventory;
     }
 
->>>>>>> upstream/master
     @Nonnull
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
         if (IntegrationRefinedStorage.shouldPreventImportingCapability(this.getLevel(), this.getBlockPos(), side) || level == null) {
@@ -101,11 +80,7 @@ public class MixinBlackMarketTileEntity extends BlockEntity implements FilteredI
 
         if (level.getBlockEntity(this.worldPosition) instanceof BlackMarketTileEntity be) {
             try {
-<<<<<<< HEAD
-                OverSizedInventory container = (OverSizedInventory) be.getClass().getDeclaredField("inventory").get(be);
-=======
                 OverSizedInventory container = ((BlackMarketInventory)be).bmt$get();
->>>>>>> upstream/master
                 return cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ? this.getFilteredInputCapability(side, new Container[]{container}) : super.getCapability(cap, side);
             } catch (Exception e) {
                 BlackMarketTweaks.LOGGER.error(e.toString());
@@ -119,8 +94,5 @@ public class MixinBlackMarketTileEntity extends BlockEntity implements FilteredI
     public boolean isInventorySideAccessible(@org.jetbrains.annotations.Nullable Direction direction) {
         return true;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> upstream/master
 }

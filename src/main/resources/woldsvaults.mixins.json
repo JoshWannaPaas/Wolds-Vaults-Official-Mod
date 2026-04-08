@@ -7,6 +7,10 @@
   "plugin": "xyz.iwolfking.woldsvaults.mixins.plugins.WoldMixinPlugin",
   "mixins": [
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    "DimensionDataStorageAccessor",
+>>>>>>> upstream/master
 =======
     "DimensionDataStorageAccessor",
 >>>>>>> upstream/master
@@ -23,13 +27,19 @@
     "MixinLightningBolt",
     "MixinLivingEntity",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "MixinServerPlayerGameMode",
 =======
+=======
+>>>>>>> upstream/master
     "MixinPlayerInventory",
     "MixinResultSlot",
     "MixinServerPlayerGameMode",
     "MixinShieldItem",
     "MixinTagLoader",
+<<<<<<< HEAD
+>>>>>>> upstream/master
+=======
 >>>>>>> upstream/master
     "MixinThrownTrident",
     "ThrownTridentAccessor",
@@ -48,7 +58,10 @@
     "bettercombat.MixinRadialFilter",
     "bettercombat.MixinWeaponAttributesHelper",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "bettercombat.MixinWeaponRegistry",
+=======
+>>>>>>> upstream/master
 =======
 >>>>>>> upstream/master
     "blackmarkettweaks.MixinBlackMarketTileEntity",
@@ -73,6 +86,11 @@
     "ensorcellation.MixinCurseMercyEnchantment",
     "ensorcellation.MixinEnsorcEnchantments",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    "fruitbag.MixinFruitBagHandler",
+    "fruitbag.MixinFruitSlot",
+>>>>>>> upstream/master
 =======
     "fruitbag.MixinFruitBagHandler",
     "fruitbag.MixinFruitSlot",
@@ -127,6 +145,11 @@
     "vaulthunters.accessors.AttributeSnapshotValueAccessor",
     "vaulthunters.accessors.BingoObjectiveAccessor",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    "vaulthunters.accessors.CastOnHitTalentAccessor",
+    "vaulthunters.accessors.CastOnKillTalentAccessor",
+>>>>>>> upstream/master
 =======
     "vaulthunters.accessors.CastOnHitTalentAccessor",
     "vaulthunters.accessors.CastOnKillTalentAccessor",
@@ -158,6 +181,7 @@
     "vaulthunters.accessors.MixinScavengerAltar",
     "vaulthunters.accessors.ModifierGearTierAccessor",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "vaulthunters.accessors.PlayerVaultAltarDataAccessor",
     "vaulthunters.accessors.ProductEntryAccessor",
     "vaulthunters.accessors.ShopEntryAccessor",
@@ -165,6 +189,10 @@
 =======
     "vaulthunters.accessors.MysticExpertiseAccessor",
     "vaulthunters.accessors.PlayerVaultAltarDataAccessor",
+=======
+    "vaulthunters.accessors.MysticExpertiseAccessor",
+    "vaulthunters.accessors.PlayerVaultAltarDataAccessor",
+>>>>>>> upstream/master
     "vaulthunters.accessors.PoolCrystalThemeAccessor",
     "vaulthunters.accessors.ProductEntryAccessor",
     "vaulthunters.accessors.ScheduledModifiersAccessor",
@@ -173,6 +201,9 @@
     "vaulthunters.accessors.StackingGearAttributeTalentAccessor",
     "vaulthunters.accessors.SweepingLuckyHitTalentAccessor",
     "vaulthunters.accessors.TaskLootCardModifierConfigAccessor",
+<<<<<<< HEAD
+>>>>>>> upstream/master
+=======
 >>>>>>> upstream/master
     "vaulthunters.accessors.TemplateProcessorModifierPropertiesAccessor",
     "vaulthunters.accessors.TrinketerExpertiseAccessor",
@@ -214,11 +245,17 @@
     "vaulthunters.custom.MixinBossRunePillarTileEntity",
     "vaulthunters.custom.MixinBottleItem",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> upstream/master
     "vaulthunters.custom.MixinCardboardBoxTileEntity",
     "vaulthunters.custom.MixinCardDeck",
     "vaulthunters.custom.MixinCardDeckContainerMenu",
     "vaulthunters.custom.MixinCardEntry",
+<<<<<<< HEAD
+>>>>>>> upstream/master
+=======
 >>>>>>> upstream/master
     "vaulthunters.custom.MixinCatalystAnvilRecipe",
     "vaulthunters.custom.MixinCatalystForgeRecipe",
@@ -256,6 +293,10 @@
     "vaulthunters.custom.MixinJewelItem",
     "vaulthunters.custom.MixinJewelPouchItem",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    "vaulthunters.custom.MixinLightningOrbEntity",
+>>>>>>> upstream/master
 =======
     "vaulthunters.custom.MixinLightningOrbEntity",
 >>>>>>> upstream/master
@@ -279,10 +320,17 @@
     "vaulthunters.custom.MixinPlayerVaultStatsData",
     "vaulthunters.custom.MixinPylonBlock",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "vaulthunters.custom.MixinResearchTree",
     "vaulthunters.custom.MixinRewardConfig",
     "vaulthunters.custom.MixinRoyaleDraftContainer",
     "vaulthunters.custom.MixinRoyaleDrafterControllerTileEntity",
+=======
+    "vaulthunters.custom.MixinRecoveryCost",
+    "vaulthunters.custom.MixinResearchTree",
+    "vaulthunters.custom.MixinRewardConfig",
+    "vaulthunters.custom.MixinRoyaleDraftContainer",
+>>>>>>> upstream/master
 =======
     "vaulthunters.custom.MixinRecoveryCost",
     "vaulthunters.custom.MixinResearchTree",
@@ -308,12 +356,18 @@
     "vaulthunters.custom.MixinVaultAltarConfig",
     "vaulthunters.custom.MixinVaultCrateBlock",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "vaulthunters.custom.MixinVaultDollItem",
 =======
+=======
+>>>>>>> upstream/master
     "vaulthunters.custom.MixinVaultCrystalConfig",
     "vaulthunters.custom.MixinVaultCrystalItem",
     "vaulthunters.custom.MixinVaultDollItem",
     "vaulthunters.custom.MixinVaultFireball",
+<<<<<<< HEAD
+>>>>>>> upstream/master
+=======
 >>>>>>> upstream/master
     "vaulthunters.custom.MixinVaultGearHelper",
     "vaulthunters.custom.MixinVaultGearRarity",
@@ -321,6 +375,10 @@
     "vaulthunters.custom.MixinVaultGearTierConfig",
     "vaulthunters.custom.MixinVaultGearTooltipItem",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    "vaulthunters.custom.MixinVaultGrenade",
+>>>>>>> upstream/master
 =======
     "vaulthunters.custom.MixinVaultGrenade",
 >>>>>>> upstream/master
@@ -355,9 +413,17 @@
     "vaulthunters.fixes.MixinClientEvents",
     "vaulthunters.fixes.MixinCoinPouchItem",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "vaulthunters.fixes.MixinCombatStatsElementContainer",
     "vaulthunters.fixes.MixinCurioContainerHandler",
     "vaulthunters.fixes.MixinDeathObjective",
+=======
+    "vaulthunters.fixes.MixinCurioContainerHandler",
+    "vaulthunters.fixes.MixinDeathObjective",
+    "vaulthunters.fixes.MixinDeckRecipeTaskData",
+    "vaulthunters.fixes.MixinDecoratorAddModifier",
+    "vaulthunters.fixes.MixinDiscoveredThemesData",
+>>>>>>> upstream/master
 =======
     "vaulthunters.fixes.MixinCurioContainerHandler",
     "vaulthunters.fixes.MixinDeathObjective",
@@ -394,8 +460,13 @@
     "vaulthunters.fixes.MixinVaultGearModifierHelper",
     "vaulthunters.fixes.MixinVaultGearRarity",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "vaulthunters.fixes.MixinVaultModifier",
     "vaulthunters.fixes.MixinVaultXPFoodItem",
+=======
+    "vaulthunters.fixes.MixinVaultUtils",
+    "vaulthunters.fixes.MixinVorpalSealCost",
+>>>>>>> upstream/master
 =======
     "vaulthunters.fixes.MixinVaultUtils",
     "vaulthunters.fixes.MixinVorpalSealCost",
@@ -425,8 +496,12 @@
     "vaulthunters.skills.modifications.MixinAbstractVeinMinerAbility",
     "vaulthunters.skills.modifications.MixinFireballAbility",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "vaulthunters.skills.modifications.MixinIceBoltChunkAbility",
     "vaultmapper.MixinVaultMapOverlayRenderer"
+=======
+    "vaulthunters.skills.modifications.MixinIceBoltChunkAbility"
+>>>>>>> upstream/master
 =======
     "vaulthunters.skills.modifications.MixinIceBoltChunkAbility"
 >>>>>>> upstream/master
@@ -441,11 +516,17 @@
     "inventoryhud.MixinCuriosRenderer",
     "inventoryhud.MixinInventoryHudRenderer",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> upstream/master
     "jei.MixinRecipesGui",
     "scannable.BlockScanResultAccessor",
     "scannable.MixinScanManager",
     "scannable.MixinScanResultProviderBlock",
+<<<<<<< HEAD
+>>>>>>> upstream/master
+=======
 >>>>>>> upstream/master
     "sophisticatedbackpacks.MixinBackpackModel",
     "vaulthunters.accessors.VaultChestRendererAccessor",
@@ -466,6 +547,9 @@
 =======
     "vaulthunters.fixes.MixinUniqueCodexScreen",
     "vaulthunters.objectives.MixinClientCrystalData"
+<<<<<<< HEAD
+>>>>>>> upstream/master
+=======
 >>>>>>> upstream/master
   ],
   "injectors": {

@@ -23,12 +23,6 @@ import java.util.List;
 public abstract class MixinInventoryHudRenderer {
 
 
-<<<<<<< HEAD
-    @Inject(method = "render", at = @At("HEAD"), cancellable = true)
-    private static void cancelRenderWhenDisabled(PoseStack poseStack, CallbackInfo ci) {
-        if(!WoldsVaultsConfig.CLIENT.showVanillaVaultHud.get()) {
-            ci.cancel();
-=======
     @Shadow
     @Final
     public static List<String> HUD_KEYS;
@@ -48,7 +42,6 @@ public abstract class MixinInventoryHudRenderer {
         MODULES.add(new ItemHudModule("trinket_pouch", () -> getCurioSlotByName(Minecraft.getInstance().player, "trinket_pouch"), ModOptions.TRINKET_POUCH));
         if (ModList.get().isLoaded("lightmanscurrency")) {
             MODULES.add(new LightmanWalletHudModule("lightman_wallet", ModOptions.LIGHTMAN_WALLET));
->>>>>>> upstream/master
         }
     }
 

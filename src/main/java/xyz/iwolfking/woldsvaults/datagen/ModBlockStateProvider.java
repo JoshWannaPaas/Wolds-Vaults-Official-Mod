@@ -42,15 +42,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         generateDecoMonolith();
         generateDecoObelisk();
         generateXLBackpack();
-<<<<<<< HEAD
-        generateGenericItemModelBlockState(ModBlocks.VAULT_CRATE_CORRUPTED);
-        generateGenericItemModelBlockState(ModBlocks.VAULT_CRATE_ALCHEMY);
-=======
         ModBlocks.CUSTOM_VAULT_CRATES.forEach((s, crateBlock) -> {
             vaultCrate(crateBlock, efh, WoldsVaults.id("block/vault_crate_" + s));
             //generateGenericItemModelBlockState(crateBlock);
         });
->>>>>>> upstream/master
         generateGenericItemModelBlockState(ModBlocks.DECO_SCAVENGER_ALTAR_BLOCK);
         generateGenericItemModelBlockState(ModBlocks.DECO_LODESTONE_BLOCK);
         generateGenericItemModelBlockState(ModBlocks.MOD_BOX_WORKSTATION);
@@ -61,12 +56,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         generateGenericItemModelBlockState(ModBlocks.ETCHING_PEDESTAL);
         generateGenericItemModelBlockState(ModBlocks.GOD_VENDOR_PEDESTAL);
         generateGenericItemModelBlockState(ModBlocks.BREWING_ALTAR);
-<<<<<<< HEAD
-=======
         generateGenericItemModelBlockState(ModBlocks.SURVIVAL_OBJECTIVE_BLOCK);
         horizontalBlock(ModBlocks.GRAVEYARD_LOOT_BLOCK, new ModelFile.ExistingModelFile(
                 modLoc("block/tombstone"), models().existingFileHelper));
->>>>>>> upstream/master
         generateGenericItemModelBlockState(ModBlocks.CARD_VENDOR_PEDESTAL, "god_shop_pedestal");
         generateGenericItemModelBlockState(ModBlocks.SPOOKY_VENDOR_PEDESTAL, "etching_shop_pedestal");
 

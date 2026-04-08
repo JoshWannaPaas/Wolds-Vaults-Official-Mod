@@ -30,11 +30,7 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-<<<<<<< HEAD
-import xyz.iwolfking.woldsvaults.api.helper.GameruleHelper;
-=======
 import xyz.iwolfking.woldsvaults.api.util.GameruleHelper;
->>>>>>> upstream/master
 import xyz.iwolfking.woldsvaults.config.forge.WoldsVaultsConfig;
 import xyz.iwolfking.woldsvaults.init.ModBlocks;
 import xyz.iwolfking.woldsvaults.init.ModGameRules;
@@ -240,8 +236,6 @@ public class DollDismantlingTileEntity extends BlockEntity
 
         // Load energy data from NBT
         this.energyStorage.receiveEnergy(tag.getInt(DollDismantlingTileEntity.ENERGY), false);
-<<<<<<< HEAD
-=======
 
         ItemStack dollStack = this.inventory.getStackInSlot(0);
 
@@ -257,7 +251,6 @@ public class DollDismantlingTileEntity extends BlockEntity
                 }
             });
         }
->>>>>>> upstream/master
     }
 
 

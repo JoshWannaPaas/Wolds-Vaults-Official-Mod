@@ -10,14 +10,8 @@ import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-<<<<<<< HEAD
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
-import xyz.iwolfking.woldsvaults.api.helper.ItemStackHooks;
-=======
 import org.spongepowered.asm.mixin.injection.Redirect;
 import xyz.iwolfking.woldsvaults.api.util.ItemStackHooks;
->>>>>>> upstream/master
 
 @Mixin(value = ItemReward.class, remap = false)
 public class MixinItemReward {

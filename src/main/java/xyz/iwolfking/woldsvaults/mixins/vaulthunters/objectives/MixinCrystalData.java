@@ -7,10 +7,7 @@ import iskallia.vault.core.data.serializable.ISerializable;
 import iskallia.vault.core.vault.modifier.VaultModifierStack;
 import iskallia.vault.item.crystal.CrystalData;
 import iskallia.vault.item.crystal.CrystalEntry;
-<<<<<<< HEAD
-=======
 import iskallia.vault.item.crystal.layout.CrystalLayout;
->>>>>>> upstream/master
 import iskallia.vault.item.crystal.model.CrystalModel;
 import iskallia.vault.item.crystal.modifiers.CrystalModifiers;
 import iskallia.vault.item.crystal.theme.CrystalTheme;

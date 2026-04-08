@@ -78,18 +78,7 @@ public class GenericLootableBoxCategory implements IRecipeCategory<GenericLootab
     }
 
     @Override
-<<<<<<< HEAD
-    @ParametersAreNonnullByDefault
-    public void setRecipe(IRecipeLayoutBuilder builder, GenericLootableConfig recipe, IFocusGroup focuses) {
-        List<ItemStack> itemList = new ArrayList<>();
-        recipe.POOL.forEach((productEntry, aDouble) -> {
-            var stack = productEntry.generateItemStack();
-            stack.setCount(((ProductEntryAccessor) productEntry).getAmountMax());
-            itemList.add(stack);
-        });
-=======
     public void setRecipe(IRecipeLayoutBuilder builder, GenericLootableConfigPage page, IFocusGroup focuses) {
->>>>>>> upstream/master
 
         GenericLootableConfig recipe = page.config();
         int pageIndex = page.pageIndex();

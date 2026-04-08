@@ -60,11 +60,7 @@ public class UnhingedScavengerObjective extends ScavengerObjective {
 
     @Override
     public void initServer(VirtualWorld world, Vault vault) {
-<<<<<<< HEAD
-        NormalizedHelper.handleAddingNormalizedToVault(vault, world);
-=======
         ObjectiveHelper.handleAddingNormalizedToVault(vault, world);
->>>>>>> upstream/master
 
 
         CommonEvents.OBJECTIVE_PIECE_GENERATION.register(this, data -> {

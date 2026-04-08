@@ -1,8 +1,4 @@
-<<<<<<< HEAD:src/main/java/xyz/iwolfking/woldsvaults/api/helper/GameruleHelper.java
-package xyz.iwolfking.woldsvaults.api.helper;
-=======
 package xyz.iwolfking.woldsvaults.api.util;
->>>>>>> upstream/master:src/main/java/xyz/iwolfking/woldsvaults/api/util/GameruleHelper.java
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.GameRules;
@@ -26,12 +22,9 @@ public class GameruleHelper {
         gameruleMap.put("enablePlacingVaultDolls", GameruleHelper.isEnabled(ModGameRules.ENABLE_PLACING_VAULT_DOLLS, level));
         gameruleMap.put("vaultAllowMentoring", GameruleHelper.isEnabled(iskallia.vault.init.ModGameRules.ALLOW_MENTOR_BREW, level));
         gameruleMap.put("vaultAllowKnowledgeBrew", GameruleHelper.isEnabled(iskallia.vault.init.ModGameRules.ALLOW_KNOWLEDGE_BREW, level));
-<<<<<<< HEAD:src/main/java/xyz/iwolfking/woldsvaults/api/helper/GameruleHelper.java
-=======
         gameruleMap.put("enableVaults", GameruleHelper.isEnabled(ModGameRules.ENABLE_VAULTS, level));
         gameruleMap.put("enableSkillAltars", GameruleHelper.isEnabled(ModGameRules.ENABLE_SKILL_ALTARS, level));
         gameruleMap.put("enableModifierWorkbench", GameruleHelper.isEnabled(ModGameRules.ENABLE_MODIFIER_WORKBENCH, level));
->>>>>>> upstream/master:src/main/java/xyz/iwolfking/woldsvaults/api/util/GameruleHelper.java
         if(players != null && !players.isEmpty()) {
             players.forEach(serverPlayer -> {
                 ModNetwork.sendToClient(new ClientboundSyncGamerulesMessage(gameruleMap), serverPlayer);

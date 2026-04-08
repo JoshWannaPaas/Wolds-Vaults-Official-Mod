@@ -1,4 +1,5 @@
 {
+<<<<<<<< HEAD:src/main/resources/assets/woldsvaults/models/block/vault_crate_alchemy.json
   "credit": "Made with Blockbench",
   "textures": {
     "1": "the_vault:block/loot_crate_frame",
@@ -6,6 +7,8 @@
     "3": "the_vault:block/elixir_loot_crate",
     "particle": "the_vault:block/elixir_loot_crate"
   },
+========
+>>>>>>>> upstream/master:src/main/resources/assets/woldsvaults/models/block/vault_crate.json
   "elements": [
     {
       "name": "crate",

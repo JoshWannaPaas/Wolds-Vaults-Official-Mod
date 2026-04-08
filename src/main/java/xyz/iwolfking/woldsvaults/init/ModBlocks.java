@@ -3,11 +3,6 @@ package xyz.iwolfking.woldsvaults.init;
 import iskallia.vault.VaultMod;
 import iskallia.vault.block.*;
 import iskallia.vault.block.render.ScavengerAltarRenderer;
-<<<<<<< HEAD
-import iskallia.vault.core.vault.stat.VaultChestType;
-import iskallia.vault.init.ModDecorativeBlocks;
-=======
->>>>>>> upstream/master
 import iskallia.vault.init.ModItems;
 import iskallia.vault.item.CoinBlockItem;
 import net.minecraft.resources.ResourceLocation;
@@ -49,19 +44,12 @@ public class ModBlocks {
     public static final GatewayChannelingBlock GATEWAY_CHANNELING_BLOCK;
     public static final FracturedObelisk FRACTURED_OBELISK;
     public static final MonolithControllerBlock MONOLITH_CONTROLLER;
-<<<<<<< HEAD
-    public static final VaultCrateBlock VAULT_CRATE_CORRUPTED;
-    public static final VaultCrateBlock VAULT_CRATE_ALCHEMY;
-    public static final BrewingAltar BREWING_ALTAR;
-    public static final Block DOLL_DISMANTLING_BLOCK;
-=======
 
     public static final BrewingAltar BREWING_ALTAR;
     public static final SurvivalObjectiveBlock SURVIVAL_OBJECTIVE_BLOCK;
 
     public static final Block DOLL_DISMANTLING_BLOCK;
     public static final Block CRATE_CRACKER_BLOCK;
->>>>>>> upstream/master
 
     public static final Block PRISMATIC_FIBER_BLOCK;
     public static final Block CHROMATIC_GOLD_BLOCK;
@@ -93,10 +81,7 @@ public class ModBlocks {
     public static final BlockEntityType<BackpackBlockEntity> SOPHISTICATED_BACKPACK;
     public static final BlockEntityType<VaultInfuserTileEntity> VAULT_INFUSER_TILE_ENTITY_BLOCK_ENTITY_TYPE;
     public static final BlockEntityType<DollDismantlingTileEntity> DOLL_DISMANTLING_TILE_ENTITY_BLOCK_ENTITY_TYPE;
-<<<<<<< HEAD
-=======
     public static final BlockEntityType<CrateCrackerTileEntity> CRATE_CRACKER_TILE_ENTITY_BLOCK_ENTITY_TYPE;
->>>>>>> upstream/master
 
     //Workstations
     public static final AugmentCraftingTableBlock AUGMENT_CRAFTING_TABLE;
@@ -108,10 +93,7 @@ public class ModBlocks {
     public static final BlockEntityType<MonolithControllerTileEntity> MONOLITH_CONTROLLER_BLOCK_ENTITY_TYPE;
     public static final BlockEntityType<WeavingStationTileEntity> WEAVING_STATION_TILE_ENTITY_BLOCK_ENTITY_TYPE;
     public static final BlockEntityType<BrewingAltarTileEntity> BREWING_ALTAR_TILE_ENTITY_BLOCK_ENTITY_TYPE;
-<<<<<<< HEAD
-=======
     public static final BlockEntityType<VaultEventActivatorTileEntity> VAULT_EVENT_ACTIVATOR_TILE_ENTITY_BLOCK_ENTITY_TYPE;
->>>>>>> upstream/master
 
     //Shop Pedestals
     public static final ShopPedestalBlock ETCHING_PEDESTAL = new ShopPedestalBlock();
@@ -127,12 +109,6 @@ public class ModBlocks {
     public static final Block INFUSED_DRIFTWOOD_PLANKS;
     public static final Block NULLITE_ORE;
 
-<<<<<<< HEAD
-    //Decorative Blocks
-    public static final VaultGemStairsBlock WUTODIE_STAIRS;
-    public static final VaultGemSlabBlock WUTODIE_SLAB;
-    public static final VaultGemWallBlock WUTODIE_WALL;
-=======
     //Decorative Blocks -- Missing Vault Decoration
     public static final VaultGemStairsBlock WUTODIE_STAIRS;
     public static final VaultGemSlabBlock WUTODIE_SLAB;
@@ -201,7 +177,6 @@ public class ModBlocks {
 
     public static final Map<String, VaultCrateBlock> CUSTOM_VAULT_CRATES = new HashMap<>();
 
->>>>>>> upstream/master
 
     static {
         INFUSED_DRIFTWOOD_PLANKS = new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS));
@@ -239,16 +214,6 @@ public class ModBlocks {
         POG_BLOCK = new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK));
         GATEWAY_CHANNELING_BLOCK = new GatewayChannelingBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK));
         FRACTURED_OBELISK = new FracturedObelisk();
-<<<<<<< HEAD
-        VAULT_CRATE_CORRUPTED = new VaultCrateBlock();
-        VAULT_CRATE_ALCHEMY = new VaultCrateBlock();
-        MONOLITH_CONTROLLER = new MonolithControllerBlock();
-        BREWING_ALTAR = new BrewingAltar();
-        WUTODIE_SLAB = new VaultGemSlabBlock(ModItems.WUTODIE_GEM);
-        WUTODIE_WALL = new VaultGemWallBlock(ModItems.WUTODIE_GEM);
-        WUTODIE_STAIRS = new VaultGemStairsBlock(ModItems.WUTODIE_GEM);
-        DOLL_DISMANTLING_BLOCK = new DollDismantlingBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1.0F).sound(SoundType.METAL).noOcclusion().requiresCorrectToolForDrops(), DollDismantlingBlock.DOLL_DISMANTLING_SHAPE);
-=======
         MONOLITH_CONTROLLER = new MonolithControllerBlock();
         BREWING_ALTAR = new BrewingAltar();
         SURVIVAL_OBJECTIVE_BLOCK = new SurvivalObjectiveBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK));
@@ -260,7 +225,6 @@ public class ModBlocks {
         CRATE_CRACKER_BLOCK = new CrateCrackerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1.0F).sound(SoundType.METAL).noOcclusion().requiresCorrectToolForDrops(), CrateCrackerBlock.CRATE_CRACKER_SHAPE);
         CONFIGURABLE_FLOATING_TEXT_BLOCK = new ConfigurableFloatingTextBlock();
         TIME_TRIAL_TROPHY_BLOCK = new TimeTrialTrophyBlock(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK));
->>>>>>> upstream/master
         VAULT_SALVAGER_ENTITY = BlockEntityType.Builder.of(VaultSalvagerTileEntity::new, VAULT_SALVAGER_BLOCK).build(null);
         ISKALLIAN_LEAVES_TILE_ENTITY_BLOCK_ENTITY_TYPE = BlockEntityType.Builder.of(IskallianLeavesTileEntity::new, ISKALLIAN_LEAVES_BLOCK).build(null);
         HELLISH_SAND_TILE_ENTITY_BLOCK_ENTITY_TYPE = BlockEntityType.Builder.of(HellishSandTileEntity::new, HELLISH_SAND_BLOCK).build(null);
@@ -280,9 +244,6 @@ public class ModBlocks {
         MONOLITH_CONTROLLER_BLOCK_ENTITY_TYPE = BlockEntityType.Builder.of(MonolithControllerTileEntity::new, MONOLITH_CONTROLLER).build(null);
         WEAVING_STATION_TILE_ENTITY_BLOCK_ENTITY_TYPE = BlockEntityType.Builder.of(WeavingStationTileEntity::new, new Block[]{WEAVING_STATION}).build(null);
         BREWING_ALTAR_TILE_ENTITY_BLOCK_ENTITY_TYPE = BlockEntityType.Builder.of(BrewingAltarTileEntity::new, new Block[]{BREWING_ALTAR}).build(null);
-<<<<<<< HEAD
-        DOLL_DISMANTLING_TILE_ENTITY_BLOCK_ENTITY_TYPE = BlockEntityType.Builder.of(DollDismantlingTileEntity::new, new Block[]{DOLL_DISMANTLING_BLOCK}).build(null);
-=======
         VAULT_EVENT_ACTIVATOR_TILE_ENTITY_BLOCK_ENTITY_TYPE = BlockEntityType.Builder.of(VaultEventActivatorTileEntity::new, new Block[]{SURVIVAL_OBJECTIVE_BLOCK}).build(null);
         DOLL_DISMANTLING_TILE_ENTITY_BLOCK_ENTITY_TYPE = BlockEntityType.Builder.of(DollDismantlingTileEntity::new, new Block[]{DOLL_DISMANTLING_BLOCK}).build(null);
         CRATE_CRACKER_TILE_ENTITY_BLOCK_ENTITY_TYPE = BlockEntityType.Builder.of(CrateCrackerTileEntity::new, new Block[]{CRATE_CRACKER_BLOCK}).build(null);
@@ -351,7 +312,6 @@ public class ModBlocks {
         WENDARR_JEWEL_BLOCK_SLAB = new SlabBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_BRICK_STAIRS));
         WENDARR_JEWEL_BLOCK_STAIRS = new StairBlock(iskallia.vault.init.ModBlocks.WENDARR_JEWEL_BLOCK.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_BRICK_STAIRS));
 
->>>>>>> upstream/master
     }
 
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -389,11 +349,6 @@ public class ModBlocks {
         registerBlock(event, GATEWAY_CHANNELING_BLOCK, WoldsVaults.id("gateway_channeling_block"));
         registerBlock(event, ETCHING_PEDESTAL, WoldsVaults.id("etching_shop_pedestal"));
         registerBlock(event, FRACTURED_OBELISK, WoldsVaults.id("fractured_obelisk"));
-<<<<<<< HEAD
-        registerBlock(event, VAULT_CRATE_CORRUPTED, WoldsVaults.id("vault_crate_corrupt"));
-        registerBlock(event, VAULT_CRATE_ALCHEMY, WoldsVaults.id("vault_crate_alchemy"));
-=======
->>>>>>> upstream/master
         registerBlock(event, MONOLITH_CONTROLLER, WoldsVaults.id("monolith_controller"));
         registerBlock(event, BLACKSMITH_VENDOR_PEDESTAL, WoldsVaults.id("blacksmith_shop_pedestal"));
         registerBlock(event, RARE_VENDOR_PEDESTAL, WoldsVaults.id("rare_shop_pedestal"));
@@ -404,10 +359,6 @@ public class ModBlocks {
         registerBlock(event, WUTODIE_SLAB, VaultMod.id("block_gem_wutodie_slab"));
         registerBlock(event, WUTODIE_STAIRS, VaultMod.id("block_gem_wutodie_stairs"));
         registerBlock(event, WUTODIE_WALL, VaultMod.id("block_gem_wutodie_wall"));
-<<<<<<< HEAD
-        registerBlock(event, BREWING_ALTAR, WoldsVaults.id("brewing_altar"));
-        registerBlock(event, DOLL_DISMANTLING_BLOCK, WoldsVaults.id("doll_dismantler"));
-=======
         registerBlock(event, WUTODIE, VaultMod.id("block_gem_wutodie"));
         registerBlock(event, BREWING_ALTAR, WoldsVaults.id("brewing_altar"));
         registerBlock(event, SURVIVAL_OBJECTIVE_BLOCK, WoldsVaults.id("survival_objective_block"));
@@ -471,7 +422,6 @@ public class ModBlocks {
         registerBlock(event, WENDARR_GEM_BLOCK_STAIRS, WoldsVaults.id("wendarr_gem_block_stairs"));
         registerBlock(event, WENDARR_JEWEL_BLOCK_SLAB, WoldsVaults.id("wendarr_jewel_block_slab"));
         registerBlock(event, WENDARR_JEWEL_BLOCK_STAIRS, WoldsVaults.id("wendarr_jewel_block_stairs"));
->>>>>>> upstream/master
 
     }
 
@@ -494,15 +444,11 @@ public class ModBlocks {
         registerTileEntity(event, FRACTURED_OBELISK_TILE_ENTITY_BLOCK_ENTITY_TYPE, WoldsVaults.id("fractured_obelisk_tile_entity"));
         registerTileEntity(event, MONOLITH_CONTROLLER_BLOCK_ENTITY_TYPE, WoldsVaults.id("monolith_controller_tile_entity"));
         registerTileEntity(event, BREWING_ALTAR_TILE_ENTITY_BLOCK_ENTITY_TYPE, WoldsVaults.id("brewing_altar_tile_entity"));
-<<<<<<< HEAD
-        registerTileEntity(event, DOLL_DISMANTLING_TILE_ENTITY_BLOCK_ENTITY_TYPE, WoldsVaults.id("doll_dismantler_tile_entity"));
-=======
         registerTileEntity(event, VAULT_EVENT_ACTIVATOR_TILE_ENTITY_BLOCK_ENTITY_TYPE, WoldsVaults.id("vault_event_activator_tile_entity"));
         registerTileEntity(event, DOLL_DISMANTLING_TILE_ENTITY_BLOCK_ENTITY_TYPE, WoldsVaults.id("doll_dismantler_tile_entity"));
         registerTileEntity(event, CRATE_CRACKER_TILE_ENTITY_BLOCK_ENTITY_TYPE, WoldsVaults.id("crate_cracker_tile_entity"));
         registerTileEntity(event, CONFIGURABLE_FLOATING_TEXT_TILE_ENTITY, WoldsVaults.id("configurable_floating_text_entity"));
         registerTileEntity(event, TIME_TRIAL_TROPHY_BLOCK_ENTITY_BLOCK_ENTITY_TYPE, WoldsVaults.id("time_trial_trophy_entity"));
->>>>>>> upstream/master
     }
 
     public static void registerBlockItems(RegistryEvent.Register<Item> event) {
@@ -544,17 +490,6 @@ public class ModBlocks {
         registerBlockItem(event, POG_BLOCK, 64, properties -> properties.tab(ModCreativeTabs.WOLDS_VAULTS));
         registerBlockItem(event, VAULT_PALLADIUM_PILE, VAULT_PALLADIUM);
         registerBlockItem(event, VAULT_IRIDIUM_PILE, VAULT_IRIDIUM);
-<<<<<<< HEAD
-        registerBlockItem(event, FRACTURED_OBELISK);
-        registerBlockItem(event, VAULT_CRATE_CORRUPTED, 1, Item.Properties::fireResistant);
-        registerBlockItem(event, VAULT_CRATE_ALCHEMY, 1, Item.Properties::fireResistant);
-        registerBlockItem(event, MONOLITH_CONTROLLER);
-        registerBlockItem(event, WUTODIE_STAIRS);
-        registerBlockItem(event, WUTODIE_SLAB);
-        registerBlockItem(event, WUTODIE_WALL);
-        registerBlockItem(event, BREWING_ALTAR);
-        registerBlockItem(event, DOLL_DISMANTLING_BLOCK);
-=======
         registerBlockItem(event, FRACTURED_OBELISK, 64, properties -> properties.tab(ModCreativeTabs.WOLDS_VAULTS));
         registerBlockItem(event, MONOLITH_CONTROLLER, 64, properties -> properties.tab(ModCreativeTabs.WOLDS_VAULTS));
         registerBlockItem(event, WUTODIE_STAIRS, 64, properties -> properties.tab(ModItems.VAULT_DECOR_GROUP));
@@ -622,7 +557,6 @@ public class ModBlocks {
         registerBlockItem(event, IDONA_LIGHT_SMOOTH_BRICKS_STAIRS, 64, properties -> properties.tab(ModItems.VAULT_DECOR_GROUP));
         registerBlockItem(event, IDONA_GEM_BLOCK_STAIRS, 64, properties -> properties.tab(ModItems.VAULT_DECOR_GROUP));
         registerBlockItem(event, IDONA_GEM_BLOCK_SLAB, 64, properties -> properties.tab(ModItems.VAULT_DECOR_GROUP));
->>>>>>> upstream/master
     }
 
     public static void registerTileEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
@@ -632,15 +566,10 @@ public class ModBlocks {
         event.registerBlockEntityRenderer(FRACTURED_OBELISK_TILE_ENTITY_BLOCK_ENTITY_TYPE, FracturedObeliskRenderer::new);
         event.registerBlockEntityRenderer(MONOLITH_CONTROLLER_BLOCK_ENTITY_TYPE, MonolithControllerRenderer::new);
         event.registerBlockEntityRenderer(BREWING_ALTAR_TILE_ENTITY_BLOCK_ENTITY_TYPE, BrewingAltarRenderer::new);
-<<<<<<< HEAD
-        event.registerBlockEntityRenderer(DOLL_DISMANTLING_TILE_ENTITY_BLOCK_ENTITY_TYPE, DollDismantlingRenderer::new);
-        //event.registerBlockEntityRenderer(DECO_LODESTONE_TILE_ENTITY_BLOCK_ENTITY_TYPE, DecoLodestoneRenderer::new);
-=======
         event.registerBlockEntityRenderer(VAULT_EVENT_ACTIVATOR_TILE_ENTITY_BLOCK_ENTITY_TYPE, VaultEventActivatorRenderer::new);
         event.registerBlockEntityRenderer(DOLL_DISMANTLING_TILE_ENTITY_BLOCK_ENTITY_TYPE, DollDismantlingRenderer::new);
         event.registerBlockEntityRenderer(CONFIGURABLE_FLOATING_TEXT_TILE_ENTITY, ConfigurableFloatingTextRenderer::new);
         event.registerBlockEntityRenderer(CRATE_CRACKER_TILE_ENTITY_BLOCK_ENTITY_TYPE, CrateCrackerRenderer::new);
->>>>>>> upstream/master
     }
 
 

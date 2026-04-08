@@ -9,34 +9,21 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-<<<<<<< HEAD
-import xyz.iwolfking.woldsvaults.api.helper.GameruleHelper;
-import xyz.iwolfking.woldsvaults.api.helper.VaultGodAffinityHelper;
-=======
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xyz.iwolfking.woldsvaults.api.util.GameruleHelper;
 import xyz.iwolfking.woldsvaults.api.util.VaultGodAffinityHelper;
->>>>>>> upstream/master
 import xyz.iwolfking.woldsvaults.init.ModGameRules;
 
 @Mixin(value = PlayerReputationData.class, remap = false)
 public class MixinPlayerReputationData {
     @Inject(method = "attemptFavour", at = @At("HEAD"), cancellable = true)
-<<<<<<< HEAD
-    private static void returnOldFavourHandling(Player player, VaultGod god, CallbackInfo ci) {
-=======
     private static void returnOldFavourHandling(Player player, VaultGod god, CallbackInfoReturnable<Integer> cir) {
->>>>>>> upstream/master
         if(GameruleHelper.isEnabled(ModGameRules.ENABLE_OLD_AFFINITY_HANDLING, player.getLevel())) {
             float chance = VaultGodAffinityHelper.getAffinityPercent(player, god);
             if (!(player.getRandom().nextFloat() + 0.5F <= chance)) {
                 Component msg = new TextComponent("The god was not interested enough in you!").withStyle(god.getChatColor());
                 player.displayClientMessage(msg, true);
-<<<<<<< HEAD
-                ci.cancel();
-=======
                 cir.setReturnValue(0);
->>>>>>> upstream/master
             }
         }
     }

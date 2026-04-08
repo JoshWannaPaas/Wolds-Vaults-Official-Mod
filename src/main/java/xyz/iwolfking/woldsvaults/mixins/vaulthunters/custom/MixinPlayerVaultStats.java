@@ -5,10 +5,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import dev.ftb.mods.ftbquests.quest.ServerQuestFile;
 import dev.ftb.mods.ftbquests.quest.TeamData;
 import iskallia.vault.config.VaultLevelsConfig;
-<<<<<<< HEAD
-=======
 import iskallia.vault.init.ModConfigs;
->>>>>>> upstream/master
 import iskallia.vault.skill.PlayerVaultStats;
 import iskallia.vault.skill.base.Skill;
 import iskallia.vault.skill.expertise.type.ExperiencedExpertise;
@@ -23,11 +20,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import xyz.iwolfking.woldsvaults.WoldsVaults;
-<<<<<<< HEAD
-import xyz.iwolfking.woldsvaults.data.discovery.DiscoveredRecipesData;
-=======
 import xyz.iwolfking.woldsvaults.api.data.discovery.DiscoveredRecipesData;
->>>>>>> upstream/master
 import xyz.iwolfking.woldsvaults.integration.ftbquests.tasks.VaultLevelTask;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -44,60 +37,15 @@ public abstract class MixinPlayerVaultStats {
     @Shadow private int vaultLevel;
     @Shadow @Final private UUID uuid;
 
-<<<<<<< HEAD
-=======
     @Shadow
     public abstract int getVaultUncappedLevel();
 
->>>>>>> upstream/master
     @Redirect(method = "addVaultExp", at = @At(value = "INVOKE", target = "Liskallia/vault/config/VaultLevelsConfig;getExpMultiplier()F"))
     private float addExperiencedExpertiseMultiplier(VaultLevelsConfig instance, @Local MinecraftServer server) {
         ServerPlayer player = server.getPlayerList().getPlayer(this.uuid);
         if(player == null) {
             return instance.getExpMultiplier();
         }
-<<<<<<< HEAD
-
-        ExpertiseTree expertises = PlayerExpertisesData.get(player.getLevel()).getExpertises(player);
-        float increase = 0.0F;
-        for (ExperiencedExpertise expertise1 : expertises.getAll(ExperiencedExpertise.class, Skill::isUnlocked)) {
-            increase += expertise1.getIncreasedExpPercentage();
-        }
-
-        return instance.getExpMultiplier() + increase;
-    }
-
-    @Inject(method = "addVaultExp", at = @At(value = "INVOKE", target = "Liskallia/vault/core/event/common/VaultLevelUpEvent;invoke(Lnet/minecraft/server/level/ServerPlayer;III)Liskallia/vault/core/event/common/VaultLevelUpEvent$Data;"))
-    private void progressFTBQuestsTasks(MinecraftServer server, int exp, CallbackInfo ci, @Local ServerPlayer player) {
-        if(player.getServer() != null && this.vaultLevel >= 75 && !DiscoveredRecipesData.get(player.getServer()).hasDiscovered(player, WoldsVaults.id("standard_trinket_pouch"))) {
-            DiscoveredRecipesData.get(player.getServer()).discoverRecipeAndBroadcast(WoldsVaults.id("standard_trinket_pouch"), player);
-        }
-
-        woldsVaults$vaultLevelTaskProgress(player, this.vaultLevel);
-    }
-
-
-    @Unique
-    private List<VaultLevelTask> woldsVaults$levelTasks = null;
-
-
-    @Unique
-    public void woldsVaults$vaultLevelTaskProgress(Player player, int newLevel) {
-        if (woldsVaults$levelTasks == null) {
-            woldsVaults$levelTasks = ServerQuestFile.INSTANCE.collect(VaultLevelTask.class);
-        }
-
-        if (woldsVaults$levelTasks.isEmpty()) {
-            return;
-        }
-
-        TeamData data = ServerQuestFile.INSTANCE.getData(player);
-
-        for (VaultLevelTask task : woldsVaults$levelTasks) {
-            if (data.getProgress(task) < task.getMaxProgress() && data.canStartTasks(task.quest)) {
-                data.setProgress(task, newLevel);
-            }
-=======
 
         ExpertiseTree expertises = PlayerExpertisesData.get(player.getLevel()).getExpertises(player);
         float increase = 0.0F;
@@ -150,7 +98,6 @@ public abstract class MixinPlayerVaultStats {
     public int getExpNeededToNextLevel() {
         if(this.getVaultLevel() < 100) {
             return ModConfigs.LEVELS_META.getLevelMeta(this.vaultLevel).tnl;
->>>>>>> upstream/master
         }
 
         return (int) (ModConfigs.LEVELS_META.getPrestigeTnl() + (ModConfigs.LEVELS_META.getPrestigeTnl() * (this.getVaultUncappedLevel() * 0.005F)));

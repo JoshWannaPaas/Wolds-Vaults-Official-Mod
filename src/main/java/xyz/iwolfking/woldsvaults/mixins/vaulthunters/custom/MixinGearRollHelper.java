@@ -10,21 +10,12 @@ import iskallia.vault.gear.item.VaultGearItem;
 import iskallia.vault.gear.modification.GearModification;
 import iskallia.vault.init.ModConfigs;
 import iskallia.vault.init.ModGearAttributes;
-<<<<<<< HEAD
-import iskallia.vault.item.gear.CharmItem;
-import iskallia.vault.item.gear.EtchingItem;
-import iskallia.vault.item.gear.VaultArmorItem;
-=======
 import iskallia.vault.item.gear.*;
->>>>>>> upstream/master
 import iskallia.vault.item.tool.JewelItem;
 import iskallia.vault.skill.base.Skill;
 import iskallia.vault.skill.tree.ExpertiseTree;
 import iskallia.vault.world.data.PlayerExpertisesData;
-<<<<<<< HEAD
-=======
 import net.minecraft.network.chat.TextComponent;
->>>>>>> upstream/master
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -44,10 +35,8 @@ import xyz.iwolfking.woldsvaults.api.util.WoldGearModifierHelper;
 import xyz.iwolfking.woldsvaults.expertises.CraftsmanExpertise;
 import xyz.iwolfking.woldsvaults.expertises.EclecticGearExpertise;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 @Mixin(value = GearRollHelper.class, remap = false)
 public class MixinGearRollHelper {
@@ -86,11 +75,7 @@ public class MixinGearRollHelper {
         }
 
         if(data.getFirstValue(xyz.iwolfking.woldsvaults.init.ModGearAttributes.IS_ETCHED).orElse(false) && stack.getItem() instanceof VaultGearItem gearItem) {
-<<<<<<< HEAD
-            //woldsvaults$addRandomEtchingEntry(data, gearItem, stack);
-=======
             woldsvaults$addRandomEtchingEntry(data, gearItem, stack);
->>>>>>> upstream/master
         }
 
         if(!data.getFirstValue(ModGearAttributes.IS_LOOT).orElse(false)) {
@@ -107,7 +92,6 @@ public class MixinGearRollHelper {
         }
 
         int itemLevel = data.getItemLevel();
-
 
         //Randomly add a corrupted implicit
         if(itemLevel >= 65 && rand.nextFloat() <= 0.02F + increasedSpecialRollsChance) {
@@ -190,28 +174,13 @@ public class MixinGearRollHelper {
             boolean allowed = groups.stream().anyMatch(g -> ModConfigs.ETCHINGS.getGroup(g).contains(type));
             if(!allowed) {
                 woldsvaults$addRandomEtchingEntry(data, gear, gearStack);
-<<<<<<< HEAD
-=======
                 return;
->>>>>>> upstream/master
             }
         }
 
         ItemStack etchingStack = EtchingItem.create(etchingId, etchingEntry, new Random(), data.getItemLevel()).orElse(ItemStack.EMPTY);
-<<<<<<< HEAD
-        if(etchingStack.isEmpty()) {
-            return;
-        }
-
-        VaultGearData etchingData = VaultGearData.read(etchingStack);
-
-        data.createOrReplaceAttributeValue(ModGearAttributes.ETCHING, etchingId);
-        etchingData.getModifiers(VaultGearModifier.AffixType.IMPLICIT).forEach(modifier -> data.addModifier(VaultGearModifier.AffixType.IMPLICIT, modifier));
-        data.write(gearStack);
-=======
 
         WoldGearModifierHelper.addEtching(gearStack, etchingStack);
->>>>>>> upstream/master
     }
 
     @Unique
