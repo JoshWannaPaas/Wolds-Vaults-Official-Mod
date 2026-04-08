@@ -35,13 +35,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.AABB;
-import net.minecraftforge.fml.loading.LoadingModList;
-import xyz.iwolfking.woldsvaults.api.helper.NormalizedHelper;
-import xyz.iwolfking.woldsvaults.config.forge.WoldsVaultsConfig;
-import xyz.iwolfking.woldsvaults.init.ModItems;
+import xyz.iwolfking.woldsvaults.api.util.ObjectiveHelper;
+import xyz.iwolfking.woldsvaults.api.util.SigilUtils;
 import xyz.iwolfking.woldsvaults.objectives.data.BrutalBossesRegistry;
 import xyz.iwolfking.woldsvaults.objectives.data.bosses.WoldBoss;
-import xyz.iwolfking.woldsvaults.util.VaultModifierUtils;
 
 import javax.annotation.Nullable;
 import java.util.*;
@@ -68,13 +65,20 @@ public class BrutalBossesObjective extends ObeliskObjective {
 
     @Override
     public void initServer(VirtualWorld world, Vault vault) {
+<<<<<<< HEAD
         NormalizedHelper.handleAddingNormalizedToVault(vault, world);
+=======
+        ObjectiveHelper.handleAddingNormalizedToVault(vault, world);
+>>>>>>> upstream/master
 
         CommonEvents.OBJECTIVE_PIECE_GENERATION.register(this, (data) -> {
                 this.ifPresent(OBJECTIVE_PROBABILITY, (probability) -> {
                     data.setProbability((double)probability);
                 });
         });
+
+        SigilUtils.addStacksFromSigil(vault);
+
 
 
         CommonEvents.BLOCK_USE.in(world).at(BlockUseEvent.Phase.HEAD).of(ModBlocks.OBELISK).register(this, (data) -> {

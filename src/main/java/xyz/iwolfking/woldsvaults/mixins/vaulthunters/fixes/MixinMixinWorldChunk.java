@@ -1,11 +1,13 @@
 package xyz.iwolfking.woldsvaults.mixins.vaulthunters.fixes;
 
 import iskallia.vault.block.*;
+import iskallia.vault.block.base.IAllowZone;
 import iskallia.vault.core.world.storage.IZonedWorld;
 import iskallia.vault.core.world.storage.WorldZone;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.WebBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.LevelChunk;
 import org.spongepowered.asm.mixin.Mixin;
@@ -24,7 +26,11 @@ public abstract class MixinMixinWorldChunk {
     private void setBlockState(BlockPos pos, BlockState state, boolean isMoving, CallbackInfoReturnable<BlockState> ci) {
         if (!this.getLevel().isClientSide()) {
             Block block = getLevel().getBlockState(pos).getBlock();
+<<<<<<< HEAD
             if(block instanceof TotemBlock || block instanceof VaultChestBlock || block instanceof CoinPileBlock || block instanceof WildSpawnerBlock || block instanceof CustomEntitySpawnerBlock || block instanceof LandmineBlock) {
+=======
+            if(block instanceof TotemBlock || block instanceof VaultChestBlock || block instanceof CoinPileBlock || block instanceof WildSpawnerBlock || block instanceof CustomEntitySpawnerBlock || block instanceof WebBlock || block instanceof IAllowZone) {
+>>>>>>> upstream/master
                 return;
             }
             IZonedWorld proxy = IZonedWorld.of(this.getLevel()).orElse(null);

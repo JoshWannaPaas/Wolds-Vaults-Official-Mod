@@ -12,7 +12,10 @@ import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
+<<<<<<< HEAD
 import xyz.iwolfking.woldsvaults.gui.server.ClaimBlockCategoryGui;
+=======
+>>>>>>> upstream/master
 
 public class FixMythicCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {

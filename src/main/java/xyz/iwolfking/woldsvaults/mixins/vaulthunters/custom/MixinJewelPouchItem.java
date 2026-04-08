@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = JewelPouchItem.class, remap = false)
 public abstract class MixinJewelPouchItem {
+<<<<<<< HEAD
     @Inject(method = "use", at = @At("HEAD"), cancellable = true, remap = true)
     private void alwaysInstantOpen(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
         ItemStack stack = player.getItemInHand(hand);
@@ -37,4 +38,7 @@ public abstract class MixinJewelPouchItem {
     private static boolean instantOpen(@NotNull Player player, ItemStack jewelPouch, boolean playEffects) {
         return false;
     }
+=======
+
+>>>>>>> upstream/master
 }

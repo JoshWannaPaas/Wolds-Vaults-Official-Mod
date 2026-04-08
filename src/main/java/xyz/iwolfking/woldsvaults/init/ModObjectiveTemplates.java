@@ -12,6 +12,10 @@ import xyz.iwolfking.woldsvaults.blocks.FracturedObelisk;
 public class ModObjectiveTemplates {
     public static DynamicTemplate CORRUPTED_OBJECTIVE_TEMPLATE;
     public static DynamicTemplate ALCHEMY_OBJECTIVE_TEMPLATE;
+<<<<<<< HEAD
+=======
+    public static DynamicTemplate SURVIVAL_OBJECTIVE_TEMPLATE;
+>>>>>>> upstream/master
 
     private static DynamicTemplate createDynamicTemplate(BlockPos pos, BlockState state) {
         DynamicTemplate template = new DynamicTemplate();
@@ -32,5 +36,9 @@ public class ModObjectiveTemplates {
     static {
         CORRUPTED_OBJECTIVE_TEMPLATE = createDynamicTemplate(new BlockPos[]{new BlockPos(0, 0, 0), new BlockPos(0, 1, 0)}, new BlockState[]{ModBlocks.FRACTURED_OBELISK.defaultBlockState().setValue(FracturedObelisk.HALF, DoubleBlockHalf.LOWER), ModBlocks.FRACTURED_OBELISK.defaultBlockState().setValue(FracturedObelisk.HALF, DoubleBlockHalf.UPPER)});
         ALCHEMY_OBJECTIVE_TEMPLATE = createDynamicTemplate(new BlockPos(0, 0, 0), ModBlocks.BREWING_ALTAR.defaultBlockState());
+<<<<<<< HEAD
+=======
+        SURVIVAL_OBJECTIVE_TEMPLATE = createDynamicTemplate(new BlockPos(0, 0, 0), ModBlocks.SURVIVAL_OBJECTIVE_BLOCK.defaultBlockState());
+>>>>>>> upstream/master
     }
 }

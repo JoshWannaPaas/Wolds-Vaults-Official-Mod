@@ -17,6 +17,11 @@ public class ModSounds {
 
     public static SoundEvent BLENDER;
 
+<<<<<<< HEAD
+=======
+    public static SoundEvent HATURKIN_GOBBLE;
+
+>>>>>>> upstream/master
 
 
     public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
@@ -27,6 +32,10 @@ public class ModSounds {
         DARK = registerSound(event, "dark");
         OMINOUS_AMBIENCE = registerSound(event, "ominous_ambience");
         BLENDER = registerSound(event, "blender");
+<<<<<<< HEAD
+=======
+        HATURKIN_GOBBLE = registerSound(event, "haturkin_gobble");
+>>>>>>> upstream/master
     }
 
     private static SoundEvent registerSound(RegistryEvent.Register<SoundEvent> event, String soundName) {

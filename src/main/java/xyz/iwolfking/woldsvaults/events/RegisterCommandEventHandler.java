@@ -1,15 +1,25 @@
 package xyz.iwolfking.woldsvaults.events;
 
 import net.minecraftforge.event.RegisterCommandsEvent;
+<<<<<<< HEAD
 import xyz.iwolfking.woldsvaults.commands.ClaimPurchaseCommand;
 import xyz.iwolfking.woldsvaults.commands.FixMythicCommand;
 import xyz.iwolfking.woldsvaults.commands.VaultTeamCommand;
+=======
+import xyz.iwolfking.woldsvaults.commands.*;
+import xyz.iwolfking.woldsvaults.menu.PlayerResearchesGui;
+>>>>>>> upstream/master
 
 public class RegisterCommandEventHandler {
     public static void woldsvaults_registerCommandsEvent(RegisterCommandsEvent event) {
-        //PlayerResearchCommand.register(event.getDispatcher());
         ClaimPurchaseCommand.register(event.getDispatcher());
         VaultTeamCommand.register(event.getDispatcher());
         FixMythicCommand.register(event.getDispatcher());
+<<<<<<< HEAD
+=======
+        TimeTrialCommand.register(event.getDispatcher());
+        TriggerVaultEventCommand.register(event.getDispatcher());
+        ResearchMenuCommand.register(event.getDispatcher());
+>>>>>>> upstream/master
     }
 }

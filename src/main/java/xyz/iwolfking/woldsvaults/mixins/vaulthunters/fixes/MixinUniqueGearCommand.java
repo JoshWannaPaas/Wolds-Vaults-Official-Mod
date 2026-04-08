@@ -1,28 +1,28 @@
 package xyz.iwolfking.woldsvaults.mixins.vaulthunters.fixes;
 
-import iskallia.vault.command.GearDebugCommand;
+import iskallia.vault.command.Command;
+import iskallia.vault.command.give.GiveCommand;
 import iskallia.vault.config.UniqueGearConfig;
 import iskallia.vault.core.util.WeightedList;
 import iskallia.vault.init.ModConfigs;
-import iskallia.vault.init.ModItems;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xyz.iwolfking.vhapi.api.util.ResourceLocUtils;
+import xyz.iwolfking.woldsvaults.WoldsVaults;
 
 import java.util.Map;
 import java.util.Optional;
 
-@Mixin(value = GearDebugCommand.class, remap = false)
-public class MixinUniqueGearCommand {
+@Mixin(value = GiveCommand.class, remap = false)
+public abstract class MixinUniqueGearCommand extends Command {
     @Inject(method = "findPoolForUniqueItem", at = @At("HEAD"), cancellable = true)
     private void fixUniqueNameHandling(ResourceLocation uniqueId, CallbackInfoReturnable<ResourceLocation> cir) {
         Map<ResourceLocation, WeightedList<ResourceLocation>> pools = ModConfigs.UNIQUE_GEAR.getPools();
-        ResourceLocation dedicatedPool = new ResourceLocation("woldsvaults", uniqueId.getPath());
+        ResourceLocation dedicatedPool = WoldsVaults.id(uniqueId.getPath());
         if (pools.containsKey(dedicatedPool)) {
             cir.setReturnValue(dedicatedPool);
         }
@@ -39,6 +39,7 @@ public class MixinUniqueGearCommand {
 
         return ModConfigs.UNIQUE_GEAR.getEntry(id);
     }
+<<<<<<< HEAD
 
     @Inject(method = "determineItemStackForUnique", at = @At("HEAD"), cancellable = true)
     private void addAdditionalItemStacksForUniques(UniqueGearConfig.Entry uniqueEntry, CallbackInfoReturnable<ItemStack> cir) {
@@ -68,4 +69,6 @@ public class MixinUniqueGearCommand {
             }
         }
     }
+=======
+>>>>>>> upstream/master
 }

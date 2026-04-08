@@ -1,0 +1,45 @@
+{
+  "excludeFromTooltip": [],
+  "info": {
+    "the_vault:dungeon_boss": {
+      "display": "Dungeon Boss",
+      "lootTableKeys": {
+        "the_vault:dungeon_boss": {
+          "level": 0
+        }
+      }
+    },
+    "the_vault:cardboard_box": {
+      "display": "Cardboard Box",
+      "lootTableKeys": {
+        "the_vault:cardboard_box": {
+          "level": 0
+        }
+      }
+    },
+    "the_vault:cardboard_box_dull": {
+      "display": "Cardboard Box (Dull)",
+      "lootTableKeys": {
+        "the_vault:cardboard_box_dull": {
+          "level": 0
+        }
+      }
+    },
+    "the_vault:treasure_pillar": {
+      "display": "Treasure Pillar",
+      "lootTableKeys": {
+        "the_vault:treasure_pillar": {
+          "level": 0
+        }
+      }
+    },
+    "the_vault:dungeon_mobs": {
+      "display": "Dungeon Mobs",
+      "lootTableKeys": {
+        "the_vault:dungeon_mobs": {
+          "level": 0
+        }
+      }
+    }
+  }
+}

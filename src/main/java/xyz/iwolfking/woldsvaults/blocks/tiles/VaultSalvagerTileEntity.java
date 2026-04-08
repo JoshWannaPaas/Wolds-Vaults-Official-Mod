@@ -1,13 +1,14 @@
 package xyz.iwolfking.woldsvaults.blocks.tiles;
 
 import com.google.common.collect.Lists;
-import iskallia.vault.block.entity.VaultRecyclerTileEntity;
 import iskallia.vault.config.VaultRecyclerConfig;
 import iskallia.vault.gear.VaultGearRarity;
+import iskallia.vault.gear.attribute.type.VaultGearAttributeTypeMerger;
 import iskallia.vault.gear.data.VaultGearData;
 import iskallia.vault.gear.item.VaultGearItem;
 import iskallia.vault.init.ModConfigs;
 import iskallia.vault.init.ModGearAttributes;
+import iskallia.vault.init.ModItems;
 import iskallia.vault.init.ModNetwork;
 import iskallia.vault.item.gear.RecyclableItem;
 import iskallia.vault.network.message.RecyclerParticleMessage;
@@ -39,7 +40,7 @@ import net.minecraftforge.network.PacketDistributor;
 import xyz.iwolfking.vhapi.api.data.api.CustomRecyclerOutputs;
 import xyz.iwolfking.woldsvaults.blocks.containers.VaultSalvagerContainer;
 import xyz.iwolfking.woldsvaults.init.ModBlocks;
-import xyz.iwolfking.woldsvaults.lib.SimpleOversizedSidedContainer;
+import xyz.iwolfking.woldsvaults.api.lib.SimpleOversizedSidedContainer;
 
 import javax.annotation.Nullable;
 import java.util.Arrays;
@@ -101,13 +102,21 @@ public class VaultSalvagerTileEntity extends BlockEntity implements MenuProvider
             if (input.getItem() instanceof VaultGearItem) {
                 VaultGearData data = VaultGearData.read(input);
                 VaultGearRarity rarity = data.getRarity();
+                if (rarity == VaultGearRarity.UNIQUE) {
+                    this.inventory.removeItem(0, 1);
+                    MiscUtils.addStackToSlot(this.inventory, 1, new ItemStack(ModItems.UNIQUE_SHARD, 1));
+                    ModNetwork.CHANNEL.send(PacketDistributor.ALL.noArg(), new RecyclerParticleMessage(this.getBlockPos()));
+                    return;
+                }
                 boolean isCrafted = data.hasAttribute(ModGearAttributes.CRAFTED_BY) || data.getFirstValue(ModGearAttributes.CRAFTED_BY).isPresent();
+                boolean isLegendary = data.get(ModGearAttributes.IS_LEGENDARY, VaultGearAttributeTypeMerger.anyTrue());
                 additionalChance = ModConfigs.VAULT_RECYCLER.getAdditionalOutputRarityChance(rarity);
                 this.inventory.removeItem(0, 1);
 
                 MiscUtils.addStackToSlot(this.inventory, 1, this.getUseRelatedOutput(input, output.generateMainOutput(additionalChance)));
-                MiscUtils.addStackToSlot(this.inventory, 2, this.getUseRelatedOutput(input, output.generateExtraOutput1(additionalChance, rarity, isCrafted)));
+                MiscUtils.addStackToSlot(this.inventory, 2, this.getUseRelatedOutput(input, output.generateExtraOutput1(input, additionalChance, rarity, isCrafted, isLegendary)));
                 if(MiscUtils.canFullyMergeIntoSlot(this.inventory, 3, output.getExtraOutput2Matching())) {
+<<<<<<< HEAD
                     MiscUtils.addStackToSlot(this.inventory, 3, this.getUseRelatedOutput(input, output.generateExtraOutput2(additionalChance, rarity, isCrafted)));
                 }
                 else if(MiscUtils.canFullyMergeIntoSlot(this.inventory, 4, output.getExtraOutput2Matching())) {
@@ -127,33 +136,54 @@ public class VaultSalvagerTileEntity extends BlockEntity implements MenuProvider
                 }
                 else {
                     MiscUtils.addStackToSlot(this.inventory, 9, this.getUseRelatedOutput(input, output.generateExtraOutput2(additionalChance, rarity, isCrafted)));
+=======
+                    MiscUtils.addStackToSlot(this.inventory, 3, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance, rarity, isCrafted, isLegendary)));
+                }
+                else if(MiscUtils.canFullyMergeIntoSlot(this.inventory, 4, output.getExtraOutput2Matching())) {
+                    MiscUtils.addStackToSlot(this.inventory, 4, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance, rarity, isCrafted, isLegendary)));
+                }
+                else if(MiscUtils.canFullyMergeIntoSlot(this.inventory, 5, output.getExtraOutput2Matching())) {
+                    MiscUtils.addStackToSlot(this.inventory, 5, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance, rarity, isCrafted, isLegendary)));
+                }
+                else if(MiscUtils.canFullyMergeIntoSlot(this.inventory, 6, output.getExtraOutput2Matching())) {
+                    MiscUtils.addStackToSlot(this.inventory, 6, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance, rarity, isCrafted, isLegendary)));
+                }
+                else if(MiscUtils.canFullyMergeIntoSlot(this.inventory, 7, output.getExtraOutput2Matching())) {
+                    MiscUtils.addStackToSlot(this.inventory, 7, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance, rarity, isCrafted, isLegendary)));
+                }
+                else if(MiscUtils.canFullyMergeIntoSlot(this.inventory, 8, output.getExtraOutput2Matching())) {
+                    MiscUtils.addStackToSlot(this.inventory, 8, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance, rarity, isCrafted, isLegendary)));
+                }
+                else {
+                    MiscUtils.addStackToSlot(this.inventory, 9, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance, rarity, isCrafted, isLegendary)));
+>>>>>>> upstream/master
                 }
             }
             else {
                 MiscUtils.addStackToSlot(this.inventory, 1, this.getUseRelatedOutput(input, output.generateMainOutput(additionalChance)));
-                MiscUtils.addStackToSlot(this.inventory, 2, this.getUseRelatedOutput(input, output.generateExtraOutput1(additionalChance)));
+                MiscUtils.addStackToSlot(this.inventory, 2, this.getUseRelatedOutput(input, output.generateExtraOutput1(input, additionalChance)));
 
 
                 if(MiscUtils.canFullyMergeIntoSlot(this.inventory, 3, output.getExtraOutput2Matching())) {
-                    MiscUtils.addStackToSlot(this.inventory, 3, this.getUseRelatedOutput(input, output.generateExtraOutput2(additionalChance)));
+                    MiscUtils.addStackToSlot(this.inventory, 3, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance)));
                 }
                 else if(MiscUtils.canFullyMergeIntoSlot(this.inventory, 4, output.getExtraOutput2Matching())) {
-                    MiscUtils.addStackToSlot(this.inventory, 4, this.getUseRelatedOutput(input, output.generateExtraOutput2(additionalChance)));
+                    MiscUtils.addStackToSlot(this.inventory, 4, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance)));
                 }
                 else if(MiscUtils.canFullyMergeIntoSlot(this.inventory, 5, output.getExtraOutput2Matching())) {
-                    MiscUtils.addStackToSlot(this.inventory, 5, this.getUseRelatedOutput(input, output.generateExtraOutput2(additionalChance)));
+                    MiscUtils.addStackToSlot(this.inventory, 5, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance)));
                 }
                 else if(MiscUtils.canFullyMergeIntoSlot(this.inventory, 6, output.getExtraOutput2Matching())) {
-                    MiscUtils.addStackToSlot(this.inventory, 6, this.getUseRelatedOutput(input, output.generateExtraOutput2(additionalChance)));
+                    MiscUtils.addStackToSlot(this.inventory, 6, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance)));
                 }
                 else if(MiscUtils.canFullyMergeIntoSlot(this.inventory, 7, output.getExtraOutput2Matching())) {
-                    MiscUtils.addStackToSlot(this.inventory, 7, this.getUseRelatedOutput(input, output.generateExtraOutput2(additionalChance)));
+                    MiscUtils.addStackToSlot(this.inventory, 7, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance)));
                 }
                 else if(MiscUtils.canFullyMergeIntoSlot(this.inventory, 8, output.getExtraOutput2Matching())) {
-                    MiscUtils.addStackToSlot(this.inventory, 8, this.getUseRelatedOutput(input, output.generateExtraOutput2(additionalChance)));
+                    MiscUtils.addStackToSlot(this.inventory, 8, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance)));
                 }
                 else {
-                    MiscUtils.addStackToSlot(this.inventory, 9, this.getUseRelatedOutput(input, output.generateExtraOutput2(additionalChance)));
+                    MiscUtils.addStackToSlot(this.inventory, 9, this.getUseRelatedOutput(input, output.generateExtraOutput2(input, additionalChance)));
                 }
             }
 

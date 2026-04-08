@@ -8,16 +8,18 @@ import iskallia.vault.core.vault.LootLogic;
 import iskallia.vault.core.vault.Vault;
 import iskallia.vault.core.vault.VaultLevel;
 import iskallia.vault.core.world.storage.VirtualWorld;
-import iskallia.vault.init.ModConfigs;
-import iskallia.vault.item.gear.EtchingItem;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
-import xyz.iwolfking.woldsvaults.api.helper.ShopPedestalHelper;
-import xyz.iwolfking.woldsvaults.init.ModBlocks;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
+import xyz.iwolfking.woldsvaults.api.util.ShopPedestalHelper;
+
+import java.util.List;
 
 @Mixin(value = ClassicLootLogic.class, remap = false)
 public abstract class MixinClassicLootLogic extends LootLogic {
+
     /**
      * @author iwolfking
      * @reason Generate test pedestal
@@ -38,4 +40,9 @@ public abstract class MixinClassicLootLogic extends LootLogic {
         data.getTileEntity().setChanged();
         world.sendBlockUpdated(data.getPos(), data.getState(), data.getState(), 3);
     }
+//
+//    @Redirect(method = "generateCatalystFragments", at = @At(value = "INVOKE", target = "Ljava/util/List;isEmpty()Z", ordinal = 0))
+//    protected boolean generateCatalystFragments(List instance) {
+//        return true;
+//    }
 }

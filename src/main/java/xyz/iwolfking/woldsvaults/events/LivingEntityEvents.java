@@ -21,6 +21,7 @@ import iskallia.vault.entity.entity.elite.EliteWitchEntity;
 import iskallia.vault.entity.entity.elite.EliteWitherSkeleton;
 import iskallia.vault.entity.entity.elite.EliteZombieEntity;
 import iskallia.vault.event.ActiveFlags;
+import iskallia.vault.event.PlayerActiveFlags;
 import iskallia.vault.gear.attribute.type.VaultGearAttributeTypeMerger;
 import iskallia.vault.gear.data.VaultGearData;
 import iskallia.vault.gear.item.VaultGearItem;
@@ -33,6 +34,7 @@ import iskallia.vault.util.calc.EffectDurationHelper;
 import iskallia.vault.util.calc.PlayerStat;
 import iskallia.vault.util.calc.ThornsHelper;
 import iskallia.vault.world.data.ServerVaults;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -40,22 +42,19 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.EntityDamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -64,20 +63,21 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.event.CurioChangeEvent;
 import xyz.iwolfking.woldsvaults.WoldsVaults;
-import xyz.iwolfking.woldsvaults.api.helper.WoldAttributeHelper;
+import xyz.iwolfking.woldsvaults.api.util.WoldAttributeHelper;
 import xyz.iwolfking.woldsvaults.config.forge.WoldsVaultsConfig;
-import xyz.iwolfking.woldsvaults.data.HexEffects;
-import xyz.iwolfking.woldsvaults.data.discovery.DiscoveredRecipesData;
+import xyz.iwolfking.woldsvaults.api.data.HexEffects;
+import xyz.iwolfking.woldsvaults.api.data.discovery.DiscoveredRecipesData;
 import xyz.iwolfking.woldsvaults.effect.mobeffects.EchoingPotionEffect;
+import xyz.iwolfking.woldsvaults.effect.mobeffects.PercentBurnEffect;
 import xyz.iwolfking.woldsvaults.init.ModEffects;
 import xyz.iwolfking.woldsvaults.init.ModGearAttributes;
 import xyz.iwolfking.woldsvaults.items.TrinketPouchItem;
 import xyz.iwolfking.woldsvaults.items.gear.VaultLootSackItem;
 import xyz.iwolfking.woldsvaults.items.gear.VaultPlushieItem;
+import xyz.iwolfking.woldsvaults.items.gear.VaultTridentItem;
 import xyz.iwolfking.woldsvaults.objectives.data.bosses.WoldBoss;
-import xyz.iwolfking.woldsvaults.util.WoldEventHelper;
+import xyz.iwolfking.woldsvaults.api.util.WoldEventHelper;
 
-import java.util.List;
 import java.util.Random;
 import java.util.function.BiConsumer;
 
@@ -91,7 +91,7 @@ public class LivingEntityEvents {
     private static SoundEvent ANCHOR_SLAM_SOUND = null;
 
     public static void init() {
-         ANCHOR_SLAM_SOUND  = Registry.SOUND_EVENT.get(new ResourceLocation("bettercombat:anchor_slam"));
+         ANCHOR_SLAM_SOUND  = Registry.SOUND_EVENT.get(ResourceLocation.parse("bettercombat:anchor_slam"));
     }
 
     @SubscribeEvent
@@ -128,9 +128,6 @@ public class LivingEntityEvents {
 
                         DiscoveredRecipesData.get(sLevel).discoverRecipeAndBroadcast(WoldsVaults.id("light_trinket_pouch"), attacker);
                     }
-                    else {
-                        System.out.println("Not a ServerLevel");
-                    }
                 }
             }
         }
@@ -151,9 +148,6 @@ public class LivingEntityEvents {
                         }
 
                         DiscoveredRecipesData.get(sLevel).discoverRecipeAndBroadcast(WoldsVaults.id("slayer_trinket_pouch"), attacker);
-                    }
-                    else {
-                        System.out.println("Not a ServerLevel");
                     }
                 }
             }
@@ -249,6 +243,69 @@ public class LivingEntityEvents {
             });
         }
     }
+
+    @SubscribeEvent
+    public static void burningHit(LivingHurtEvent event) {
+        if(!WoldEventHelper.isNormalAttack()) {
+            return;
+        }
+
+        if(event.getSource().isProjectile()) {
+            return;
+        }
+
+        if(event.getSource().getEntity() instanceof Player player) {
+            float burnChance = AttributeSnapshotHelper.getInstance().getSnapshot(player).getAttributeValue(ModGearAttributes.BURNING_HIT_CHANCE, VaultGearAttributeTypeMerger.floatSum());
+            if(burnChance != 0) {
+
+                if(random.nextFloat() < burnChance) {
+                    PercentBurnEffect.applyPercentBurn(event.getEntityLiving(), player, 200);
+                }
+
+                player.getLevel().playSound(null, event.getEntity(), SoundEvents.FIRE_AMBIENT, SoundSource.PLAYERS, 1.0F, 1.0F);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void drippingLava(LivingHurtEvent event) {
+        if(!WoldEventHelper.isNormalAttack()) {
+            return;
+        }
+
+        if(event.getSource().isProjectile()) {
+            return;
+        }
+
+        if(event.getSource().getEntity() instanceof Player player) {
+            boolean drippingLava = AttributeSnapshotHelper.getInstance().getSnapshot(player).getAttributeValue(ModGearAttributes.DRIPPING_LAVA, VaultGearAttributeTypeMerger.anyTrue());
+            if(drippingLava) {
+                tryPlaceLava(event.getEntityLiving());
+            }
+        }
+    }
+
+    private static void tryPlaceLava(LivingEntity target) {
+        if (!(target.level instanceof ServerLevel level)) return;
+
+        if (LivingEntityEvents.random.nextFloat() >= 0.01f) return;
+
+        BlockPos basePos = target.blockPosition();
+
+        BlockPos pos = basePos.offset(
+                LivingEntityEvents.random.nextInt(3) - 1,
+                0,
+                LivingEntityEvents.random.nextInt(3) - 1
+        );
+
+        if (!level.getBlockState(pos).isAir()) return;
+
+        BlockPos below = pos.below();
+        if (!level.getBlockState(below).isSolidRender(level, below)) return;
+
+        level.setBlockAndUpdate(pos, Blocks.LAVA.defaultBlockState());
+    }
+
 
     @SubscribeEvent
     public static void reavingDamage(LivingHurtEvent event) {
@@ -493,7 +550,7 @@ public class LivingEntityEvents {
         if (!world.isClientSide() && world instanceof ServerLevel) {
             if (event.getState().getBlock() instanceof VaultChestBlock || event.getState().getBlock() instanceof CoinPileBlock || event.getState().getBlock() instanceof VaultOreBlock) {
                 ItemStack offHand = event.getPlayer().getOffhandItem();
-                if (!ServerVaults.get(world).isEmpty() || !(offHand.getItem() instanceof VaultGearItem)) {
+                if (ServerVaults.get(world).isPresent() || !(offHand.getItem() instanceof VaultGearItem)) {
                     if (offHand.getItem() instanceof VaultLootSackItem) {
                         if(event.getState().getBlock() instanceof VaultChestBlock chestBlock && world.getBlockEntity(event.getPos()) instanceof VaultChestTileEntity chest) {
                             if(chestBlock.hasStepBreaking(chest)) {
@@ -533,6 +590,27 @@ public class LivingEntityEvents {
                 } else {
                     event.setDistance(event.getDistance() - 2.0F);
                 }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingHurt(LivingHurtEvent event) {
+        if (!(event.getSource().getEntity() instanceof Player player)) {
+            return;
+        }
+
+        ItemStack stack = player.getMainHandItem();
+
+        if (stack.getItem() instanceof VaultTridentItem &&
+                player.isAutoSpinAttack() && VaultTridentItem.isVaultTridentRiptide(stack)) {
+            VaultGearData data = VaultGearData.read(stack);
+            Double f = data.get(iskallia.vault.init.ModGearAttributes.ATTACK_DAMAGE, VaultGearAttributeTypeMerger.doubleSum());
+
+            AttributeSnapshot snapshot = AttributeSnapshotHelper.getInstance().getSnapshot(player);
+            event.setAmount((float) VaultTridentItem.getTridentScaledDamage(snapshot, event.getEntityLiving(), f * 2));
+            if(!PlayerActiveFlags.isSet(player, PlayerActiveFlags.Flag.ATTACK_AOE)) {
+                VaultTridentItem.triggerChannelingRiptide(stack, player.getLevel(), player);
             }
         }
     }

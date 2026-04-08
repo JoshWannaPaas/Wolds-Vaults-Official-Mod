@@ -1,6 +1,9 @@
 package xyz.iwolfking.woldsvaults.items.gear.rang;
 
 import com.google.common.collect.Multimap;
+import iskallia.vault.block.MobBarrier;
+import iskallia.vault.entity.entity.FloatingItemEntity;
+import iskallia.vault.snapshot.AttributeSnapshot;
 import iskallia.vault.snapshot.AttributeSnapshotHelper;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.BlockPos;
@@ -46,8 +49,10 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.network.NetworkHooks;
 import vazkii.quark.base.handler.QuarkSounds;
+import xyz.iwolfking.woldsvaults.api.util.CollisionHelper;
 import xyz.iwolfking.woldsvaults.init.ModEntities;
 import xyz.iwolfking.woldsvaults.init.ModItems;
+import xyz.iwolfking.woldsvaults.mixins.vaulthunters.accessors.AttributeSnapshotHelperAccessor;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -75,6 +80,8 @@ public class VaultRangEntity extends Projectile {
 
     private float returningDamage = 0F;
     private int hits = 0;
+
+    private AttributeSnapshot snapshot = null;
 
     public VaultRangEntity(EntityType<? extends VaultRangEntity> type, Level worldIn) {
         super(type, worldIn);
@@ -132,10 +139,11 @@ public class VaultRangEntity extends Projectile {
 
     }
 
-    public void setThrowData(int slot, ItemStack stack) {
+    public void setThrowData(int slot, ItemStack stack, @Nullable AttributeSnapshot snapshot) {
         this.slot = slot;
         setStack(stack.copy());
         this.returningDamage = VaultRangLogic.getReturningDamage(getStack());
+        this.snapshot = snapshot;
     }
 
     @Override
@@ -162,7 +170,7 @@ public class VaultRangEntity extends Projectile {
                     onHit(result);
                 else doEntities = false;
             } else {
-                HitResult result = level.clip(new ClipContext(position, rayEnd, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
+                HitResult result = CollisionHelper.specialClip(level, new ClipContext(position, rayEnd, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
                 if(result.getType() == HitResult.Type.MISS)
                     return;
                 else onHit(result);
@@ -191,7 +199,7 @@ public class VaultRangEntity extends Projectile {
             BlockPos hit = hitResult.getBlockPos();
             BlockState state = level.getBlockState(hit);
 
-            if(getPiercingModifier() == 0 || state.getMaterial().isSolidBlocking())
+            if(getPiercingModifier() == 0 || state.getMaterial().isSolidBlocking() || state.getBlock() instanceof MobBarrier)
                 addHit();
 
             if(!(owner instanceof ServerPlayer))
@@ -227,7 +235,7 @@ public class VaultRangEntity extends Projectile {
 
                         if (owner instanceof Player player) {
                             hits++;
-                            AttributeSnapshotHelper.getInstance().refreshSnapshot((ServerPlayer) player);
+                            ((AttributeSnapshotHelperAccessor)AttributeSnapshotHelper.getInstance()).getPlayerSnapshots().put(owner.getUUID(), snapshot);
                             if(entityData.get(RETURNING) && hits > 1 && returningDamage > 0F) {
                                 hit.hurt(DamageSource.playerAttack(player), (float) (owner.getAttributeValue(Attributes.ATTACK_DAMAGE) * (1.0F + returningDamage)));
                             }
@@ -246,8 +254,8 @@ public class VaultRangEntity extends Projectile {
                         VaultRangLogic.setActiveRang(null);
 
                         owner.attackStrengthTicker = ticksSinceLastSwing;
-                        if(this.getLevel().dimension().location().getNamespace().equals("the_vault")) {
-                            getStack().hurt(1, level.random, null);
+                        if(this.getLevel().dimension().location().getNamespace().equals("the_vault") && owner instanceof ServerPlayer serverPlayer) {
+                            getStack().hurt(1, level.random, serverPlayer);
                         }
 
                         setStack(owner.getMainHandItem());
@@ -349,8 +357,13 @@ public class VaultRangEntity extends Projectile {
         pos = position();
         this.setPos(pos.x, pos.y, pos.z);
 
-        if(!isAlive())
+        if(!isAlive()) {
+            if(owner instanceof ServerPlayer serverPlayer) {
+                AttributeSnapshotHelper.getInstance().refreshSnapshot(serverPlayer);
+            }
             return;
+
+        }
 
         ItemStack stack = getStack();
 
@@ -364,6 +377,9 @@ public class VaultRangEntity extends Projectile {
                     setPos(getX(), getY() + 1, getZ());
 
                 spawnAtLocation(stack, 0);
+                if(owner instanceof ServerPlayer serverPlayer) {
+                    AttributeSnapshotHelper.getInstance().refreshSnapshot(serverPlayer);
+                }
                 discard();
             }
 
@@ -383,7 +399,7 @@ public class VaultRangEntity extends Projectile {
 
             Vec3 ourPos = position();
             for(ItemEntity item : items) {
-                if (item.isPassenger())
+                if (item.isPassenger() || item instanceof FloatingItemEntity)
                     continue;
                 item.startRiding(this);
 
@@ -431,6 +447,10 @@ public class VaultRangEntity extends Projectile {
                             else if (riding instanceof ExperienceOrb)
                                 riding.playerTouch(player);
                         }
+                    }
+
+                    if(owner instanceof ServerPlayer serverPlayer) {
+                        AttributeSnapshotHelper.getInstance().refreshSnapshot(serverPlayer);
                     }
 
                     discard();

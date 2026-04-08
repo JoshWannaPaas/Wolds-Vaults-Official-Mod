@@ -1,37 +1,19 @@
 package xyz.iwolfking.woldsvaults.mixins.vaulthunters.fixes;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.Tesselator;
-import com.mojang.math.Vector3f;
-import iskallia.vault.block.MonolithBlock;
-import iskallia.vault.block.entity.MonolithTileEntity;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import iskallia.vault.block.render.MonolithRenderer;
-import iskallia.vault.core.vault.modifier.VaultModifierStack;
-import iskallia.vault.core.vault.modifier.registry.VaultModifierRegistry;
-import iskallia.vault.core.vault.overlay.ModifiersRenderer;
-import iskallia.vault.task.renderer.context.RendererContext;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
-import net.minecraft.client.renderer.MultiBufferSource;
+import iskallia.vault.core.vault.modifier.spi.VaultModifier;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextComponent;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.Shadow;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(value = MonolithRenderer.class, remap = false)
 public class MixinMonolithRenderer {
-    @Shadow @Final private Font font;
 
+<<<<<<< HEAD
     /**
      * @author iwolfking
      * @reason Yes this is terrible, no I don't care, hides emojis from monolith text rendering
@@ -93,5 +75,13 @@ public class MixinMonolithRenderer {
         ModifiersRenderer.renderVaultModifiersWithDepth(stack, matrixStack, false);
         matrixStack.popPose();
         matrixStack.popPose();
+=======
+    @WrapOperation(method = "lambda$render$0", at = @At(value = "INVOKE", target = "Liskallia/vault/core/vault/modifier/spi/VaultModifier;getChatDisplayNameComponent(I)Lnet/minecraft/network/chat/Component;"))
+    private static Component removeEmoji(VaultModifier<?> modifier, int modifierStackSize, Operation<Component> original){
+        String modifierName = original.call(modifier, modifierStackSize).getString();
+        modifierName = modifierName.replaceAll(":.*: *", "");
+        Style style = Style.EMPTY.withColor(modifier.getDisplayTextColor());
+        return new TextComponent(modifierName).withStyle(style);
+>>>>>>> upstream/master
     }
 }

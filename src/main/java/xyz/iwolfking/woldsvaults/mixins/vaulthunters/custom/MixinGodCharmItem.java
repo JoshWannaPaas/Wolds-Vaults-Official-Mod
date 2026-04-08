@@ -2,12 +2,16 @@ package xyz.iwolfking.woldsvaults.mixins.vaulthunters.custom;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import iskallia.vault.core.vault.Vault;
+import iskallia.vault.gear.VaultGearHelper;
 import iskallia.vault.gear.attribute.VaultGearModifier;
 import iskallia.vault.gear.data.VaultGearData;
 import iskallia.vault.gear.tooltip.GearTooltip;
 import iskallia.vault.item.gear.VaultCharmItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -17,6 +21,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,13 +41,11 @@ public abstract class MixinGodCharmItem {
         }
     }
 
-    @Redirect(method = "canUnequip", at = @At(value = "INVOKE", target = "Ljava/util/Optional;isPresent()Z"))
-    public boolean allowUnequip(Optional<Vault> vault, @Local(argsOnly = true) ItemStack stack) {
-        return vault.isPresent() && !VaultCharmItem.isUsableInVault(stack, vault.get().get(Vault.ID));
-    }
 
-    @Redirect(method = "canEquip", at = @At(value = "INVOKE", target = "Ljava/util/Optional;isPresent()Z"))
-    public boolean allowReequip(Optional<Vault> vault, @Local(argsOnly = true) ItemStack stack) {
-        return vault.isPresent() && !VaultCharmItem.isUsableInVault(stack, vault.get().get(Vault.ID));
+
+
+    @Inject(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;isClientSide()Z"), remap = true, cancellable = true)
+    public void use(Level world, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir, @Local ItemStack heldStack, @Local InteractionResultHolder<ItemStack> defaultAction) {
+            cir.setReturnValue(VaultGearHelper.rightClick(world, player, hand, defaultAction));
     }
 }

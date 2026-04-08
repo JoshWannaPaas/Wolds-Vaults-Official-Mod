@@ -8,6 +8,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import xyz.iwolfking.woldsvaults.abilities.*;
 import xyz.iwolfking.woldsvaults.expertises.*;
+import xyz.iwolfking.woldsvaults.prestige.CraftingRecipePower;
+import xyz.iwolfking.woldsvaults.prestige.ReachPrestigePower;
 
 @Mixin(value = Skill.Adapter.class, remap = false)
 public class MixinSkill extends TypeSupplierAdapter<Skill> {
@@ -23,10 +25,19 @@ public class MixinSkill extends TypeSupplierAdapter<Skill> {
         this.register("negotiator", ShopRerollExpertise.class, ShopRerollExpertise::new);
         this.register("pylon_pilferer", PylonPilfererExpertise.class, PylonPilfererExpertise::new);
         this.register("blessed", BlessedExpertise.class, BlessedExpertise::new);
+        this.register("grave_insurance", GraveInsurance.class, GraveInsurance::new);
+        this.register("augmentation_luck", EclecticGearExpertise.class, EclecticGearExpertise::new);
         this.register("surprise_favors", SurpriseModifiersExpertise.class, SurpriseModifiersExpertise::new);
+        this.register("gambler", GamblerExpertise.class, GamblerExpertise::new);
+        this.register("deck_master", DeckMasterExpertise.class, DeckMasterExpertise::new);
         this.register("colossus", ColossusAbility.class,ColossusAbility::new);
         this.register("sneaky_getaway", SneakyGetawayAbility.class,SneakyGetawayAbility::new);
         this.register("vein_miner_chain", VeinMinerChainAbility.class, VeinMinerChainAbility::new);
         this.register("levitate", LevitateAbility.class,LevitateAbility::new);
+        this.register("expunge", ExpungeAbility.class,ExpungeAbility::new);
+        this.register("concentrate", ConcentrateAbility.class,ConcentrateAbility::new);
+
+        this.register("reach_cap_power", ReachPrestigePower.class, ReachPrestigePower::new);
+        this.register("crafting_recipe_power", CraftingRecipePower.class, CraftingRecipePower::new);
     }
 }

@@ -6,16 +6,13 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.Tesselator;
 import iskallia.vault.VaultMod;
 import iskallia.vault.block.MonolithBlock;
-import iskallia.vault.block.PlaceholderBlock;
 import iskallia.vault.block.entity.MonolithTileEntity;
 import iskallia.vault.client.gui.helper.LightmapHelper;
 import iskallia.vault.core.Version;
 import iskallia.vault.core.data.key.LootTableKey;
 import iskallia.vault.core.data.key.SupplierKey;
 import iskallia.vault.core.event.CommonEvents;
-import iskallia.vault.core.event.common.BlockSetEvent;
 import iskallia.vault.core.event.common.BlockUseEvent;
-import iskallia.vault.core.event.common.ObjectiveTemplates;
 import iskallia.vault.core.random.ChunkRandom;
 import iskallia.vault.core.vault.Vault;
 import iskallia.vault.core.vault.VaultLevel;
@@ -26,9 +23,6 @@ import iskallia.vault.core.vault.objective.KillBossObjective;
 import iskallia.vault.core.vault.objective.MonolithObjective;
 import iskallia.vault.core.vault.objective.Objective;
 import iskallia.vault.core.vault.player.Listener;
-import iskallia.vault.core.world.data.entity.PartialCompoundNbt;
-import iskallia.vault.core.world.data.tile.PartialBlockState;
-import iskallia.vault.core.world.data.tile.PartialTile;
 import iskallia.vault.core.world.loot.generator.LootTableGenerator;
 import iskallia.vault.core.world.storage.VirtualWorld;
 import iskallia.vault.init.ModBlocks;
@@ -64,12 +58,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.loading.LoadingModList;
 import net.minecraftforge.network.PacketDistributor;
 import vazkii.quark.content.mobs.entity.Wraith;
-import xyz.iwolfking.woldsvaults.api.helper.NormalizedHelper;
-import xyz.iwolfking.woldsvaults.config.forge.WoldsVaultsConfig;
-import xyz.iwolfking.woldsvaults.util.VaultModifierUtils;
+import xyz.iwolfking.woldsvaults.WoldsVaults;
+import xyz.iwolfking.woldsvaults.api.util.ObjectiveHelper;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -105,7 +97,16 @@ public class HauntedBraziersObjective extends MonolithObjective {
 
     @Override
     public void initServer(VirtualWorld world, Vault vault) {
+<<<<<<< HEAD
         NormalizedHelper.handleAddingNormalizedToVault(vault, world);
+=======
+        ObjectiveHelper.handleAddingNormalizedToVault(vault, world);
+
+        ObjectiveHelper.addInitModifiersToVault(vault, resourceLocations -> {
+            resourceLocations.add(WoldsVaults.id("ghost_town"));
+            resourceLocations.add(VaultMod.id("haunting"));
+        });
+>>>>>>> upstream/master
 
         CommonEvents.OBJECTIVE_PIECE_GENERATION.register(this, data -> {
             this.ifPresent(OBJECTIVE_PROBABILITY, probability -> data.setProbability(probability));
@@ -287,7 +288,7 @@ public class HauntedBraziersObjective extends MonolithObjective {
             int current = this.get(COUNT);
             int total = this.get(TARGET);
             Component txt = new TextComponent(String.valueOf(current)).withStyle(ChatFormatting.WHITE).append((new TextComponent(" / ")).withStyle(ChatFormatting.WHITE)).append((new TextComponent(String.valueOf(total))).withStyle(ChatFormatting.WHITE));
-            int midX = window.getGuiScaledWidth() / 2;
+            int midX = 0;
             matrixStack.pushPose();
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
@@ -310,9 +311,5 @@ public class HauntedBraziersObjective extends MonolithObjective {
             matrixStack.popPose();
             return true;
         }
-    }
-
-    static {
-        //H_KEY = SupplierKey.of("haunted_braziers", Objective.class).with(Version.v1_2, HauntedBraziersObjective::new);
     }
 }

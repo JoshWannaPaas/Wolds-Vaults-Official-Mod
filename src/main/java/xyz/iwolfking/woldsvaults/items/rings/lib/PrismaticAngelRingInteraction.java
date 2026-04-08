@@ -15,7 +15,11 @@ import net.minecraftforge.server.ServerLifecycleHooks;
 import top.theillusivec4.curios.api.CuriosCapability;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.type.capability.ICurio;
+<<<<<<< HEAD
 import xyz.iwolfking.woldsvaults.api.helper.GameruleHelper;
+=======
+import xyz.iwolfking.woldsvaults.api.util.GameruleHelper;
+>>>>>>> upstream/master
 import xyz.iwolfking.woldsvaults.init.ModGameRules;
 import xyz.iwolfking.woldsvaults.init.ModItems;
 

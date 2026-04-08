@@ -41,5 +41,21 @@ public abstract class MixinAbilityLabelFactory {
                 "levitateSpeed",
                 context -> label("\n Float Speed: ",binding(context.config(), "levitateSpeed"),"amplifier")
         );
+        FACTORY_MAP.put(
+                "durationMultiplier",
+                context -> label("\n Duration Multiplier: ",binding(context.config(), "durationMultiplier"),"force")
+        );
+        FACTORY_MAP.put(
+                "radiusMultiplier",
+                context -> label("\n Radius Multiplier: ",binding(context.config(), "radiusMultiplier"),"areaOfEffect")
+        );
+        FACTORY_MAP.put(
+                "amplitudeScaleChance",
+                context -> label("\n Amplitude Scale Chance: ",binding(context.config(), "amplitudeScaleChance"),"resistance")
+        );
+        FACTORY_MAP.put(
+                "baseAmplitude",
+                context -> label("\n Base Amplitude: ",binding(context.config(), "baseAmplitude"),"force")
+        );
     }
 }

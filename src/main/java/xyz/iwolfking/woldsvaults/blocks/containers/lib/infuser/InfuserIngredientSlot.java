@@ -4,7 +4,7 @@ import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.SlotItemHandler;
-import xyz.iwolfking.woldsvaults.data.recipes.CachedInfuserRecipeData;
+import xyz.iwolfking.woldsvaults.api.data.recipes.CachedInfuserRecipeData;
 
 public class InfuserIngredientSlot extends SlotItemHandler {
     private final BaseItemStackHandler inventory;
@@ -23,7 +23,6 @@ public class InfuserIngredientSlot extends SlotItemHandler {
 
     @Override
     public boolean mayPlace(ItemStack stack) {
-        System.out.println(CachedInfuserRecipeData.getIngredients().contains(stack.getItem()));
         return CachedInfuserRecipeData.getIngredients().contains(stack.getItem());
     }
 

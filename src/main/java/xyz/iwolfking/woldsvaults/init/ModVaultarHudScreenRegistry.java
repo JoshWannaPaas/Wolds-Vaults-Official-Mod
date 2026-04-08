@@ -1,8 +1,13 @@
 package xyz.iwolfking.woldsvaults.init;
 
 import net.minecraft.client.gui.screens.Screen;
+<<<<<<< HEAD
 import xyz.iwolfking.woldsvaults.lib.vaultarhud.screens.*;
 import xyz.iwolfking.woldsvaults.util.ConditionalModUtils;
+=======
+import xyz.iwolfking.vhapi.api.util.ConditionalModUtils;
+import xyz.iwolfking.woldsvaults.integration.vaultarhud.screens.*;
+>>>>>>> upstream/master
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,18 +6,13 @@ import iskallia.vault.block.ShopPedestalBlock;
 import iskallia.vault.block.entity.ShopPedestalBlockTile;
 import iskallia.vault.config.ShopPedestalConfig;
 import iskallia.vault.container.oversized.OverSizedItemStack;
-import iskallia.vault.core.random.ChunkRandom;
+import iskallia.vault.core.event.CommonEvents;
 import iskallia.vault.core.random.JavaRandom;
-import iskallia.vault.core.random.RandomSource;
-import iskallia.vault.core.vault.ClassicLootLogic;
 import iskallia.vault.core.vault.Vault;
-import iskallia.vault.core.vault.VaultLevel;
 import iskallia.vault.core.vault.objective.Objective;
 import iskallia.vault.core.vault.objective.Objectives;
 import iskallia.vault.core.vault.objective.ParadoxObjective;
 import iskallia.vault.event.event.ShopPedestalPriceEvent;
-import iskallia.vault.init.ModConfigs;
-import iskallia.vault.init.ModItems;
 import iskallia.vault.item.CoinBlockItem;
 import iskallia.vault.skill.base.Skill;
 import iskallia.vault.skill.tree.ExpertiseTree;
@@ -42,7 +37,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.GameMasterBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -51,18 +45,12 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import xyz.iwolfking.woldsvaults.api.helper.ShopPedestalHelper;
-import xyz.iwolfking.woldsvaults.expertises.BlessedExpertise;
+import xyz.iwolfking.woldsvaults.api.util.ShopPedestalHelper;
 import xyz.iwolfking.woldsvaults.expertises.ShopRerollExpertise;
-import xyz.iwolfking.woldsvaults.init.ModBlocks;
 import xyz.iwolfking.woldsvaults.init.ModEffects;
 
 import java.util.List;
@@ -127,7 +115,6 @@ public abstract class MixinShopPedestalBlock extends Block implements EntityBloc
                         break;
                     }
                     if(!hasExpertise) {
-                        System.out.println("Didn't have expertise");
                         return InteractionResult.FAIL;
                     }
                 }
@@ -181,12 +168,18 @@ public abstract class MixinShopPedestalBlock extends Block implements EntityBloc
                                     return InteractionResult.sidedSuccess(worldIn.isClientSide);
                                 }
                             }
-                            else if(!woldsVaults$lightmansCurrencyExtract(player, currency)) {
-                                if (worldIn.isClientSide) {
-                                    player.displayClientMessage(new TranslatableComponent("message.the_vault.shop_pedestal.fail", currency.getHoverName()), true);
-                                }
 
-                                return InteractionResult.sidedSuccess(worldIn.isClientSide);
+                            if(!woldsVaults$lightmansCurrencyExtract(player, currency)) {
+                                if(hasEnoughCurrency(allItems, currency)) {
+                                    CoinDefinition.extractCurrency(player, allItems, currency);
+                                }
+                                else {
+                                    if (worldIn.isClientSide) {
+                                        player.displayClientMessage(new TranslatableComponent("message.the_vault.shop_pedestal.fail", currency.getHoverName()), true);
+                                    }
+
+                                    return InteractionResult.sidedSuccess(worldIn.isClientSide);
+                                }
                             }
                         }
 
@@ -199,6 +192,7 @@ public abstract class MixinShopPedestalBlock extends Block implements EntityBloc
                                 BlockState inactiveState = state.setValue(ACTIVE, false);
                                 tile.setRemoved();
                                 worldIn.setBlockAndUpdate(pos, inactiveState);
+                                CommonEvents.SHOP_PEDESTAL_PURCHASE_ITEM.invoke(worldIn, player, c.copy(), currency);
                             }
 
                             popResource(worldIn, player.getOnPos().above(), c.copy());

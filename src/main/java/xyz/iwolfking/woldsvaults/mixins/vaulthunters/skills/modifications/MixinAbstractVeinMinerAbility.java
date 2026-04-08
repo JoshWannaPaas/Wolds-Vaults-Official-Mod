@@ -12,15 +12,11 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import xyz.iwolfking.woldsvaults.util.ChainBreakHandler;
-import xyz.iwolfking.woldsvaults.util.ducks.DuckGetRange;
+import xyz.iwolfking.woldsvaults.api.util.ChainBreakHandler;
+import xyz.iwolfking.woldsvaults.api.util.ducks.DuckGetRange;
 
 @Mixin(value = AbstractVeinMinerAbility.class, remap = false)
 public abstract class MixinAbstractVeinMinerAbility extends HoldAbility implements DuckGetRange {
-
-
-    @Shadow
-    public abstract int getBlockLimit(Player player);
 
     @Shadow
     protected abstract ItemStack getVeinMiningItemProxy(Player player);
@@ -32,12 +28,23 @@ public abstract class MixinAbstractVeinMinerAbility extends HoldAbility implemen
     @Shadow @Mutable @Final
     private BlockBreakHandler blockBreakHandler;
 
+    @Shadow public abstract int getUnmodifiedBlockLimit();
+
+    /**
+     * @author aida
+     * @reason to fix veinmine being affected by +aoe%
+     */
+    @Overwrite
+    public int getBlockLimit(Player player) {
+        return getUnmodifiedBlockLimit();
+    }
+
     @Inject(method = "<init>*", at = @At("TAIL"))
     public void replaceHandlerInstance(CallbackInfo ci) {
         blockBreakHandler = new ChainBreakHandler() {
             @Override
             protected int getBlockLimit(Player player) {
-                return MixinAbstractVeinMinerAbility.this.getBlockLimit(player);
+                return MixinAbstractVeinMinerAbility.this.getUnmodifiedBlockLimit();
             }
 
             @Override

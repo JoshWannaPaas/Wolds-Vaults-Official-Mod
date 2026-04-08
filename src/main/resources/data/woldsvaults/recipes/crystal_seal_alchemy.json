@@ -16,7 +16,11 @@
       "item": "the_vault:mystical_powder"
     },
     "X": {
+<<<<<<< HEAD
       "item": "the_vault:chromatic_gold_ingot"
+=======
+      "item": "woldsvaults:chromatic_gold_ingot"
+>>>>>>> upstream/master
     },
     "W": {
       "item": "the_vault:extraordinary_wutodie"

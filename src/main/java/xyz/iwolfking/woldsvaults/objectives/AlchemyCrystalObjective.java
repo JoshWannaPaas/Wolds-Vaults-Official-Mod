@@ -8,6 +8,7 @@ import iskallia.vault.core.vault.ClassicPortalLogic;
 import iskallia.vault.core.vault.Vault;
 import iskallia.vault.core.vault.objective.*;
 import iskallia.vault.item.crystal.CrystalData;
+<<<<<<< HEAD
 import iskallia.vault.item.crystal.objective.CrystalObjective;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -19,6 +20,15 @@ import java.util.List;
 import java.util.Optional;
 
 public class AlchemyCrystalObjective extends CrystalObjective {
+=======
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
+import xyz.iwolfking.woldsvaults.init.ModCustomVaultObjectiveEntries;
+import javax.annotation.Nullable;
+import java.util.Optional;
+
+public class AlchemyCrystalObjective extends WoldCrystalObjective {
+>>>>>>> upstream/master
     protected float objectiveProbability;
     protected float requiredProgress;
 
@@ -35,8 +45,14 @@ public class AlchemyCrystalObjective extends CrystalObjective {
         return Optional.of(0xB68CFF);
     }
 
+<<<<<<< HEAD
     @Override
     public void configure(Vault vault, RandomSource random) {
+=======
+    //TODO: Add Sigil support
+    @Override
+    public void configure(Vault vault, RandomSource random, @Nullable String sigil) {
+>>>>>>> upstream/master
         int level = vault.get(Vault.LEVEL).get();
 
         vault.ifPresent(Vault.OBJECTIVES, objectives -> {
@@ -52,8 +68,13 @@ public class AlchemyCrystalObjective extends CrystalObjective {
     }
 
     @Override
+<<<<<<< HEAD
     public void addText(List<Component> tooltip, int minIndex, TooltipFlag flag, float time) {
         tooltip.add((new TextComponent("Objective: ")).append((new TextComponent("Alchemy")).withStyle(Style.EMPTY.withColor(this.getColor(time).orElseThrow()))));
+=======
+    ResourceLocation getObjectiveId() {
+        return ModCustomVaultObjectiveEntries.ALCHEMY.getRegistryName();
+>>>>>>> upstream/master
     }
 
     @Override

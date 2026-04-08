@@ -5,9 +5,13 @@ import iskallia.vault.core.random.RandomSource;
 import iskallia.vault.core.vault.Vault;
 import iskallia.vault.core.vault.modifier.spi.VaultModifier;
 import iskallia.vault.core.world.storage.VirtualWorld;
+<<<<<<< HEAD
 import iskallia.vault.init.ModNetwork;
 import iskallia.vault.item.BasicItem;
 import iskallia.vault.network.message.ClientboundTESyncMessage;
+=======
+import iskallia.vault.item.BasicItem;
+>>>>>>> upstream/master
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
@@ -20,16 +24,26 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+<<<<<<< HEAD
 import net.minecraftforge.network.PacketDistributor;
+=======
+>>>>>>> upstream/master
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import xyz.iwolfking.woldsvaults.blocks.BrewingAltar;
 import xyz.iwolfking.woldsvaults.blocks.tiles.BrewingAltarTileEntity;
 import xyz.iwolfking.woldsvaults.config.AlchemyObjectiveConfig;
+<<<<<<< HEAD
 import xyz.iwolfking.woldsvaults.events.vaultevents.BrewingAltarBrewEvent;
 import xyz.iwolfking.woldsvaults.init.ModItems;
 import xyz.iwolfking.woldsvaults.objectives.AlchemyObjective;
 import xyz.iwolfking.woldsvaults.util.ComponentUtils;
+=======
+import xyz.iwolfking.woldsvaults.events.vault.BrewingAltarBrewEvent;
+import xyz.iwolfking.woldsvaults.init.ModItems;
+import xyz.iwolfking.woldsvaults.objectives.AlchemyObjective;
+import xyz.iwolfking.woldsvaults.api.util.ComponentUtils;
+>>>>>>> upstream/master
 
 import java.util.Iterator;
 import java.util.List;

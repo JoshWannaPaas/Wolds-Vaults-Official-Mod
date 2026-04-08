@@ -51,7 +51,11 @@ import java.util.List;
 @Mixin (value = GearAttributeEvents.class, remap = false)
 public class MixinGearAttributeEvents {
 
+<<<<<<< HEAD
     @Redirect(method = "lambda$triggerEffectCloudsActive$18", at = @At(value = "INVOKE", target = "Liskallia/vault/util/Entropy;canExecute(Lnet/minecraft/world/entity/Entity;Liskallia/vault/util/Entropy$Stat;F)Z"))
+=======
+    @Redirect(method = "lambda$triggerEffectCloudsActive$17", at = @At(value = "INVOKE", target = "Liskallia/vault/util/Entropy;canExecute(Lnet/minecraft/world/entity/Entity;Liskallia/vault/util/Entropy$Stat;F)Z"))
+>>>>>>> upstream/master
     private static boolean addEffectCloudChanceFromAttributeActive(Entity entity, Entropy.Stat stat, float chance) {
         if(entity instanceof LivingEntity living && living instanceof Player) {
             float increasedEffectCloudChance = AttributeSnapshotHelper.getInstance().getSnapshot(living).getAttributeValue(xyz.iwolfking.woldsvaults.init.ModGearAttributes.INCREASED_EFFECT_CLOUD_CHANCE, VaultGearAttributeTypeMerger.floatSum());
@@ -144,8 +148,9 @@ public class MixinGearAttributeEvents {
      */
     @Inject(method = "triggerAoEAttack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/damagesource/DamageSource;getEntity()Lnet/minecraft/world/entity/Entity;", shift = At.Shift.AFTER), cancellable = true, remap = true)
     private static void triggerAoEAttack(LivingHurtEvent event, CallbackInfo ci) {
-        if(ActiveFlags.IS_SMITE_ATTACKING.isSet() && !ActiveFlags.IS_SMITE_BASE_ATTACKING.isSet())
+        if((ActiveFlags.IS_SMITE_ATTACKING.isSet() && !ActiveFlags.IS_SMITE_BASE_ATTACKING.isSet()) || ActiveFlags.IS_AP_ATTACKING.isSet() || ActiveFlags.IS_THORNS_REFLECTING.isSet() || ActiveFlags.IS_REFLECT_ATTACKING.isSet()) {
             ci.cancel();
+        }
     }
 
 

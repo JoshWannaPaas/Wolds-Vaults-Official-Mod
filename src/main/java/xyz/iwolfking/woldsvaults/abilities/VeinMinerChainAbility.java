@@ -11,7 +11,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
-import xyz.iwolfking.woldsvaults.util.ducks.DuckGetRange;
+import xyz.iwolfking.woldsvaults.api.util.ducks.DuckGetRange;
 
 import java.util.Optional;
 
@@ -71,7 +71,7 @@ public class VeinMinerChainAbility extends AbstractVeinMinerAbility implements D
     public Optional<JsonObject> writeJson() {
         return super.writeJson().map(json -> {
             Adapters.INT.writeJson(Integer.valueOf(this.range)).ifPresent(element -> json.add("range", element));
-            return (JsonObject)json;
+            return json;
         });
     }
 
