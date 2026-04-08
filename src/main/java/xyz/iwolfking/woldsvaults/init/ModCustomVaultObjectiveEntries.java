@@ -15,7 +15,7 @@ public class ModCustomVaultObjectiveEntries {
     public static final CustomObjectiveRegistryEntry ZEALOT = new CustomObjectiveRegistryEntry.CustomObjectiveBuilder("zealot", "Zealot", ZealotCrystalObjective.class, ZealotCrystalObjective::new, ZealotObjective.KEY, ZealotObjective.class).setCrateItem(ModBlocks.VAULT_CRATE_ELIXIR).build();
     public static final CustomObjectiveRegistryEntry CORRUPTED = new CustomObjectiveRegistryEntry.CustomObjectiveBuilder("corrupted", "Corrupted", CorruptedCrystalObjective.class, CorruptedCrystalObjective::new, CorruptedObjective.S_KEY, CorruptedObjective.class).setCrateItem(xyz.iwolfking.woldsvaults.init.ModBlocks.VAULT_CRATE_CORRUPTED).build();
     public static final CustomObjectiveRegistryEntry ALCHEMY = new CustomObjectiveRegistryEntry.CustomObjectiveBuilder("alchemy", "Alchemy", AlchemyCrystalObjective.class, AlchemyCrystalObjective::new, AlchemyObjective.KEY, AlchemyObjective.class).setCrateItem(ModBlocks.VAULT_CRATE_ELIXIR).build();
-
+    public static final CustomObjectiveRegistryEntry KNOWLEDGE_SEEKER = new CustomObjectiveRegistryEntry.CustomObjectiveBuilder("seeker", "Seeker", KnowledgeSeekerCrystalObjective.class, KnowledgeSeekerObjective::new, KnowledgeSeekerObjective.E_KEY, KnowledgeSeekerObjective.class).setCrateItem(ModBlocks.VAULT_CRATE_SCAVENGER).build();
 
     public static void registerCustomObjectives(RegistryEvent.Register<CustomObjectiveRegistryEntry> event) {
         event.getRegistry().register(BRUTAL_BOSSES);
@@ -26,5 +26,6 @@ public class ModCustomVaultObjectiveEntries {
         event.getRegistry().register(ZEALOT);
         event.getRegistry().register(CORRUPTED);
         event.getRegistry().register(ALCHEMY);
+        event.getRegistry().register(KNOWLEDGE_SEEKER);
     }
 }
