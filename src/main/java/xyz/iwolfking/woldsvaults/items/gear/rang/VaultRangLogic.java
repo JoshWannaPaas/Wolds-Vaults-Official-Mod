@@ -20,6 +20,11 @@ public class VaultRangLogic {
         ACTIVE_RANG.set(pickarang);
     }
 
+
+    public static boolean isRangAttack() {
+        return ACTIVE_RANG.get() != null;
+    }
+
     public static int getTimeout(ItemStack stack) {
         if(stack.getItem() instanceof VaultGearItem) {
             VaultGearData data = VaultGearData.read(stack);
@@ -42,6 +47,18 @@ public class VaultRangLogic {
         }
 
         return 1F;
+    }
+
+    public static int getRicochet(ItemStack stack) {
+        if(stack.getItem() instanceof VaultGearItem) {
+            VaultGearData data = VaultGearData.read(stack);
+            Optional<Integer> ricochet = data.getFirstValue(xyz.iwolfking.woldsvaults.init.ModGearAttributes.RICOCHET);
+            if(ricochet.isPresent()) {
+                return ricochet.get();
+            }
+        }
+
+        return 0;
     }
 
     public static float getReturningDamage(ItemStack stack) {

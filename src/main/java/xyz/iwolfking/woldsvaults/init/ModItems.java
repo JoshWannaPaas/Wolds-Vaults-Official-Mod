@@ -9,9 +9,7 @@ import iskallia.vault.item.LootableItem;
 import iskallia.vault.item.VaultBasicFoodItem;
 
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.*;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -44,6 +42,7 @@ public class ModItems {
     public static ItemVaultCrystalSeal CRYSTAL_SEAL_ENCHANTER;
     public static ItemVaultCrystalSeal CRYSTAL_SEAL_TITAN;
     public static ItemVaultCrystalSeal CRYSTAL_SEAL_DOOMSAYER;
+    public static ItemVaultCrystalSeal CRYSTAL_SEAL_DOOMSAYER_SHUFFLE;
     public static ItemVaultCrystalSeal CRYSTAL_SEAL_ZEALOT;
     public static ItemVaultCrystalSeal CRYSTAL_SEAL_WARRIOR;
     public static ItemVaultCrystalSeal CRYSTAL_SEAL_CORRUPT;
@@ -59,6 +58,8 @@ public class ModItems {
     public static VaultRangItem RANG;
     public static VaultMapItem MAP;
     //public static VaultBowItem BOW;
+
+    public static CombinedTrinketItem COMBINED_TRINKET;
 
     public static LootableItem GEM_BOX;
     public static LootableItem SUPPLY_BOX;
@@ -87,6 +88,7 @@ public class ModItems {
     public static final BasicMobEggItem MONSTER_EYE_EGG = new BasicMobEggItem(WoldsVaults.id("monster_eye_spawn_egg"), () -> iskallia.vault.init.ModEntities.MONSTER_EYE, 333333, DyeColor.GRAY.getId(), (new Item.Properties()).tab(VAULT_MOD_GROUP));
     public static final BasicMobEggItem ROBOT_EGG = new BasicMobEggItem(WoldsVaults.id("robot_spawn_egg"), () -> iskallia.vault.init.ModEntities.ROBOT, 333333, DyeColor.GRAY.getId(), (new Item.Properties()).tab(VAULT_MOD_GROUP));
     public static final BasicMobEggItem BLUE_BLAZE_EGG = new BasicMobEggItem(WoldsVaults.id("blue_blaze_spawn_egg"), () -> iskallia.vault.init.ModEntities.BLUE_BLAZE, 333333, DyeColor.GRAY.getId(), (new Item.Properties()).tab(VAULT_MOD_GROUP));
+    public static final BasicMobEggItem DRYGMY_SPAWN_EGG = new BasicMobEggItem(WoldsVaults.id("drygmy_spawn_egg"), () -> com.hollingsworth.arsnouveau.common.entity.ModEntities.ENTITY_DRYGMY, 25088, DyeColor.GREEN.getId(), (new Item.Properties()).tab(ModCreativeTabs.WOLDS_VAULTS));
 
     // Alchemy Objective things
     public static final AlchemyIngredientItem ROTTEN_HEART = new AlchemyIngredientItem(WoldsVaults.id("rotten_heart"), AlchemyIngredientItem.AlchemyIngredientType.DEADLY);
@@ -191,6 +193,7 @@ public class ModItems {
     public static BasicItem SPARK_OF_INSPIRATION;
     public static BasicItem VAULT_DIAMOND_NUGGET;
     public static BasicItem CHUNK_OF_POWER;
+    public static BasicItem DUST_OF_POWER;
     public static BasicItem SOUL_ICHOR;
     public static BasicItem CHROMA_CORE;
 
@@ -213,6 +216,8 @@ public class ModItems {
     public static BasicItem POGGING_SEED_BASE;
     public static BasicItem ECHOING_SEED_BASE;
 
+    public static BasicItem MOB_BINDING_STONE;
+
     public static BasicItem UNINFUSED_TERRASTEEL_INGOT;
 
     public static Map<DyeColor, BasicItem> COLORED_UNOBTANIUMS = new HashMap<>();
@@ -220,6 +225,10 @@ public class ModItems {
 
     public static ConfigurableFloatingTextBlockItem CONFIGURABLE_FLOATING_TEXT;
     public static TimeTrialTrophyItem TIME_TRIAL_TROPHY;
+
+    //Buckets
+    public static BucketItem PRISMATIC_GLUE_BUCKET = (BucketItem) new BucketItem(ModFluids.PRISMATIC_GLUE, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).tab(ModCreativeTabs.WOLDS_VAULTS)).setRegistryName(WoldsVaults.id("prismatic_glue_bucket"));
+    public static BucketItem MOLTEN_TRINKET_BUCKET = (BucketItem) new BucketItem(ModFluids.MOLTEN_TRINKET, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).tab(ModCreativeTabs.WOLDS_VAULTS)).setRegistryName(WoldsVaults.id("molten_trinket_bucket"));
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -229,6 +238,7 @@ public class ModItems {
         registry.register(CRYSTAL_SEAL_ENCHANTER);
         registry.register(CRYSTAL_SEAL_TITAN);
         registry.register(CRYSTAL_SEAL_DOOMSAYER);
+        registry.register(CRYSTAL_SEAL_DOOMSAYER_SHUFFLE);
         registry.register(CRYSTAL_SEAL_WARRIOR);
         registry.register(CRYSTAL_SEAL_CORRUPT);
         registry.register(CRYSTAL_SEAL_ALCHEMY);
@@ -266,6 +276,7 @@ public class ModItems {
         registry.register(ROBOT_EGG);
         registry.register(MONSTER_EYE_EGG);
         registry.register(BLUE_BLAZE_EGG);
+        registry.register(DRYGMY_SPAWN_EGG);
         registry.register(FRENZY_CAPSTONE);
         registry.register(PROSPEROUS_CAPSTONE);
         registry.register(ALL_SEEING_EYE_CAPSTONE);
@@ -328,6 +339,7 @@ public class ModItems {
         registry.register(VAULT_DIAMOND_NUGGET);
         registry.register(EXQUISITE_BOX);
         registry.register(CHUNK_OF_POWER);
+        registry.register(DUST_OF_POWER);
         registry.register(SOUL_ICHOR);
         registry.register(BLAZING_FOCUS);
         registry.register(SUSPENSION_FOCUS);
@@ -361,8 +373,12 @@ public class ModItems {
 
         registry.register(POGGING_SEED_BASE);
         registry.register(ECHOING_SEED_BASE);
+        registry.register(MOB_BINDING_STONE);
         registry.register(UNINFUSED_TERRASTEEL_INGOT);
         registry.register(SCAVENGER_POUCH_ITEM);
+        registry.register(COMBINED_TRINKET);
+        registry.register(PRISMATIC_GLUE_BUCKET);
+        registry.register(MOLTEN_TRINKET_BUCKET);
         COLORED_UNOBTANIUMS.forEach((s, bi) -> {
             registry.register(bi);
         });
@@ -376,6 +392,7 @@ public class ModItems {
         CRYSTAL_SEAL_ENCHANTER = new ItemVaultCrystalSeal(WoldsVaults.id("crystal_seal_enchanter"));
         CRYSTAL_SEAL_TITAN = new ItemVaultCrystalSeal(WoldsVaults.id("crystal_seal_titan"));
         CRYSTAL_SEAL_DOOMSAYER = new ItemVaultCrystalSeal(WoldsVaults.id("crystal_seal_doomsayer"));
+        CRYSTAL_SEAL_DOOMSAYER_SHUFFLE = new ItemVaultCrystalSeal(WoldsVaults.id("crystal_seal_doomsayer_shuffle"));
         CRYSTAL_SEAL_ZEALOT = new ItemVaultCrystalSeal(WoldsVaults.id("crystal_seal_zealot"));
         CRYSTAL_SEAL_WARRIOR = new ItemVaultCrystalSeal(WoldsVaults.id("crystal_seal_warrior"));
         CRYSTAL_SEAL_CORRUPT = new ItemVaultCrystalSeal(WoldsVaults.id("crystal_seal_corrupt"));
@@ -455,11 +472,13 @@ public class ModItems {
 
         VAULT_ROCK_CANDY = new VaultBasicFoodItem(WoldsVaults.id("vault_rock_candy"), (new FoodProperties.Builder()).alwaysEat().fast().nutrition(8).saturationMod(1.4F).build());
 
+        MOB_BINDING_STONE = new BasicItem(WoldsVaults.id("mob_binding_stone"), new Item.Properties().tab(ModCreativeTabs.WOLDS_VAULTS));
         CHROMATIC_GOLD_NUGGET = new BasicItem(WoldsVaults.id("chromatic_gold_nugget"), new Item.Properties().tab(ModCreativeTabs.WOLDS_VAULTS));
         CHROMATIC_GOLD_INGOT = new BasicItem(WoldsVaults.id("chromatic_gold_ingot"), new Item.Properties().tab(ModCreativeTabs.WOLDS_VAULTS));
         SMASHED_VAULT_GEM = new BasicItem(WoldsVaults.id("smashed_vault_gem"), new Item.Properties().tab(ModCreativeTabs.WOLDS_VAULTS));
         SMASHED_VAULT_GEM_CLUSTER = new BasicItem(WoldsVaults.id("smashed_vault_gem_cluster"), new Item.Properties().tab(ModCreativeTabs.WOLDS_VAULTS));
         CHUNK_OF_POWER = new BasicItem(WoldsVaults.id("chunk_of_power"), new Item.Properties().tab(ModCreativeTabs.WOLDS_VAULTS));
+        DUST_OF_POWER = new BasicItem(WoldsVaults.id("dust_of_power"), new Item.Properties().tab(ModCreativeTabs.WOLDS_VAULTS));
         WOLD_STAR_CHUNK = new BasicItem(WoldsVaults.id("wold_star_chunk"), new Item.Properties().tab(ModCreativeTabs.WOLDS_VAULTS));
         WOLD_STAR = new BasicItem(WoldsVaults.id("wold_star"), new Item.Properties().tab(ModCreativeTabs.WOLDS_VAULTS));
         POG_PRISM = new BasicItem(WoldsVaults.id("pog_prism"), new Item.Properties().tab(ModCreativeTabs.WOLDS_VAULTS));
@@ -523,6 +542,8 @@ public class ModItems {
         ECHOING_SEED_BASE = new BasicItem(WoldsVaults.id("echoing_seed_base"), new Item.Properties().tab(ModCreativeTabs.WOLDS_VAULTS));
 
         UNINFUSED_TERRASTEEL_INGOT = new BasicItem(WoldsVaults.id("uninfused_terrasteel_ingot"), new Item.Properties().tab(ModCreativeTabs.WOLDS_VAULTS));
+
+        COMBINED_TRINKET = new CombinedTrinketItem(WoldsVaults.id("combined_trinket"));
 
         for(DyeColor dyeColor : DyeColor.values()) {
             BasicItem dyedUnobtanium = new BasicItem(WoldsVaults.id(dyeColor.getSerializedName() + "_unobtanium"), new Item.Properties().tab(ModCreativeTabs.WOLDS_VAULTS));

@@ -58,6 +58,13 @@ public class WoldMixinCanceller implements MixinCanceller {
             return true;
         }
 
+        if(s.equals("iskallia.vault.mixin.MixinItemExternalStorage")) {
+            return true;
+        }
+
+        if(s.equals("io.iridium.qolhunters.mixin.greedtrader.MixinGreedTraderScreen")) {
+            return true;
+        }
 
 
 

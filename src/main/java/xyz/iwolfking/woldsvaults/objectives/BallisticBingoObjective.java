@@ -15,6 +15,7 @@ import iskallia.vault.core.event.CommonEvents;
 import iskallia.vault.core.random.ChunkRandom;
 import iskallia.vault.core.random.JavaRandom;
 import iskallia.vault.core.vault.Vault;
+import iskallia.vault.core.vault.modifier.modifier.ObjectiveShuffleModifier;
 import iskallia.vault.core.vault.modifier.spi.VaultModifier;
 import iskallia.vault.core.vault.objective.BingoObjective;
 import iskallia.vault.core.vault.objective.Objective;
@@ -43,6 +44,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import xyz.iwolfking.woldsvaults.api.util.ObjectiveHelper;
+import xyz.iwolfking.woldsvaults.api.util.VaultModifierUtils;
 import xyz.iwolfking.woldsvaults.mixins.vaulthunters.accessors.BingoObjectiveAccessor;
 
 import java.util.Iterator;
@@ -55,6 +57,7 @@ public class BallisticBingoObjective extends BingoObjective {
     public static final FieldKey<Task> TASK;
     public static final FieldKey<TaskSource> TASK_SOURCE;
     public static final FieldKey<Integer> JOINED;
+    public static final FieldKey<Boolean> BLACKOUT;
     public static final FieldKey<BingoObjective.TaskMap> TASKS;
     private boolean pvp;
     private int lastScaledJoined = -1;
@@ -71,9 +74,14 @@ public class BallisticBingoObjective extends BingoObjective {
         return (BallisticBingoObjective) (new BallisticBingoObjective()).set(TASK, task).set(TASKS, new TaskMap());
     }
 
+    public static BallisticBingoObjective of(BingoTask task, int width, int height, boolean blackout) {
+        task.getConfig().setSize(width, height);
+        return (BallisticBingoObjective)((new BallisticBingoObjective()).set(TASK, task).set(TASKS, new TaskMap())).set(BLACKOUT, blackout);
+    }
+
     public TaskContext getContext(VirtualWorld world, Vault vault) {
         this.setIfAbsent(TASK_SOURCE, () -> EntityTaskSource.ofUuids(JavaRandom.ofInternal((Long)vault.get(Vault.SEED)), new UUID[0]));
-        return TaskContext.of((TaskSource)this.get(TASK_SOURCE), world.getServer()).setVault(vault);
+        return TaskContext.of(this.get(TASK_SOURCE), world.getServer()).setVault(vault);
     }
 
     private TaskContext getContext(VirtualWorld world, Vault vault, UUID uuid) {
@@ -214,7 +222,7 @@ public class BallisticBingoObjective extends BingoObjective {
                 return;
             }
         }
-
+        int previousBingos = this.getBingos();
         if (this.pvp) {
             ((BingoObjective.TaskMap)this.get(TASKS)).forEach((uuid, task) -> {
                 if (task instanceof BingoTask bingo) {
@@ -230,8 +238,33 @@ public class BallisticBingoObjective extends BingoObjective {
             }
         }
 
+        if (this.getBingos() > previousBingos) {
+            VaultModifierUtils.getModifiersOfType(vault, ObjectiveShuffleModifier.class).stream().findFirst().ifPresent(modifier -> {
+                if (modifier.shouldRegenerate()) {
+                    if (this.pvp) {
+                        this.get(TASKS).forEach((uuid, task) -> {
+                            if (task instanceof BingoTask bingox) {
+                                bingox.regenerateIncomplete(this.getContext(world, vault, uuid));
+                            }
+                        });
+                    } else if (this.get(TASK) instanceof BingoTask bingo) {
+                        bingo.regenerateIncomplete(this.getContext(world, vault));
+                        this.lastScaledJoined = -1;
+                    }
+                } else if (this.pvp) {
+                    this.get(TASKS).forEach((uuid, task) -> {
+                        if (task instanceof BingoTask bingox) {
+                            bingox.shuffleIncomplete();
+                        }
+                    });
+                } else if (this.get(TASK) instanceof BingoTask bingo) {
+                    bingo.shuffleIncomplete();
+                }
+            });
+        }
+
         if (world.getTickCount() % 20 == 0) {
-            int joined = (Integer)this.getOr(JOINED, 0);
+            int joined = this.getOr(JOINED, 0);
             if (this.pvp) {
                 (this.get(TASKS)).values().forEach((task) -> {
                     if (task instanceof BingoTask root) {
@@ -312,7 +345,7 @@ public class BallisticBingoObjective extends BingoObjective {
 
         if (listener instanceof Runner runner) {
             if (this.pvp) {
-                BingoTask task = (BingoTask)((BingoObjective.TaskMap)this.get(TASKS)).get(runner.getId());
+                BingoTask task = (BingoTask) this.get(TASKS).get(runner.getId());
                 if (task != null && task.getCompletedBingos() > 0) {
                     (this.get(CHILDREN)).forEach(child -> child.tickListener(world, vault, listener));
                 }
@@ -347,7 +380,7 @@ public class BallisticBingoObjective extends BingoObjective {
                 TaskRendererContext context = new TaskRendererContext((PoseStack)null, 0.0F, MultiBufferSource.immediate(Tesselator.getInstance().getBuilder()), Minecraft.getInstance().font);
                 UUID uuid = Minecraft.getInstance().player != null ? Minecraft.getInstance().player.getUUID() : null;
                 context.setUuid(uuid);
-                Task task = this.pvp && uuid != null ? (Task)((BingoObjective.TaskMap)this.get(TASKS)).get(uuid) : (Task)this.get(TASK);
+                Task task = this.pvp && uuid != null ? this.get(TASKS).get(uuid) : (Task)this.get(TASK);
                 if (task != null && task.onMouseScrolled(event.getScrollDelta(), context)) {
                     event.setCanceled(true);
                 }
@@ -359,9 +392,9 @@ public class BallisticBingoObjective extends BingoObjective {
 
     @OnlyIn(Dist.CLIENT)
     public boolean render(Vault vault, PoseStack poseStack, Window window, float partialTicks, Player player) {
-        List<PvPObjective> objs = ((Objectives)vault.get(Vault.OBJECTIVES)).getAll(PvPObjective.class);
+        List<PvPObjective> objs = vault.get(Vault.OBJECTIVES).getAll(PvPObjective.class);
         if (!objs.isEmpty()) {
-            PvPObjective objective = (PvPObjective)objs.get(0);
+            PvPObjective objective = objs.get(0);
             if (!objective.has(PvPObjective.COUNTDOWN_FINISHED)) {
                 return false;
             }
@@ -370,7 +403,7 @@ public class BallisticBingoObjective extends BingoObjective {
         if (this.isCompleted() && (Minecraft.getInstance().screen != null || !ModKeybinds.openBingo.isDown())) {
             boolean rendered = false;
 
-            for(Objective objective : (Objective.ObjList)this.get(CHILDREN)) {
+            for(Objective objective : this.get(CHILDREN)) {
                 rendered |= objective.render(vault, poseStack, window, partialTicks, player);
             }
 
@@ -458,6 +491,7 @@ public class BallisticBingoObjective extends BingoObjective {
         TASK = FieldKey.of("task", Task.class).with(Version.v1_27, Adapters.TASK_NBT, DISK.all().or(CLIENT.all())).register(FIELDS);
         TASK_SOURCE = FieldKey.of("task_source", TaskSource.class).with(Version.v1_27, Adapters.TASK_SOURCE_NBT, DISK.all().or(CLIENT.all())).register(FIELDS);
         JOINED = FieldKey.of("joined", Integer.class).with(Version.v1_27, Adapters.INT_SEGMENTED_3, DISK.all().or(CLIENT.all())).register(FIELDS);
+        BLACKOUT = FieldKey.of("blackout", Boolean.class).with(Version.v1_27, Adapters.BOOLEAN, DISK.all().or(CLIENT.all())).register(FIELDS);
         TASKS = FieldKey.of("tasks", BingoObjective.TaskMap.class).with(Version.v1_38, CompoundAdapter.of(BingoObjective.TaskMap::new), DISK.all().or(CLIENT.all())).register(FIELDS);
     }
 }

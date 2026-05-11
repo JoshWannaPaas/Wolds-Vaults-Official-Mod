@@ -2,6 +2,7 @@ package xyz.iwolfking.woldsvaults.datagen;
 
 import iskallia.vault.VaultMod;
 import iskallia.vault.config.ResearchesGUIConfig;
+import iskallia.vault.gear.trinket.TrinketEffectRegistry;
 import iskallia.vault.init.ModConfigs;
 import me.dinnerbeef.compressium.Compressium;
 import net.minecraft.data.DataGenerator;
@@ -44,6 +45,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CHROMATIC_IRON_ANGEL_RING);
         simpleItem(ModItems.CHROMATIC_STEEL_ANGEL_RING);
         simpleItem(ModItems.CHUNK_OF_POWER);
+        simpleItem(ModItems.DUST_OF_POWER);
         simpleItem(ModItems.COMMUNITY_TOKEN);
         simpleItem(ModItems.CRYSTAL_REINFORCEMENT);
         simpleItem(ModItems.CRYSTAL_SEAL_CORRUPT);
@@ -51,6 +53,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CRYSTAL_SEAL_ZEALOT);
         simpleItem(ModItems.CRYSTAL_SEAL_ENCHANTER);
         simpleItem(ModItems.CRYSTAL_SEAL_DOOMSAYER);
+        shuffleSeal(ModItems.CRYSTAL_SEAL_DOOMSAYER_SHUFFLE);
         simpleItem(ModItems.CRYSTAL_SEAL_SPIRITS);
         simpleItem(ModItems.CRYSTAL_SEAL_TITAN);
         simpleItem(ModItems.CRYSTAL_SEAL_ALCHEMY);
@@ -89,7 +92,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.RECIPE_BLUEPRINT);
         simpleItem(ModItems.REPAIR_AUGMENTER);
         simpleItem(ModItems.SCAVENGER_POUCH_ITEM);
+        simpleItem(ModItems.PRISMATIC_GLUE_BUCKET);
+        simpleItem(ModItems.MOLTEN_TRINKET_BUCKET);
+        simpleItem(ModItems.MOB_BINDING_STONE);
         getBuilder(ModItems.RESEARCH_TOKEN.getRegistryName().getPath())
+                .parent(new ModelFile.UncheckedModelFile(
+                        ResourceLocation.parse("builtin/entity")
+                ));
+        getBuilder(ModItems.COMBINED_TRINKET.getRegistryName().getPath())
                 .parent(new ModelFile.UncheckedModelFile(
                         ResourceLocation.parse("builtin/entity")
                 ));
@@ -144,11 +154,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.UNINFUSED_TERRASTEEL_INGOT);
         //simpleItem(ModItems.WEAPON_TYPE_SETTER);
 
+        withExistingParent("owned_crafting_table",
+                mcLoc("item/crafting_table"));
+
         spawnEgg(ModItems.BLUE_BLAZE_EGG);
         spawnEgg(ModItems.BOOGIEMAN_EGG);
         spawnEgg(ModItems.MONSTER_EYE_EGG);
         spawnEgg(ModItems.ROBOT_EGG);
         spawnEgg(ModItems.WOLD_EGG);
+        spawnEgg(ModItems.DRYGMY_SPAWN_EGG);
 
         charm("idona_token");
         charm("tenos_token");
@@ -241,6 +255,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         deckCore(WoldsVaults.id("adept_deck_core"));
         deckCore(WoldsVaults.id("arcane_deck_core"));
         deckCore(WoldsVaults.id("premium_deck_core"));
+        deckCore(WoldsVaults.id("sparkling_deck_core"));
 
         ModConfigs.RESEARCHES_GUI = new ResearchesGUIConfig().readConfig();
         ModConfigs.RESEARCHES_GUI.getStyles().forEach((name, s) -> {
@@ -254,6 +269,20 @@ public class ModItemModelProvider extends ItemModelProvider {
             simpleItem(basicItem);
         }));
         simpleItem(ModItems.RAINBOW_UNOBTANIUM);
+
+        etching(VaultMod.id("concentrate_drain"));
+        etching(VaultMod.id("levitation_slow_falling"));
+        etching(VaultMod.id("colossus_titan_resistance"));
+        etching(VaultMod.id("diffuse_chemical_bomb"));
+        etching(VaultMod.id("sneaky_getaway_ninja"));
+        etching(VaultMod.id("fireball_volley_mitosis"));
+        etching(VaultMod.id("purist_common"));
+        etching(VaultMod.id("prudent_chaos"));
+        etching(VaultMod.id("reverberation"));
+        etching(VaultMod.id("reaving_hemmorage"));
+        etching(VaultMod.id("divinity"), "divine");
+        etching(VaultMod.id("ingenium"));
+        etching(VaultMod.id("fireball_greedball"), "treasure");
 
         ModCompressibleBlocks.getRegisteredBlocks().forEach((k, v) -> {
             for (int i = 0; i < v.size(); i ++) {
@@ -271,6 +300,12 @@ public class ModItemModelProvider extends ItemModelProvider {
                 WoldsVaults.id("item/" + item.getRegistryName().getPath()));
     }
 
+    private ItemModelBuilder shuffleSeal(Item item) {
+        return withExistingParent(item.getRegistryName().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                WoldsVaults.id("item/" + item.getRegistryName().getPath())).texture("layer1", VaultMod.id("item/shuffle_seal_overlay"));
+    }
+
     public ItemModelBuilder skillScroll(String skillId) {
         return getBuilder(VaultMod.id("item/skills/" + skillId).toString())
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
@@ -283,6 +318,20 @@ public class ModItemModelProvider extends ItemModelProvider {
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
                 .texture("layer0",
                         VaultMod.id("gui/researches/" + ResourceLocUtils.getStrippedPath(icon)));
+    }
+
+    public ItemModelBuilder etching(ResourceLocation icon) {
+        return getBuilder(VaultMod.id("item/gear/etching/" + ResourceLocUtils.getStrippedPath(icon)).toString())
+                .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                .texture("layer0",
+                        VaultMod.id("item/gear/etching/" + ResourceLocUtils.getStrippedPath(icon)));
+    }
+
+    public ItemModelBuilder etching(ResourceLocation icon, String replacementName) {
+        return getBuilder(VaultMod.id("item/gear/etching/" + ResourceLocUtils.getStrippedPath(icon)).toString())
+                .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                .texture("layer0",
+                        VaultMod.id("item/gear/etching/" + replacementName));
     }
 
     private ItemModelBuilder vaultModifier(ResourceLocation modifierId) {

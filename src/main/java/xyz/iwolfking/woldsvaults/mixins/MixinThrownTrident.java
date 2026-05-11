@@ -100,6 +100,24 @@ public abstract class MixinThrownTrident extends AbstractArrow {
 
 
             Entity entity1 = this.getOwner();
+
+            this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
+            float f1 = 1.0F;
+            if (this.level instanceof ServerLevel && VaultTridentItem.isVaultTridentChanneling(this.tridentItem)) {
+                if(VaultTridentItem.shouldTriggerChanneling(data)) {
+                    woldsVaults$triggerChannelingStrike(entity, entity1, f.floatValue());
+
+                    if (entity1 instanceof LivingEntity livingEntity) {
+                        AttributeSnapshot snapshot = AttributeSnapshotHelper.getInstance().getSnapshot(livingEntity);
+                        float judgementValue = snapshot.getAttributeValue(xyz.iwolfking.woldsvaults.init.ModGearAttributes.SECOND_JUDGEMENT, VaultGearAttributeTypeMerger.floatSum());
+
+                        if (random.nextFloat() < judgementValue) {
+                            woldsVaults$triggerChannelingStrike(entity, entity, f.floatValue());
+                        }
+                    }
+                }
+            }
+
             if(entity1 instanceof Player player) {
                 AttributeSnapshot snapshot = AttributeSnapshotHelper.getInstance().getSnapshot(player);
                 f = VaultTridentItem.getTridentScaledDamage(snapshot, (LivingEntity) entity, f);
@@ -119,27 +137,6 @@ public abstract class MixinThrownTrident extends AbstractArrow {
 
                     this.doPostHurtEffects(livingentity);
                 }
-            }
-
-            this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
-            float f1 = 1.0F;
-            if (this.level instanceof ServerLevel && VaultTridentItem.isVaultTridentChanneling(this.tridentItem)) {
-                if(!VaultTridentItem.shouldTriggerChanneling(data)) {
-                    ci.cancel();
-                    return;
-                }
-
-                woldsVaults$triggerChannelingStrike(entity, entity1, f.floatValue());
-
-                if(entity1 instanceof LivingEntity livingEntity) {
-                    AttributeSnapshot snapshot = AttributeSnapshotHelper.getInstance().getSnapshot(livingEntity);
-                    float judgementValue = snapshot.getAttributeValue(xyz.iwolfking.woldsvaults.init.ModGearAttributes.SECOND_JUDGEMENT, VaultGearAttributeTypeMerger.floatSum());
-
-                    if(random.nextFloat() < judgementValue) {
-                        woldsVaults$triggerChannelingStrike(entity, entity, f.floatValue());
-                    }
-                }
-
             }
 
             this.playSound(soundevent, f1, 1.0F);

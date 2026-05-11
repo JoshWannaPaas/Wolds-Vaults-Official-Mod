@@ -6,50 +6,39 @@
   "refmap": "woldsvaults.refmap.json",
   "plugin": "xyz.iwolfking.woldsvaults.mixins.plugins.WoldMixinPlugin",
   "mixins": [
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     "DimensionDataStorageAccessor",
->>>>>>> upstream/master
-=======
-    "DimensionDataStorageAccessor",
->>>>>>> upstream/master
     "GameRulesBooleanValueAccessor",
     "LivingEntityAccessor",
+    "MixinAttributes",
     "MixinBellBlockEntity",
     "MixinBlockStateBase",
     "MixinCreeperEntity",
     "MixinEnchantmentHelper",
+    "MixinEntity",
     "MixinFortuneOreDropFormula",
     "MixinGameRuleCommand",
     "MixinItemEntity",
     "MixinItemStack",
     "MixinLightningBolt",
     "MixinLivingEntity",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "MixinServerPlayerGameMode",
-=======
-=======
->>>>>>> upstream/master
     "MixinPlayerInventory",
+    "MixinRavagerEntity",
     "MixinResultSlot",
     "MixinServerPlayerGameMode",
     "MixinShieldItem",
     "MixinTagLoader",
-<<<<<<< HEAD
->>>>>>> upstream/master
-=======
->>>>>>> upstream/master
     "MixinThrownTrident",
     "ThrownTridentAccessor",
+    "accessors.MobEffectInstanceAccessor",
     "accessors.SheepAccessor",
+    "accessors.ThrowableItemProjectileAccessor",
     "advanced_peripherals.MixinVillagerTrades",
     "ae2.terminal.MixinAEBaseMenu",
     "ae2.terminal.MixinInventoryHotkeyAction",
     "ae2.terminal.MixinMenuItemLocator",
     "ae2.terminal.MixinWirelessTerminalItem",
     "ae2insertexportcard.MixinAE2InsertExportCard",
+    "alexsmobs.MixinEntityCosmaw",
     "alexsmobs.MixinEntityTiger",
     "angelrings.MixinAbstractRingCurio",
     "ars_nouveau.MixinISpellHotkeyListener",
@@ -57,19 +46,16 @@
     "bettercombat.MixinBetterCombatAttackRange",
     "bettercombat.MixinRadialFilter",
     "bettercombat.MixinWeaponAttributesHelper",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "bettercombat.MixinWeaponRegistry",
-=======
->>>>>>> upstream/master
-=======
->>>>>>> upstream/master
     "blackmarkettweaks.MixinBlackMarketTileEntity",
     "blackmarkettweaks.MixinServerboundResetBlackMarketTradesMessageMixin",
+    "botania.MixinCraftCrateBlock",
+    "botania.MixinItemCraftingHalo",
+    "botania.MixinTileCraftCrate",
     "cloudstorage.MixinBalloonBuddyEntity",
     "cofhcore.MixinCofhEnchantment",
     "compressium.MixinCompressium",
     "cookingforblockheads.MixinKitchenBlock",
+    "craftingtweaks.CompressMessageMixin",
     "create.accessors.FilterItemAccessor",
     "customstartinggear.MixinDataManager",
     "dimensional_worldborder.MixinDimensionalWorldborder",
@@ -85,21 +71,15 @@
     "ensorcellation.MixinCommonEvents",
     "ensorcellation.MixinCurseMercyEnchantment",
     "ensorcellation.MixinEnsorcEnchantments",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     "fruitbag.MixinFruitBagHandler",
     "fruitbag.MixinFruitSlot",
->>>>>>> upstream/master
-=======
-    "fruitbag.MixinFruitBagHandler",
-    "fruitbag.MixinFruitSlot",
->>>>>>> upstream/master
+    "ftbessentials.MixinFTBBackCommand",
     "ftbquests.MixinFTBQuestsClient",
     "ftbquests.MixinItemReward",
     "ftbteams.MixinFTBTeamsClient",
     "gatewaystoeternity.MixinGatePearlItem",
     "grimoireofgaia.MixinAbstractGaiaEntity",
+    "grimoireofgaia.MixinCreep",
     "hexal.MixinBlockEntitySlipway",
     "hostilenetworks.HostileCachedModelMixin",
     "hostilenetworks.HostileDataModelMixin",
@@ -110,6 +90,8 @@
     "infernalmobs.MixinInfernalMobsCore",
     "infernalmobs.MixinMobModsPacket",
     "integrateddynamics.MixinClientProxy",
+    "integrateddynamics.MixinCraftingProcessOverrideCraftingTable",
+    "jevh.MixinClientEvents",
     "jevh.MixinJEIRecipeProvider",
     "jewelsorting.MixinSortingHelper",
     "legendarytooltips.MixinLegendaryTooltips",
@@ -122,8 +104,10 @@
     "occultism.MixinRemoteStorageAccessor",
     "openpac.MixinCommonEvents",
     "openpac.MixinHostileEntityProtectionHelper",
+    "openpac.MixinSchematicTerminalPlaceMessage",
     "pnc.MixinDisenchantingPressureRecipe",
     "quark.MixinAncientTomesModule",
+    "rftoolsutility.MixinCrafterBaseTE",
     "scannable.MixinRangeScannerModule",
     "scannable.MixinScannableItem",
     "scannable.MixinScannableItems",
@@ -134,26 +118,24 @@
     "sophisticatedbackpacks.MixinToolSwapperWrapper",
     "sophisticatedstorage.MixinPackingTape",
     "supplementaries.MixinFaucetTileEntity",
+    "supplementaries.TrowelItemMixin",
+    "thermal.MixinCyclicAssemblerBlock",
+    "thermal.MixinTileBlockActive4Way",
     "travel_anchors.MixinTeleportHandler",
     "tropicraft.MixinEIHEntity",
     "vaultarhud.MixinInventoryHudRender",
     "vaultarhud.MixinScreenValidator",
+    "vaultfilters.MixinAffixAttribute",
     "vaulthunters.MixinModConfigs",
+    "vaulthunters.MixinTieredLootTableGenerator",
     "vaulthunters.MixinVaultObjectivesModule",
     "vaulthunters.accessors.ArchitectCrystalLayoutAccessor",
     "vaulthunters.accessors.AttributeSnapshotHelperAccessor",
     "vaulthunters.accessors.AttributeSnapshotValueAccessor",
     "vaulthunters.accessors.BingoObjectiveAccessor",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+    "vaulthunters.accessors.BottleEffectAccessor",
     "vaulthunters.accessors.CastOnHitTalentAccessor",
     "vaulthunters.accessors.CastOnKillTalentAccessor",
->>>>>>> upstream/master
-=======
-    "vaulthunters.accessors.CastOnHitTalentAccessor",
-    "vaulthunters.accessors.CastOnKillTalentAccessor",
->>>>>>> upstream/master
     "vaulthunters.accessors.ClassicCircleCrystalLayoutAccessor",
     "vaulthunters.accessors.ClassicInfiniteCrystalLayoutAccessor",
     "vaulthunters.accessors.ClassicPolygonCrystalLayoutAccessor",
@@ -164,6 +146,7 @@
     "vaulthunters.accessors.DeckContainerWrapperAccessor",
     "vaulthunters.accessors.DynamicModelAccessor",
     "vaulthunters.accessors.EffectOnHitTalentAccessor",
+    "vaulthunters.accessors.ElixirCrystalObjectiveAccessor",
     "vaulthunters.accessors.GearAttributeSkillAccessor",
     "vaulthunters.accessors.HealthLeechLuckyHitTalentAccessor",
     "vaulthunters.accessors.HighHealthGearAttributeTalentAccessor",
@@ -180,31 +163,17 @@
     "vaulthunters.accessors.MixinInfusedCatalystItem",
     "vaulthunters.accessors.MixinScavengerAltar",
     "vaulthunters.accessors.ModifierGearTierAccessor",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "vaulthunters.accessors.PlayerVaultAltarDataAccessor",
-    "vaulthunters.accessors.ProductEntryAccessor",
-    "vaulthunters.accessors.ShopEntryAccessor",
-    "vaulthunters.accessors.ShopTierAccessor",
-=======
     "vaulthunters.accessors.MysticExpertiseAccessor",
     "vaulthunters.accessors.PlayerVaultAltarDataAccessor",
-=======
-    "vaulthunters.accessors.MysticExpertiseAccessor",
-    "vaulthunters.accessors.PlayerVaultAltarDataAccessor",
->>>>>>> upstream/master
     "vaulthunters.accessors.PoolCrystalThemeAccessor",
     "vaulthunters.accessors.ProductEntryAccessor",
+    "vaulthunters.accessors.ScavengerBingoCrystalObjectiveAccessor",
     "vaulthunters.accessors.ScheduledModifiersAccessor",
     "vaulthunters.accessors.ServerboundRoyaleSelectTrinketMessageAccessor",
     "vaulthunters.accessors.SlotDeckModifierAccessor",
     "vaulthunters.accessors.StackingGearAttributeTalentAccessor",
     "vaulthunters.accessors.SweepingLuckyHitTalentAccessor",
     "vaulthunters.accessors.TaskLootCardModifierConfigAccessor",
-<<<<<<< HEAD
->>>>>>> upstream/master
-=======
->>>>>>> upstream/master
     "vaulthunters.accessors.TemplateProcessorModifierPropertiesAccessor",
     "vaulthunters.accessors.TrinketerExpertiseAccessor",
     "vaulthunters.accessors.VanillaAttributeTalentAccessor",
@@ -227,7 +196,6 @@
     "vaulthunters.compat.ensorcellation.MixinVaultShieldItem",
     "vaulthunters.compat.ensorcellation.MixinVaultSwordItem",
     "vaulthunters.compat.ensorcellation.MixinVaultWand",
-    "vaulthunters.compat.jei.MixinVaultRecyclerRecipeJEICategory",
     "vaulthunters.compat.lightmanscurrency.MixinCoinDefinition",
     "vaulthunters.compat.lightmanscurrency.MixinGearModificationAction",
     "vaulthunters.compat.lightmanscurrency.MixinInventoryUtil",
@@ -235,7 +203,9 @@
     "vaulthunters.compat.lightmanscurrency.MixinSoulboundSnapshot",
     "vaulthunters.compat.lightmanscurrency.MixinSpiritExtractor",
     "vaulthunters.compat.lightmanscurrency.MixinTradeCommand",
+    "vaulthunters.custom.MixinAlchemyArchive",
     "vaulthunters.custom.MixinAngelExpertise",
+    "vaulthunters.custom.MixinAnvilExecutor",
     "vaulthunters.custom.MixinAttributeSnapshot",
     "vaulthunters.custom.MixinAugmentAnvilRecipe",
     "vaulthunters.custom.MixinBingoTask",
@@ -244,22 +214,15 @@
     "vaulthunters.custom.MixinBoosterPackItem",
     "vaulthunters.custom.MixinBossRunePillarTileEntity",
     "vaulthunters.custom.MixinBottleItem",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> upstream/master
+    "vaulthunters.custom.MixinBountyData",
     "vaulthunters.custom.MixinCardboardBoxTileEntity",
     "vaulthunters.custom.MixinCardDeck",
     "vaulthunters.custom.MixinCardDeckContainerMenu",
     "vaulthunters.custom.MixinCardEntry",
-<<<<<<< HEAD
->>>>>>> upstream/master
-=======
->>>>>>> upstream/master
     "vaulthunters.custom.MixinCatalystAnvilRecipe",
     "vaulthunters.custom.MixinCatalystForgeRecipe",
     "vaulthunters.custom.MixinChampionLogic",
+    "vaulthunters.custom.MixinChaosCrystalObjective",
     "vaulthunters.custom.MixinCharmAnvilRecipe",
     "vaulthunters.custom.MixinCharmItem",
     "vaulthunters.custom.MixinClassicListenersLogic",
@@ -271,18 +234,26 @@
     "vaulthunters.custom.MixinCrystalWorkbenchTileEntity",
     "vaulthunters.custom.MixinCustomisationDiscovery",
     "vaulthunters.custom.MixinCustomSpawnerTileEntity",
+    "vaulthunters.custom.MixinDamageImmunityTrinket",
     "vaulthunters.custom.MixinDeckForgeRecipe",
     "vaulthunters.custom.MixinDeckModifierAdapter",
     "vaulthunters.custom.MixinEntityEvents",
+    "vaulthunters.custom.MixinEtchingApplicationTableTileEntity",
+    "vaulthunters.custom.MixinEtchingItem",
     "vaulthunters.custom.MixinExperiencedExpertise",
     "vaulthunters.custom.MixinGearAttributeEvents",
     "vaulthunters.custom.MixinGearRollHelper",
+    "vaulthunters.custom.MixinGearScoreHelper",
     "vaulthunters.custom.MixinGiveLootCommand",
     "vaulthunters.custom.MixinGodCharmItem",
     "vaulthunters.custom.MixinGodCharmRollHelper",
     "vaulthunters.custom.MixinGrantedEffectHelper",
+    "vaulthunters.custom.MixinGreedTraderEntity",
+    "vaulthunters.custom.MixinGreedTree",
+    "vaulthunters.custom.MixinGreedVesselEntity",
     "vaulthunters.custom.MixinHeraldCrystalObjective",
     "vaulthunters.custom.MixinHeraldObjective",
+    "vaulthunters.custom.MixinImplodeAbility",
     "vaulthunters.custom.MixinInscriptionData",
     "vaulthunters.custom.MixinInventoryHudRenderer",
     "vaulthunters.custom.MixinInventoryUtil",
@@ -292,14 +263,8 @@
     "vaulthunters.custom.MixinJavelinAbility",
     "vaulthunters.custom.MixinJewelItem",
     "vaulthunters.custom.MixinJewelPouchItem",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+    "vaulthunters.custom.MixinLifeTapAbility",
     "vaulthunters.custom.MixinLightningOrbEntity",
->>>>>>> upstream/master
-=======
-    "vaulthunters.custom.MixinLightningOrbEntity",
->>>>>>> upstream/master
     "vaulthunters.custom.MixinLootInfoGroupDefinitionRegistry",
     "vaulthunters.custom.MixinMagnetItem",
     "vaulthunters.custom.MixinManaPylonBuff",
@@ -310,78 +275,57 @@
     "vaulthunters.custom.MixinModifierContext",
     "vaulthunters.custom.MixinModifierWorkbenchBlock",
     "vaulthunters.custom.MixinModModelDiscoveryGoals",
+    "vaulthunters.custom.MixinNovaAbility",
     "vaulthunters.custom.MixinObjectiveHudSettings",
     "vaulthunters.custom.MixinObjectiveTemplates",
+    "vaulthunters.custom.MixinPlayerBlackMarketData",
     "vaulthunters.custom.MixinPlayerGreedData",
+    "vaulthunters.custom.MixinPlayerGreedTraderData",
+    "vaulthunters.custom.MixinPlayerGreedTreeData",
     "vaulthunters.custom.MixinPlayerReputationData",
     "vaulthunters.custom.MixinPlayerResearchesData",
     "vaulthunters.custom.MixinPlayerSpiritRecoveryData",
     "vaulthunters.custom.MixinPlayerVaultStats",
     "vaulthunters.custom.MixinPlayerVaultStatsData",
     "vaulthunters.custom.MixinPylonBlock",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "vaulthunters.custom.MixinResearchTree",
-    "vaulthunters.custom.MixinRewardConfig",
-    "vaulthunters.custom.MixinRoyaleDraftContainer",
-    "vaulthunters.custom.MixinRoyaleDrafterControllerTileEntity",
-=======
     "vaulthunters.custom.MixinRecoveryCost",
     "vaulthunters.custom.MixinResearchTree",
     "vaulthunters.custom.MixinRewardConfig",
     "vaulthunters.custom.MixinRoyaleDraftContainer",
->>>>>>> upstream/master
-=======
-    "vaulthunters.custom.MixinRecoveryCost",
-    "vaulthunters.custom.MixinResearchTree",
-    "vaulthunters.custom.MixinRewardConfig",
-    "vaulthunters.custom.MixinRoyaleDraftContainer",
->>>>>>> upstream/master
     "vaulthunters.custom.MixinRoyalePresetConfig",
     "vaulthunters.custom.MixinRunner",
     "vaulthunters.custom.MixinScavengerObjective",
     "vaulthunters.custom.MixinServerboundRoyaleSelectTrinketMessage",
+    "vaulthunters.custom.MixinServerVaults",
     "vaulthunters.custom.MixinShellQuillAbility",
+    "vaulthunters.custom.MixinShieldBashAbility",
     "vaulthunters.custom.MixinSkillAltarBlock",
     "vaulthunters.custom.MixinSpecialAbilityModificationRegistry",
     "vaulthunters.custom.MixinTemporalShardItem",
     "vaulthunters.custom.MixinTimeTrialObjective",
+    "vaulthunters.custom.MixinToolForgeRecipe",
     "vaulthunters.custom.MixinToolItem",
     "vaulthunters.custom.MixinToolStationHelper",
     "vaulthunters.custom.MixinTransmogTableBlock",
+    "vaulthunters.custom.MixinTransmogTableScreen",
     "vaulthunters.custom.MixinTreasureContainerBlock",
     "vaulthunters.custom.MixinTreasureKeyAnvilRecipe",
+    "vaulthunters.custom.MixinTrinketHelper",
     "vaulthunters.custom.MixinTrinketItem",
     "vaulthunters.custom.MixinUnboxingStationTileEntity",
     "vaulthunters.custom.MixinVaultAltarConfig",
+    "vaulthunters.custom.MixinVaultChestConfig",
     "vaulthunters.custom.MixinVaultCrateBlock",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "vaulthunters.custom.MixinVaultDollItem",
-=======
-=======
->>>>>>> upstream/master
     "vaulthunters.custom.MixinVaultCrystalConfig",
     "vaulthunters.custom.MixinVaultCrystalItem",
     "vaulthunters.custom.MixinVaultDollItem",
     "vaulthunters.custom.MixinVaultFireball",
-<<<<<<< HEAD
->>>>>>> upstream/master
-=======
->>>>>>> upstream/master
     "vaulthunters.custom.MixinVaultGearHelper",
     "vaulthunters.custom.MixinVaultGearRarity",
     "vaulthunters.custom.MixinVaultGearRecipe",
     "vaulthunters.custom.MixinVaultGearTierConfig",
     "vaulthunters.custom.MixinVaultGearTooltipItem",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     "vaulthunters.custom.MixinVaultGrenade",
->>>>>>> upstream/master
-=======
-    "vaulthunters.custom.MixinVaultGrenade",
->>>>>>> upstream/master
     "vaulthunters.custom.MixinVaultKickCommand",
     "vaulthunters.custom.MixinVaultMapOverlay",
     "vaulthunters.custom.MixinVaultModifierStack",
@@ -403,39 +347,32 @@
     "vaulthunters.custom.enum_extension.MixinVaultCrateType",
     "vaulthunters.custom.enum_extension.MixinVaultGearClassificationEnum",
     "vaulthunters.custom.enum_extension.MixinVaultRarityEnum",
+    "vaulthunters.custom.etching.MixinAbstractFireballAbility",
+    "vaulthunters.custom.etching.MixinBottleItem",
+    "vaulthunters.custom.etching.MixinPuristTalent",
     "vaulthunters.custom.recycler.MixinVaultCatalystItem",
     "vaulthunters.custom.recycler.MixinVaultGearItem",
+    "vaulthunters.datagen.MixinChampionsConfig",
+    "vaulthunters.datagen.MixinVaultGearEnchantmentConfig",
+    "vaulthunters.fixes.CardPosMixin",
     "vaulthunters.fixes.MixinAbilityCooldownPercentAttributeReader",
+    "vaulthunters.fixes.MixinAbstractEarthquakeAbility",
     "vaulthunters.fixes.MixinAscensionObjective",
     "vaulthunters.fixes.MixinAttributeGearData",
     "vaulthunters.fixes.MixinBailObjective",
     "vaulthunters.fixes.MixinBingoObjective",
     "vaulthunters.fixes.MixinClientEvents",
     "vaulthunters.fixes.MixinCoinPouchItem",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "vaulthunters.fixes.MixinCombatStatsElementContainer",
-    "vaulthunters.fixes.MixinCurioContainerHandler",
-    "vaulthunters.fixes.MixinDeathObjective",
-=======
     "vaulthunters.fixes.MixinCurioContainerHandler",
     "vaulthunters.fixes.MixinDeathObjective",
     "vaulthunters.fixes.MixinDeckRecipeTaskData",
+    "vaulthunters.fixes.MixinDeckRecipeTaskDataPlayerEntry",
     "vaulthunters.fixes.MixinDecoratorAddModifier",
     "vaulthunters.fixes.MixinDiscoveredThemesData",
->>>>>>> upstream/master
-=======
-    "vaulthunters.fixes.MixinCurioContainerHandler",
-    "vaulthunters.fixes.MixinDeathObjective",
-    "vaulthunters.fixes.MixinDeckRecipeTaskData",
-    "vaulthunters.fixes.MixinDecoratorAddModifier",
-    "vaulthunters.fixes.MixinDiscoveredThemesData",
->>>>>>> upstream/master
     "vaulthunters.fixes.MixinDynamicModelRegistry",
     "vaulthunters.fixes.MixinEliteZombie",
     "vaulthunters.fixes.MixinEntityGroupsConfig",
     "vaulthunters.fixes.MixinFloatingItem",
-    "vaulthunters.fixes.MixinGearScoreHelper",
     "vaulthunters.fixes.MixinImmortalityEffect",
     "vaulthunters.fixes.MixinIntegrationCurios",
     "vaulthunters.fixes.MixinJewelCraftingRecipe",
@@ -446,6 +383,8 @@
     "vaulthunters.fixes.MixinModifiers",
     "vaulthunters.fixes.MixinMonolithRenderer",
     "vaulthunters.fixes.MixinMultiJumpTrinket",
+    "vaulthunters.fixes.MixinPrestigePowerLevelMessage",
+    "vaulthunters.fixes.MixinRebirthObjective",
     "vaulthunters.fixes.MixinRoyaleObjective",
     "vaulthunters.fixes.MixinRunePillarRenderer",
     "vaulthunters.fixes.MixinScheduledModifiers",
@@ -455,22 +394,13 @@
     "vaulthunters.fixes.MixinToolItem",
     "vaulthunters.fixes.MixinTreasureDoorTileEntityRenderer",
     "vaulthunters.fixes.MixinTreasureHunterEffect",
+    "vaulthunters.fixes.MixinUnboxingStationTileEntity",
     "vaulthunters.fixes.MixinUniqueGearCommand",
     "vaulthunters.fixes.MixinVaultChestTileEntity",
     "vaulthunters.fixes.MixinVaultGearModifierHelper",
     "vaulthunters.fixes.MixinVaultGearRarity",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "vaulthunters.fixes.MixinVaultModifier",
-    "vaulthunters.fixes.MixinVaultXPFoodItem",
-=======
     "vaulthunters.fixes.MixinVaultUtils",
     "vaulthunters.fixes.MixinVorpalSealCost",
->>>>>>> upstream/master
-=======
-    "vaulthunters.fixes.MixinVaultUtils",
-    "vaulthunters.fixes.MixinVorpalSealCost",
->>>>>>> upstream/master
     "vaulthunters.fixes.MixinWardrobeTileEntity",
     "vaulthunters.fixes.bettercombat.MixinAttributeSnapshotCalculatorNoBC",
     "vaulthunters.fixes.bettercombat.MixinGearAttributeEvents",
@@ -489,25 +419,17 @@
     "vaulthunters.recipes.MixinJewelCraftingRecipe",
     "vaulthunters.recipes.MixinSigilAnvilRecipe",
     "vaulthunters.skills.MixinAbilityLabelFactory",
+    "vaulthunters.skills.MixinAreaOfEffectHelper",
     "vaulthunters.skills.MixinHealEffectAbility",
     "vaulthunters.skills.MixinModAbilityLabelBindings",
     "vaulthunters.skills.MixinResistanceHelper",
     "vaulthunters.skills.MixinSkill",
     "vaulthunters.skills.modifications.MixinAbstractVeinMinerAbility",
     "vaulthunters.skills.modifications.MixinFireballAbility",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "vaulthunters.skills.modifications.MixinIceBoltChunkAbility",
-    "vaultmapper.MixinVaultMapOverlayRenderer"
-=======
-    "vaulthunters.skills.modifications.MixinIceBoltChunkAbility"
->>>>>>> upstream/master
-=======
-    "vaulthunters.skills.modifications.MixinIceBoltChunkAbility"
->>>>>>> upstream/master
+    "vaultintegrations.MixinAltarConduitNode"
   ],
   "client": [
-    "vaulthunters.fixes.MixinObeliskObjective",
     "AccessorParticleEngine",
     "MixinAnvilScreen",
     "MixinItemRenderer",
@@ -515,42 +437,36 @@
     "bettercombat.MixinWeaponRegistry",
     "inventoryhud.MixinCuriosRenderer",
     "inventoryhud.MixinInventoryHudRenderer",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> upstream/master
     "jei.MixinRecipesGui",
     "scannable.BlockScanResultAccessor",
     "scannable.MixinScanManager",
     "scannable.MixinScanResultProviderBlock",
-<<<<<<< HEAD
->>>>>>> upstream/master
-=======
->>>>>>> upstream/master
     "sophisticatedbackpacks.MixinBackpackModel",
     "vaulthunters.accessors.VaultChestRendererAccessor",
+    "vaulthunters.custom.MixinAbilityDialog",
     "vaulthunters.custom.MixinAugmentItem",
     "vaulthunters.custom.MixinCrystalWorkbenchScreen",
     "vaulthunters.custom.MixinGearDataCache",
+    "vaulthunters.custom.MixinGreedTraderScreen",
+    "vaulthunters.custom.MixinGreedTraderScreen$Challenges",
+    "vaulthunters.custom.MixinItemVaultFruitClient",
+    "vaulthunters.custom.MixinPickupNotifierModule",
     "vaulthunters.custom.MixinSpiritExtractorScreen",
     "vaulthunters.custom.MixinTickTimer",
     "vaulthunters.custom.MixinVault",
+    "vaulthunters.custom.MixinVaultForgeScreen",
     "vaulthunters.fixes.MixinCatalystItemRenderer",
     "vaulthunters.fixes.MixinClientLocale",
+    "vaulthunters.fixes.MixinInputEvents",
     "vaulthunters.fixes.MixinIntegrationMinimap",
+    "vaulthunters.fixes.MixinObeliskObjective",
+    "vaulthunters.fixes.MixinRebirthObjectiveClient",
     "vaulthunters.fixes.MixinSkillDialog",
     "vaulthunters.fixes.MixinTalentWidget",
     "vaulthunters.fixes.MixinToolItemRenderer",
-<<<<<<< HEAD
-    "vaulthunters.fixes.MixinUniqueCodexScreen"
-=======
     "vaulthunters.fixes.MixinUniqueCodexScreen",
+    "vaulthunters.fixes.MixinVoidStoneItem",
     "vaulthunters.objectives.MixinClientCrystalData"
-<<<<<<< HEAD
->>>>>>> upstream/master
-=======
->>>>>>> upstream/master
   ],
   "injectors": {
     "defaultRequire": 1

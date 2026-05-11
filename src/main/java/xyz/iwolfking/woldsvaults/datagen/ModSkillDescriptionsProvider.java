@@ -66,6 +66,24 @@ public class ModSkillDescriptionsProvider extends AbstractSkillDescriptionsProvi
                      }).forEach(jsonElements::add);;
                  })
 
+                 .addDescription("Automatic Genius", jsonElements -> {
+                            modDesc("Bragging rights", "of unlocking all mods",  innerDesc -> {
+                                innerDesc.add(JsonDescription.simple("Big Brain!\n\n", "yellow"));
+                                innerDesc.add(JsonDescription.simple("You have completed every research and filled your brain with knowledge!\n\n"));
+                                innerDesc.add(JsonDescription.simple("This research is purely for bragging rights, all autocrafting is available within their respective mod without this unlock!\n\n"));
+                                innerDesc.add(JsonDescription.simple("All mods with autocrafting respect the research system of Vault Hunters, only allowing crafting items you have unlocked!"));
+                            }).forEach(jsonElements::add);;
+                })
+
+                .addDescription("Colossal Chests", jsonElements -> {
+                    modDesc("Colossal Chests",  innerDesc -> {
+                        innerDesc.add(JsonDescription.simple("Colossal chests allows you to build massive chests that can store a lot of items in them.\n\n"));
+                        innerDesc.add(JsonDescription.simple("Colossal chests above Iron have been disabled to help prevent issues on servers!"));
+                    }).forEach(jsonElements::add);;
+                })
+
+
+
                  .addDescription("Junk Management", jsonElements -> modDesc("Junk Management", "research", innerDesc -> {
                      innerDesc.add(JsonDescription.simple("The Void Crucible will let you configure what blocks you don't want to void when using the Void + Pickup Mode on your ", "$text"));
                      innerDesc.add(JsonDescription.simple("Magnet", "aqua"));
@@ -283,7 +301,7 @@ public class ModSkillDescriptionsProvider extends AbstractSkillDescriptionsProvi
                     }).forEach(jsonElements::add);;
                 })
 
-                .addDescription("Inception Upgrade", jsonElements -> modDesc("Inception Upgrade", "from Sophisticated Backpacks", innerDesc -> innerDesc.add(JsonDescription.simple("With your mastery of looting, your accumulation of knowledge, and insane willpower, you finally have the brilliant idea, wondering why it hasn't hit you all this time, to simply put your backpacks inside of other backpacks. A peculiar thought...", "$text"))).forEach(jsonElements::add))
+                .addDescription("Bag Inception", jsonElements -> modDesc("Inception Upgrade", "from Sophisticated Backpacks", innerDesc -> innerDesc.add(JsonDescription.simple("With your mastery of looting, your accumulation of knowledge, and insane willpower, you finally have the brilliant idea, wondering why it hasn't hit you all this time, to simply put your backpacks inside of other backpacks. A peculiar thought...", "$text"))).forEach(jsonElements::add))
 
                 .addDescription("QuarryPlus", jsonElements -> modDesc("QuarryPlus", innerDesc -> {
                     disabledInVaults().forEach(innerDesc::add);
@@ -339,6 +357,44 @@ public class ModSkillDescriptionsProvider extends AbstractSkillDescriptionsProvi
                     jsonElements.add(JsonDescription.simple("Prismatic Trinket Pouch ", "#82D4FC"));
                     jsonElements.add(JsonDescription.simple("for crafting inside the "));
                     jsonElements.add(JsonDescription.simple("Weaving Station", "aqua"));
+                    jsonElements.add(JsonDescription.simple("."));
+                })
+                .addDescription("Toolsmith", jsonElements -> {
+                    jsonElements.add(JsonDescription.simple("When crafting "));
+                    jsonElements.add(JsonDescription.simple("Vault Tools ", "#82D4FC"));
+                    jsonElements.add(JsonDescription.simple("they gain "));
+                    jsonElements.add(JsonDescription.simple("75 ", "yellow"));
+                    jsonElements.add(JsonDescription.simple("additional capacity."));
+                })
+                .addDescription("Artificer", jsonElements -> {
+                    jsonElements.add(JsonDescription.simple("When you identify "));
+                    jsonElements.add(JsonDescription.simple("Vault Gear ", "#82D4FC"));
+                    jsonElements.add(JsonDescription.simple("it gains "));
+                    jsonElements.add(JsonDescription.simple("100 ", "yellow"));
+                    jsonElements.add(JsonDescription.simple("additional "));
+                    jsonElements.add(JsonDescription.simple("Crafting Potential", "gold"));
+                    jsonElements.add(JsonDescription.simple("."));
+                })
+                .addDescription("SoulFetcher", jsonElements -> {
+                    jsonElements.add(JsonDescription.simple("Increases your "));
+                    jsonElements.add(JsonDescription.simple("Soul Shard Chance", "#6D02FB"));
+                    jsonElements.add(JsonDescription.simple("."));
+                })
+                .addDescription("HealthIncrease", jsonElements -> {
+                    jsonElements.add(JsonDescription.simple("Increases your "));
+                    jsonElements.add(JsonDescription.simple("Health ", "#008700"));
+                    jsonElements.add(JsonDescription.simple("."));
+                })
+                .addDescription("MythicBounty", jsonElements -> {
+                    jsonElements.add(JsonDescription.simple("Bounties now always roll as "));
+                    jsonElements.add(JsonDescription.simple("Legendary bounties", "gold"));
+                    jsonElements.add(JsonDescription.simple(".\n\n"));
+                    jsonElements.add(JsonDescription.simple("Lost Bounties ", "aqua"));
+                    jsonElements.add(JsonDescription.simple("will now roll a "));
+                    jsonElements.add(JsonDescription.simple("Mythic bounty", "light_purple"));
+                    jsonElements.add(JsonDescription.simple(" with a"));
+                    jsonElements.add(JsonDescription.simple(" unique ", "yellow"));
+                    jsonElements.add(JsonDescription.simple("reward pool"));
                     jsonElements.add(JsonDescription.simple("."));
                 })
                 .build();
@@ -668,7 +724,6 @@ public class ModSkillDescriptionsProvider extends AbstractSkillDescriptionsProvi
                     jsonElements.add(JsonDescription.simple("based on the amount of "));
                     jsonElements.add(JsonDescription.simple("Scrappy ", "343434"));
                     jsonElements.add(JsonDescription.simple("armor pieces you wear."));
-                    jsonElements.add(JsonDescription.simple("20%", "#F6CD0E"));
                 })
                 .addDescription("Nether_Mastery", jsonElements -> {
                     jsonElements.add(JsonDescription.simple("Increases the "));
@@ -718,8 +773,7 @@ public class ModSkillDescriptionsProvider extends AbstractSkillDescriptionsProvi
                     jsonElements.add(JsonDescription.simple("Gain "));
                     jsonElements.add(JsonDescription.simple("extra healing efficiency ", "#7DF587"));
                     jsonElements.add(JsonDescription.simple("while below "));
-                    jsonElements.add(JsonDescription.simple("20% ", "#0353D7"));
-                    jsonElements.add(JsonDescription.simple("max health."));
+                    jsonElements.add(JsonDescription.simple("20% mana ", "#0353D7"));
                 })
                 .addDescription("Sorcery", jsonElements -> {
                     jsonElements.add(JsonDescription.simple("Gain "));
