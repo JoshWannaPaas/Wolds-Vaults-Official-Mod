@@ -13,6 +13,7 @@ import iskallia.vault.gear.tooltip.GearTooltip;
 import iskallia.vault.init.ModConfigs;
 import iskallia.vault.init.ModGearAttributes;
 import iskallia.vault.init.ModItems;
+import iskallia.vault.item.gear.WandItem;
 import iskallia.vault.world.data.DiscoveredModelsData;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
@@ -32,6 +33,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolAction;
 import org.jetbrains.annotations.NotNull;
+import xyz.iwolfking.woldsvaults.items.SubSwordItem;
 import xyz.iwolfking.woldsvaults.models.Daggers;
 
 import javax.annotation.Nonnull;
@@ -40,10 +42,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-public class VaultDaggerSubItem extends SwordItem implements VaultGearItem, DyeableLeatherItem {
+public class VaultDaggerSubItem extends SubSwordItem implements VaultGearItem, DyeableLeatherItem {
 
     public VaultDaggerSubItem(ResourceLocation id, Properties builder) {
-        super(VaultGearToolTier.INSTANCE, 0, 0F, builder);
+        super(VaultGearToolTier.INSTANCE, 0, 2.4F, builder);
         setRegistryName(id);
     }
 
@@ -60,24 +62,24 @@ public class VaultDaggerSubItem extends SwordItem implements VaultGearItem, Dyea
 
     @Nullable
     public EquipmentSlot getIntendedSlot(ItemStack stack) {
-        return EquipmentSlot.MAINHAND;
+        return EquipmentSlot.OFFHAND;
     }
 
     @NotNull
     public VaultGearClassification getClassification(ItemStack stack) {
-        return VaultGearClassification.SWORD;
+        return VaultGearClassification.WAND;
     }
 
     @NotNull
     @Override
     public VaultGearType getGearType(ItemStack itemStack) {
-        return Enum;
+        return VaultGearType.WAND;
     }
 
 
     @Nonnull
     public ProficiencyType getCraftingProficiencyType(ItemStack stack) {
-        return ProficiencyType.SWORD;
+        return ProficiencyType.WAND;
     }
 
     public float getDestroySpeed(ItemStack stack, BlockState state) {
