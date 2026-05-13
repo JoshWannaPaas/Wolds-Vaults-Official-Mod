@@ -1,0 +1,34 @@
+{
+  "itemRegistryName": "the_vault:dagger_sub",
+  "MODEL_ROLLS": {
+    "SCRAPPY": [
+      "the_vault:gear/dagger/scrappy/dagger_flint",
+      "the_vault:gear/dagger/scrappy/dagger_chipped",
+      "the_vault:gear/dagger/scrappy/dagger_soulium"
+    ],
+    "COMMON": [
+      "the_vault:gear/dagger/common/dagger_iron",
+      "the_vault:gear/dagger/common/dagger_gold",
+      "the_vault:gear/dagger/common/dagger_passive",
+      "the_vault:gear/dagger/common/dagger_flawed"
+    ],
+    "RARE": [
+      "the_vault:gear/dagger/rare/dagger_diamond",
+      "the_vault:gear/dagger/rare/dagger_hostile",
+      "the_vault:gear/dagger/rare/dagger_flawless"
+    ],
+    "EPIC": [
+      "the_vault:gear/dagger/epic/dagger_netherite",
+      "the_vault:gear/dagger/epic/dagger_sacrifice",
+      "the_vault:gear/dagger/epic/dagger_claws",
+      "the_vault:gear/dagger/epic/dagger_imperfect"
+    ],
+    "OMEGA": [
+      "the_vault:gear/dagger/omega/dagger_creative",
+      "the_vault:gear/dagger/omega/dagger_mystical",
+      "the_vault:gear/dagger/omega/dagger_perfect"
+    ],
+    "UNIQUE": [
+    ]
+  }
+}

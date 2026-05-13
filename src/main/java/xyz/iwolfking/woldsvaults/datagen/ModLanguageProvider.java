@@ -374,6 +374,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.the_vault.trident", "Vault Trident");
         add("item.the_vault.battlestaff", "Vault Battlestaff");
         add("item.the_vault.map", "Vault Map");
+        add("item.the_vault.dagger_main", "Vault Dagger (Main)");
+        add("item.the_vault.dagger_sub", "Vault Dagger (Sub)");
         add("item.woldsvaults.layout_manipulator", "Etched Vault Layout");
         add("effect.woldsvaults.reaving", "Reaved");
         add("effect.woldsvaults.echoing", "Echoing");
