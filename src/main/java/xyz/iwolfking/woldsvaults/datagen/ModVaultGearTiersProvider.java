@@ -298,7 +298,7 @@ public class ModVaultGearTiersProvider extends AbstractVaultGearConfigProvider {
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.SOULBOUND,  "BaseSoulbound",  "base_no_soulbound", List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(0, -1, 20, false);
+                            vaultGearModifierTiersBuilder.add(0, -1, 80, false);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.LIVING,     "BaseLiving",     "base_living",       List.of(), vaultGearModifierTiersBuilder -> {
@@ -306,7 +306,7 @@ public class ModVaultGearTiersProvider extends AbstractVaultGearConfigProvider {
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.LIVING,     "BaseLiving",     "base_no_living",    List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(0,-1,2,false);
+                            vaultGearModifierTiersBuilder.add(0,-1,98,false);
                         });
             });
 
@@ -464,19 +464,19 @@ public class ModVaultGearTiersProvider extends AbstractVaultGearConfigProvider {
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModHealBleedCloud", "mod_bleed_cloud",    List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Bleed I+",   ResourceLocation.withDefaultNamespace("empty"), 80,  4.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 0);
-                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Bleed II+",  ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 1);
-                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Bleed III+", ResourceLocation.withDefaultNamespace("empty"), 160, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 2);
-                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Bleed IV+",  ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 3);
-                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Bleed V+",   ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 4);
+                            vaultGearModifierTiersBuilder.add(0,  -1, 4, "Bleed I+",   ResourceLocation.withDefaultNamespace("empty"), 80,  4.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 4, "Bleed II+",  ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 1);
+                            vaultGearModifierTiersBuilder.add(64, -1, 4, "Bleed III+", ResourceLocation.withDefaultNamespace("empty"), 160, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 2);
+                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Bleed IV+",  ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 3);
+                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Bleed V+",   ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 4);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModHealBleedCloud", "mod_heal_cloud",     List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Healing I+",   ResourceLocation.withDefaultNamespace("empty"), 80,  4.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
-                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Healing II+",  ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
-                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Healing III+", ResourceLocation.withDefaultNamespace("empty"), 160, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
-                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Healing IV+",  ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 1);
-                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Healing V+",   ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 2);
+                            vaultGearModifierTiersBuilder.add(0,  -1, 4, "Healing I+",   ResourceLocation.withDefaultNamespace("empty"), 80,  4.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 4, "Healing II+",  ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
+                            vaultGearModifierTiersBuilder.add(64, -1, 4, "Healing III+", ResourceLocation.withDefaultNamespace("empty"), 160, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
+                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Healing IV+",  ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 1);
+                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Healing V+",   ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 2);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModPoisonCloud",    "mod_poison_cloud",   List.of(), vaultGearModifierTiersBuilder -> {
@@ -521,19 +521,19 @@ public class ModVaultGearTiersProvider extends AbstractVaultGearConfigProvider {
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.SOULBOUND,  "BaseSoulbound",  "base_soulbound",    List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(100, -1, 20, true);
+                            vaultGearModifierTiersBuilder.add(100, -1, 50, true);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.SOULBOUND,  "BaseSoulbound",  "base_no_soulbound", List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(100, -1, 20, false);
+                            vaultGearModifierTiersBuilder.add(100, -1, 50, false);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(                    ModGearAttributes.DIVINE,     "BaseDivine",     "base_divine",       List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(100,-1,2,true);
+                            vaultGearModifierTiersBuilder.add(100,-1,4,true);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(                    ModGearAttributes.DIVINE,     "BaseDivine",     "base_no_divine",    List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(100,-1,2,false);
+                            vaultGearModifierTiersBuilder.add(100,-1,96,false);
                         });
             });
 
@@ -636,15 +636,15 @@ public class ModVaultGearTiersProvider extends AbstractVaultGearConfigProvider {
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModHealBleedCloud", "mod_bleed_cloud",    List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(100,-1, 10, "Bleed IV+",  ResourceLocation.withDefaultNamespace("empty"), 160, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 3);
-                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Bleed V+",   ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 4);
-                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Bleed VI+",  ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 5);
+                            vaultGearModifierTiersBuilder.add(100,-1, 4, "Bleed IV+",  ResourceLocation.withDefaultNamespace("empty"), 160, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 3);
+                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Bleed V+",   ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 4);
+                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Bleed VI+",  ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 5);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModHealBleedCloud", "mod_heal_cloud",     List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(100,-1, 10, "Healing IV+",  ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
-                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Healing V+",   ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 1);
-                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Healing VI+",  ResourceLocation.withDefaultNamespace("empty"), 280, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 2);
+                            vaultGearModifierTiersBuilder.add(100,-1, 4, "Healing IV+",  ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
+                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Healing V+",   ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 1);
+                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Healing VI+",  ResourceLocation.withDefaultNamespace("empty"), 280, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 2);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModPoisonCloud",    "mod_poison_cloud",   List.of(), vaultGearModifierTiersBuilder -> {
@@ -673,9 +673,306 @@ public class ModVaultGearTiersProvider extends AbstractVaultGearConfigProvider {
             });
         });
 
-//        add("dagger_sub", builder -> {});
+        add("dagger_sub", builder -> {
+            builder.key(VaultMod.id("dagger_sub")).add(VaultGearTierConfig.ModifierAffixTagGroup.BASE_ATTRIBUTES, vaultGearAttributeGroupBuilder -> {
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.DURABILITY, "BaseDurability", "base_durability",   List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, 2400, 4800, 1);
+                            vaultGearModifierTiersBuilder.add(21, -1, 10, 3600, 5400, 1);
+                            vaultGearModifierTiersBuilder.add(60, -1, 10, 4800, 6000, 1);
+                            vaultGearModifierTiersBuilder.add(90, -1, 10, 6000, 8000, 1);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.SOULBOUND,  "BaseSoulbound",  "base_soulbound",    List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0, -1, 20, true);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.SOULBOUND,  "BaseSoulbound",  "base_no_soulbound", List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0, -1, 80, false);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.LIVING,     "BaseLiving",     "base_living",       List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,-1,2,true);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.LIVING,     "BaseLiving",     "base_no_living",    List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,-1,98,false);
+                        });
+            });
 
-//        add("dagger_sub_mythic", builder -> {});
+            builder.key(VaultMod.id("dagger_sub")).add(VaultGearTierConfig.ModifierAffixTagGroup.IMPLICIT,        vaultGearAttributeGroupBuilder -> {
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.ATTACK_DAMAGE, "BaseAttackDamage", "base_attack_damage", List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,   49, 10, 5,  7,  1);
+                            vaultGearModifierTiersBuilder.add(20,  69, 10, 8,  10, 1);
+                            vaultGearModifierTiersBuilder.add(40,  89, 10, 11, 13, 1);
+                            vaultGearModifierTiersBuilder.add(50,  -1, 10, 14, 16, 1);
+                            vaultGearModifierTiersBuilder.add(60,  -1, 10, 17, 19, 1);
+                            vaultGearModifierTiersBuilder.add(70,  -1, 10, 20, 22, 1);
+                            vaultGearModifierTiersBuilder.add(80,  -1, 10, 23, 25, 1);
+                            vaultGearModifierTiersBuilder.add(90,  -1, 10, 26, 30, 1);
+                            vaultGearModifierTiersBuilder.add(100, -1, 10, 31, 35, 1);
+                        });
+            });
+
+            builder.key(VaultMod.id("dagger_sub")).add(VaultGearTierConfig.ModifierAffixTagGroup.PREFIX,          vaultGearAttributeGroupBuilder -> {
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.SOUL_QUANTITY,        "ModSoulChance",     "mod_soul_chance",     List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,   70, 200, 0.20, 0.40, 1);
+                            vaultGearModifierTiersBuilder.add(28,  -1, 200, 0.41, 0.80, 1);
+                            vaultGearModifierTiersBuilder.add(45,  -1, 200, 0.81, 1.20, 1);
+                            vaultGearModifierTiersBuilder.add(75,  -1, 200, 1.21, 1.60, 1);
+                            vaultGearModifierTiersBuilder.add(101, -1, 200, 1.60, 2.20, 1);
+                            vaultGearModifierTiersBuilder.add(102, -1, 200, 2.20, 3.00, 1);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.ON_HIT_CHAIN,         "ModChaining",       "mod_chaining",        List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,   -1, 10, 1, 1, 1);
+                            vaultGearModifierTiersBuilder.add(40,  -1, 10, 2, 2, 1);
+                            vaultGearModifierTiersBuilder.add(80,  -1, 10, 3, 3, 1);
+                            vaultGearModifierTiersBuilder.add(101, -1, 10, 4, 4, 1);
+                            vaultGearModifierTiersBuilder.add(102, -1, 10, 5, 5, 1);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(                    ModGearAttributes.ECHOING_CHANCE,       "ModEchoingChance",  "mod_echoing_chance",  List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(50,   85, 10, 0.05,  0.10,  0.01);
+                            vaultGearModifierTiersBuilder.add(60,   -1, 10, 0.11,  0.14,  0.01);
+                            vaultGearModifierTiersBuilder.add(70,   -1, 10, 0.15,  0.18,  0.01);
+                            vaultGearModifierTiersBuilder.add(90,   -1, 10, 0.19,  0.22,  0.01);
+                            vaultGearModifierTiersBuilder.add(101,  -1, 10, 0.23,  0.26,  0.01);
+                            vaultGearModifierTiersBuilder.add(102,  -1, 10, 0.27,  0.30,  0.01);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(                    ModGearAttributes.REAVING_DAMAGE,       "ModReaving",        "mod_reaving",         List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,    70, 10, 0.08,  0.18,  0.01);
+                            vaultGearModifierTiersBuilder.add(28,   -1, 10, 0.19,  0.21,  0.01);
+                            vaultGearModifierTiersBuilder.add(45,   -1, 10, 0.22,  0.24,  0.01);
+                            vaultGearModifierTiersBuilder.add(75,   -1, 10, 0.25,  0.28,  0.01);
+                            vaultGearModifierTiersBuilder.add(101,  -1, 10, 0.29,  0.37,  0.01);
+                            vaultGearModifierTiersBuilder.add(102,  -1, 10, 0.38,  0.50,  0.01);
+                        });
+            });
+
+            builder.key(VaultMod.id("dagger_sub")).add(VaultGearTierConfig.ModifierAffixTagGroup.SUFFIX,          vaultGearAttributeGroupBuilder -> {
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.DURABILITY,           "ModDurability",     "mod_durability",     List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(11,  66, 200, 400,  800,  1);
+                            vaultGearModifierTiersBuilder.add(28,  -1, 200, 801,  1600, 1);
+                            vaultGearModifierTiersBuilder.add(46,  -1, 200, 1601, 2400, 1);
+                            vaultGearModifierTiersBuilder.add(67,  -1, 200, 2401, 3200, 1);
+                            vaultGearModifierTiersBuilder.add(89,  -1, 200, 3201, 4000, 1);
+                            vaultGearModifierTiersBuilder.add(101, -1, 100, 4001, 6000, 1);
+                            vaultGearModifierTiersBuilder.add(102, -1, 100, 6001, 8000, 1);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.LUCKY_HIT_CHANCE,     "ModLuckyHit",       "mod_lucky_hit",       List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,   -1, 10, 0.05, 0.07, 1);
+                            vaultGearModifierTiersBuilder.add(50,  -1, 10, 0.08, 0.11, 1);
+                            vaultGearModifierTiersBuilder.add(75,  -1, 10, 0.12, 0.14, 1);
+                            vaultGearModifierTiersBuilder.add(101, -1, 10, 0.15, 0.17, 1);
+                            vaultGearModifierTiersBuilder.add(102, -1, 10, 0.18, 0.20, 1);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModHealBleedStorm", "mod_bleed_storm",    List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 4, "Blood Storm I",   ResourceLocation.withDefaultNamespace("empty"), 5, 24.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 4, "Blood Storm II",  ResourceLocation.withDefaultNamespace("empty"), 5, 28.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 1);
+                            vaultGearModifierTiersBuilder.add(64, -1, 4, "Blood Storm III", ResourceLocation.withDefaultNamespace("empty"), 5, 32.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 2);
+                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Blood Storm IV",  ResourceLocation.withDefaultNamespace("empty"), 5, 47.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 3);
+                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Blood Storm V",   ResourceLocation.withDefaultNamespace("empty"), 5, 94.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 4);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModHealBleedStorm", "mod_heal_storm",     List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 4, "Healing Storm I",   ResourceLocation.withDefaultNamespace("empty"), 5, 24.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 4, "Healing Storm II",  ResourceLocation.withDefaultNamespace("empty"), 5, 28.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
+                            vaultGearModifierTiersBuilder.add(64, -1, 4, "Healing Storm III", ResourceLocation.withDefaultNamespace("empty"), 5, 32.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 1);
+                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Healing Storm IV",  ResourceLocation.withDefaultNamespace("empty"), 5, 47.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 1);
+                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Healing Storm V",   ResourceLocation.withDefaultNamespace("empty"), 5, 94.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 2);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModPoisonStorm",    "mod_poison_storm",   List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Poison Storm I",   ResourceLocation.withDefaultNamespace("empty"), 5, 24.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 3);
+                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Poison Storm II",  ResourceLocation.withDefaultNamespace("empty"), 5, 28.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 5);
+                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Poison Storm III", ResourceLocation.withDefaultNamespace("empty"), 5, 32.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 7);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Poison Storm IV",  ResourceLocation.withDefaultNamespace("empty"), 5, 47.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 9);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Poison Storm V",   ResourceLocation.withDefaultNamespace("empty"), 5, 94.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 12);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModSlownessStorm",  "mod_slowness_storm", List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Slowness Storm I",   ResourceLocation.withDefaultNamespace("empty"), 5, 24.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 120, 0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Slowness Storm II",  ResourceLocation.withDefaultNamespace("empty"), 5, 28.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 140, 1);
+                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Slowness Storm III", ResourceLocation.withDefaultNamespace("empty"), 5, 32.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 160, 2);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Slowness Storm IV",  ResourceLocation.withDefaultNamespace("empty"), 5, 47.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 180, 3);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Slowness Storm V",   ResourceLocation.withDefaultNamespace("empty"), 5, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 200, 4);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModChillStorm",     "mod_chill_storm",    List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Chilling Storm I",   ResourceLocation.withDefaultNamespace("empty"), 5, 24.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 60, 1);
+                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Chilling Storm II",  ResourceLocation.withDefaultNamespace("empty"), 5, 28.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 60, 2);
+                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Chilling Storm III", ResourceLocation.withDefaultNamespace("empty"), 5, 32.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 60, 3);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Chilling Storm IV",  ResourceLocation.withDefaultNamespace("empty"), 5, 47.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 60, 4);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Chilling Storm V",   ResourceLocation.withDefaultNamespace("empty"), 5, 94.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 60, 5);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModFearStorm",      "mod_fear_storm",     List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Fear Storm I",   ResourceLocation.withDefaultNamespace("empty"), 5, 24.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 60,  0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Fear Storm II",  ResourceLocation.withDefaultNamespace("empty"), 5, 28.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 60,  0);
+                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Fear Storm III", ResourceLocation.withDefaultNamespace("empty"), 5, 32.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 60,  0);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Fear Storm IV",  ResourceLocation.withDefaultNamespace("empty"), 5, 47.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Fear Storm V",   ResourceLocation.withDefaultNamespace("empty"), 5, 94.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
+                        });
+            });
+        });
+
+        // Need mythic values still
+        add("dagger_sub_mythic", builder -> {
+            builder.key(VaultMod.id("dagger_sub_mythic")).add(VaultGearTierConfig.ModifierAffixTagGroup.BASE_ATTRIBUTES, vaultGearAttributeGroupBuilder -> {
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.DURABILITY, "BaseDurability", "base_durability",   List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, 2400, 4800, 1);
+                            vaultGearModifierTiersBuilder.add(21, -1, 10, 3600, 5400, 1);
+                            vaultGearModifierTiersBuilder.add(60, -1, 10, 4800, 6000, 1);
+                            vaultGearModifierTiersBuilder.add(90, -1, 10, 6000, 8000, 1);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.SOULBOUND,  "BaseSoulbound",  "base_soulbound",    List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0, -1, 20, true);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.SOULBOUND,  "BaseSoulbound",  "base_no_soulbound", List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0, -1, 80, false);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.LIVING,     "BaseLiving",     "base_living",       List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,-1,2,true);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.LIVING,     "BaseLiving",     "base_no_living",    List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,-1,98,false);
+                        });
+            });
+
+            builder.key(VaultMod.id("dagger_sub_mythic")).add(VaultGearTierConfig.ModifierAffixTagGroup.IMPLICIT,        vaultGearAttributeGroupBuilder -> {
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.ATTACK_DAMAGE, "BaseAttackDamage", "base_attack_damage", List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,   49, 10, 5,  7,  1);
+                            vaultGearModifierTiersBuilder.add(20,  69, 10, 8,  10, 1);
+                            vaultGearModifierTiersBuilder.add(40,  89, 10, 11, 13, 1);
+                            vaultGearModifierTiersBuilder.add(50,  -1, 10, 14, 16, 1);
+                            vaultGearModifierTiersBuilder.add(60,  -1, 10, 17, 19, 1);
+                            vaultGearModifierTiersBuilder.add(70,  -1, 10, 20, 22, 1);
+                            vaultGearModifierTiersBuilder.add(80,  -1, 10, 23, 25, 1);
+                            vaultGearModifierTiersBuilder.add(90,  -1, 10, 26, 30, 1);
+                            vaultGearModifierTiersBuilder.add(100, -1, 10, 31, 35, 1);
+                        });
+            });
+
+            builder.key(VaultMod.id("dagger_sub_mythic")).add(VaultGearTierConfig.ModifierAffixTagGroup.PREFIX,          vaultGearAttributeGroupBuilder -> {
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.SOUL_QUANTITY,        "ModSoulChance",     "mod_soul_chance",     List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,   70, 200, 0.20, 0.40, 1);
+                            vaultGearModifierTiersBuilder.add(28,  -1, 200, 0.41, 0.80, 1);
+                            vaultGearModifierTiersBuilder.add(45,  -1, 200, 0.81, 1.20, 1);
+                            vaultGearModifierTiersBuilder.add(75,  -1, 200, 1.21, 1.60, 1);
+                            vaultGearModifierTiersBuilder.add(101, -1, 200, 1.60, 2.20, 1);
+                            vaultGearModifierTiersBuilder.add(102, -1, 200, 2.20, 3.00, 1);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.ON_HIT_CHAIN,         "ModChaining",       "mod_chaining",        List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,   -1, 10, 1, 1, 1);
+                            vaultGearModifierTiersBuilder.add(40,  -1, 10, 2, 2, 1);
+                            vaultGearModifierTiersBuilder.add(80,  -1, 10, 3, 3, 1);
+                            vaultGearModifierTiersBuilder.add(101, -1, 10, 4, 4, 1);
+                            vaultGearModifierTiersBuilder.add(102, -1, 10, 5, 5, 1);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(                    ModGearAttributes.ECHOING_CHANCE,       "ModEchoingChance",  "mod_echoing_chance",  List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(50,   85, 10, 0.05,  0.10,  0.01);
+                            vaultGearModifierTiersBuilder.add(60,   -1, 10, 0.11,  0.14,  0.01);
+                            vaultGearModifierTiersBuilder.add(70,   -1, 10, 0.15,  0.18,  0.01);
+                            vaultGearModifierTiersBuilder.add(90,   -1, 10, 0.19,  0.22,  0.01);
+                            vaultGearModifierTiersBuilder.add(101,  -1, 10, 0.23,  0.26,  0.01);
+                            vaultGearModifierTiersBuilder.add(102,  -1, 10, 0.27,  0.30,  0.01);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(                    ModGearAttributes.REAVING_DAMAGE,       "ModReaving",        "mod_reaving",         List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,    70, 10, 0.08,  0.18,  0.01);
+                            vaultGearModifierTiersBuilder.add(28,   -1, 10, 0.19,  0.21,  0.01);
+                            vaultGearModifierTiersBuilder.add(45,   -1, 10, 0.22,  0.24,  0.01);
+                            vaultGearModifierTiersBuilder.add(75,   -1, 10, 0.25,  0.28,  0.01);
+                            vaultGearModifierTiersBuilder.add(101,  -1, 10, 0.29,  0.37,  0.01);
+                            vaultGearModifierTiersBuilder.add(102,  -1, 10, 0.38,  0.50,  0.01);
+                        });
+            });
+
+            builder.key(VaultMod.id("dagger_sub_mythic")).add(VaultGearTierConfig.ModifierAffixTagGroup.SUFFIX,          vaultGearAttributeGroupBuilder -> {
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.DURABILITY,           "ModDurability",     "mod_durability",     List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(11,  66, 200, 400,  800,  1);
+                            vaultGearModifierTiersBuilder.add(28,  -1, 200, 801,  1600, 1);
+                            vaultGearModifierTiersBuilder.add(46,  -1, 200, 1601, 2400, 1);
+                            vaultGearModifierTiersBuilder.add(67,  -1, 200, 2401, 3200, 1);
+                            vaultGearModifierTiersBuilder.add(89,  -1, 200, 3201, 4000, 1);
+                            vaultGearModifierTiersBuilder.add(101, -1, 100, 4001, 6000, 1);
+                            vaultGearModifierTiersBuilder.add(102, -1, 100, 6001, 8000, 1);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.LUCKY_HIT_CHANCE,     "ModLuckyHit",       "mod_lucky_hit",       List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,   -1, 10, 0.05, 0.07, 1);
+                            vaultGearModifierTiersBuilder.add(50,  -1, 10, 0.08, 0.11, 1);
+                            vaultGearModifierTiersBuilder.add(75,  -1, 10, 0.12, 0.14, 1);
+                            vaultGearModifierTiersBuilder.add(101, -1, 10, 0.15, 0.17, 1);
+                            vaultGearModifierTiersBuilder.add(102, -1, 10, 0.18, 0.20, 1);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModHealBleedStorm", "mod_bleed_storm",    List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 4, "Blood Storm I",   ResourceLocation.withDefaultNamespace("empty"), 5, 24.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 4, "Blood Storm II",  ResourceLocation.withDefaultNamespace("empty"), 5, 28.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 1);
+                            vaultGearModifierTiersBuilder.add(64, -1, 4, "Blood Storm III", ResourceLocation.withDefaultNamespace("empty"), 5, 32.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 2);
+                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Blood Storm IV",  ResourceLocation.withDefaultNamespace("empty"), 5, 47.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 3);
+                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Blood Storm V",   ResourceLocation.withDefaultNamespace("empty"), 5, 94.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 4);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModHealBleedStorm", "mod_heal_storm",     List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 4, "Healing Storm I",   ResourceLocation.withDefaultNamespace("empty"), 5, 24.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 4, "Healing Storm II",  ResourceLocation.withDefaultNamespace("empty"), 5, 28.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
+                            vaultGearModifierTiersBuilder.add(64, -1, 4, "Healing Storm III", ResourceLocation.withDefaultNamespace("empty"), 5, 32.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 1);
+                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Healing Storm IV",  ResourceLocation.withDefaultNamespace("empty"), 5, 47.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 1);
+                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Healing Storm V",   ResourceLocation.withDefaultNamespace("empty"), 5, 94.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 2);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModPoisonStorm",    "mod_poison_storm",   List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Poison Storm I",   ResourceLocation.withDefaultNamespace("empty"), 5, 24.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 3);
+                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Poison Storm II",  ResourceLocation.withDefaultNamespace("empty"), 5, 28.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 5);
+                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Poison Storm III", ResourceLocation.withDefaultNamespace("empty"), 5, 32.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 7);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Poison Storm IV",  ResourceLocation.withDefaultNamespace("empty"), 5, 47.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 9);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Poison Storm V",   ResourceLocation.withDefaultNamespace("empty"), 5, 94.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 12);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModSlownessStorm",  "mod_slowness_storm", List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Slowness Storm I",   ResourceLocation.withDefaultNamespace("empty"), 5, 24.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 120, 0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Slowness Storm II",  ResourceLocation.withDefaultNamespace("empty"), 5, 28.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 140, 1);
+                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Slowness Storm III", ResourceLocation.withDefaultNamespace("empty"), 5, 32.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 160, 2);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Slowness Storm IV",  ResourceLocation.withDefaultNamespace("empty"), 5, 47.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 180, 3);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Slowness Storm V",   ResourceLocation.withDefaultNamespace("empty"), 5, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 200, 4);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModChillStorm",     "mod_chill_storm",    List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Chilling Storm I",   ResourceLocation.withDefaultNamespace("empty"), 5, 24.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 60, 1);
+                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Chilling Storm II",  ResourceLocation.withDefaultNamespace("empty"), 5, 28.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 60, 2);
+                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Chilling Storm III", ResourceLocation.withDefaultNamespace("empty"), 5, 32.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 60, 3);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Chilling Storm IV",  ResourceLocation.withDefaultNamespace("empty"), 5, 47.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 60, 4);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Chilling Storm V",   ResourceLocation.withDefaultNamespace("empty"), 5, 94.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 60, 5);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModFearStorm",      "mod_fear_storm",     List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Fear Storm I",   ResourceLocation.withDefaultNamespace("empty"), 5, 24.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 60,  0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Fear Storm II",  ResourceLocation.withDefaultNamespace("empty"), 5, 28.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 60,  0);
+                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Fear Storm III", ResourceLocation.withDefaultNamespace("empty"), 5, 32.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 60,  0);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Fear Storm IV",  ResourceLocation.withDefaultNamespace("empty"), 5, 47.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Fear Storm V",   ResourceLocation.withDefaultNamespace("empty"), 5, 94.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
+                        });
+            });
+        });
 
     }
 }
