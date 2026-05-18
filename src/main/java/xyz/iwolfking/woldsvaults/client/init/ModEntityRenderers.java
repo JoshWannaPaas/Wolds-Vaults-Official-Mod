@@ -1,10 +1,11 @@
 package xyz.iwolfking.woldsvaults.client.init;
 
 
-import iskallia.vault.entity.entity.VaultFireball;
 import iskallia.vault.entity.model.ModModelLayers;
-import iskallia.vault.entity.renderer.FireballRenderer;
-import net.minecraft.client.renderer.entity.*;
+import net.minecraft.client.renderer.entity.ChickenRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.PigRenderer;
+import net.minecraft.client.renderer.entity.SheepRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -41,7 +42,5 @@ public class ModEntityRenderers {
         EntityRenderers.register(ModEntities.HOSTILE_PIG, PigRenderer::new);
         EntityRenderers.register(ModEntities.VAULT_RANG, VaultRangRenderer::new);
         EntityRenderers.register(ModEntities.HATURKIN, HaturkeyRenderer::new);
-        EntityRenderers.register(ModEntities.CUSTOM_FANGS, EvokerFangsRenderer::new);
-        EntityRenderers.register(ModEntities.VAULT_METEOR, FireballRenderer::new);
     }
 }
