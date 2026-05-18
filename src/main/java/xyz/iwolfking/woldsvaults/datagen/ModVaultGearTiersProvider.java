@@ -464,51 +464,51 @@ public class ModVaultGearTiersProvider extends AbstractVaultGearConfigProvider {
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModHealBleedCloud", "mod_bleed_cloud",    List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(0,  -1, 4, "Bleed I+",   ResourceLocation.withDefaultNamespace("empty"), 80,  4.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 0);
-                            vaultGearModifierTiersBuilder.add(32, -1, 4, "Bleed II+",  ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 1);
-                            vaultGearModifierTiersBuilder.add(64, -1, 4, "Bleed III+", ResourceLocation.withDefaultNamespace("empty"), 160, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 2);
-                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Bleed IV+",  ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 3);
-                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Bleed V+",   ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 4);
+                            vaultGearModifierTiersBuilder.add(0,  -1, 4, "Bleed I",   ResourceLocation.withDefaultNamespace("empty"), 80,  4.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 4, "Bleed II",  ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 1);
+                            vaultGearModifierTiersBuilder.add(64, -1, 4, "Bleed III", ResourceLocation.withDefaultNamespace("empty"), 160, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 2);
+                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Bleed IV",  ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 3);
+                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Bleed V",   ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 4);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModHealBleedCloud", "mod_heal_cloud",     List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(0,  -1, 4, "Healing I+",   ResourceLocation.withDefaultNamespace("empty"), 80,  4.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
-                            vaultGearModifierTiersBuilder.add(32, -1, 4, "Healing II+",  ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
-                            vaultGearModifierTiersBuilder.add(64, -1, 4, "Healing III+", ResourceLocation.withDefaultNamespace("empty"), 160, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
-                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Healing IV+",  ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 1);
-                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Healing V+",   ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 2);
+                            vaultGearModifierTiersBuilder.add(0,  -1, 4, "Healing I",   ResourceLocation.withDefaultNamespace("empty"), 80,  4.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 4, "Healing II",  ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
+                            vaultGearModifierTiersBuilder.add(64, -1, 4, "Healing III", ResourceLocation.withDefaultNamespace("empty"), 160, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
+                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Healing IV",  ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 1);
+                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Healing V",   ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 2);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModPoisonCloud",    "mod_poison_cloud",   List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Poison I+",   ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 3);
-                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Poison II+",  ResourceLocation.withDefaultNamespace("empty"), 160, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 5);
-                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Poison III+", ResourceLocation.withDefaultNamespace("empty"), 200, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 7);
-                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Poison IV+",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 9);
-                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Poison V+",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 12);
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Poison I",   ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 3);
+                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Poison II",  ResourceLocation.withDefaultNamespace("empty"), 160, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 5);
+                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Poison III", ResourceLocation.withDefaultNamespace("empty"), 200, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 7);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Poison IV",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 9);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Poison V",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 12);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModSlownessCloud",  "mod_slowness_cloud", List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Slowness I+",   ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 120, 0);
-                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Slowness II+",  ResourceLocation.withDefaultNamespace("empty"), 160, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 140, 1);
-                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Slowness III+", ResourceLocation.withDefaultNamespace("empty"), 200, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 160, 2);
-                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Slowness IV+",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 180, 3);
-                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Slowness V+",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 200, 4);
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Slowness I",   ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 120, 0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Slowness II",  ResourceLocation.withDefaultNamespace("empty"), 160, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 140, 1);
+                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Slowness III", ResourceLocation.withDefaultNamespace("empty"), 200, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 160, 2);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Slowness IV",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 180, 3);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Slowness V",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 200, 4);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModChillCloud",     "mod_chill_cloud",    List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Chilling I+",   ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 0);
-                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Chilling II+",  ResourceLocation.withDefaultNamespace("empty"), 160, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 0);
-                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Chilling III+", ResourceLocation.withDefaultNamespace("empty"), 200, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 0);
-                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Chilling IV+",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 0);
-                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Chilling V+",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 0);
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Chilling I",   ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Chilling II",  ResourceLocation.withDefaultNamespace("empty"), 160, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 0);
+                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Chilling III", ResourceLocation.withDefaultNamespace("empty"), 200, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 0);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Chilling IV",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 0);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Chilling V",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 0);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModFearCloud",      "mod_fear_cloud",     List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Fear I+",   ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 60,  0);
-                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Fear II+",  ResourceLocation.withDefaultNamespace("empty"), 160, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 60,  0);
-                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Fear III+", ResourceLocation.withDefaultNamespace("empty"), 200, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 60,  0);
-                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Fear IV+",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
-                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Fear V+",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
+                            vaultGearModifierTiersBuilder.add(0,  -1, 10, "Fear I",   ResourceLocation.withDefaultNamespace("empty"), 120, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 60,  0);
+                            vaultGearModifierTiersBuilder.add(32, -1, 10, "Fear II",  ResourceLocation.withDefaultNamespace("empty"), 160, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 60,  0);
+                            vaultGearModifierTiersBuilder.add(64, -1, 10, "Fear III", ResourceLocation.withDefaultNamespace("empty"), 200, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 60,  0);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Fear IV",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Fear V",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
                         });
             });
         });
@@ -636,39 +636,39 @@ public class ModVaultGearTiersProvider extends AbstractVaultGearConfigProvider {
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModHealBleedCloud", "mod_bleed_cloud",    List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(100,-1, 4, "Bleed IV+",  ResourceLocation.withDefaultNamespace("empty"), 160, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 3);
-                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Bleed V+",   ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 4);
-                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Bleed VI+",  ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 5);
+                            vaultGearModifierTiersBuilder.add(100,-1, 4, "Bleed IV",  ResourceLocation.withDefaultNamespace("empty"), 160, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 3);
+                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Bleed V",   ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 4);
+                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Bleed VI",  ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, ModEffects.BLEED.getColor(), false, 0.03F, ModEffects.BLEED.getRegistryName(), 40, 5);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModHealBleedCloud", "mod_heal_cloud",     List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(100,-1, 4, "Healing IV+",  ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
-                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Healing V+",   ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 1);
-                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Healing VI+",  ResourceLocation.withDefaultNamespace("empty"), 280, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 2);
+                            vaultGearModifierTiersBuilder.add(100,-1, 4, "Healing IV",  ResourceLocation.withDefaultNamespace("empty"), 200, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 0);
+                            vaultGearModifierTiersBuilder.add(101,-1, 4, "Healing V",   ResourceLocation.withDefaultNamespace("empty"), 240, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 1);
+                            vaultGearModifierTiersBuilder.add(102,-1, 4, "Healing VI",  ResourceLocation.withDefaultNamespace("empty"), 280, 5.0f, MobEffects.HEAL.getColor(), true, 0.03F, MobEffects.HEAL.getRegistryName(), 20, 2);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModPoisonCloud",    "mod_poison_cloud",   List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(100,-1, 10, "Poison IV+",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 9);
-                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Poison V+",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 12);
-                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Poison VI+",  ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 12);
+                            vaultGearModifierTiersBuilder.add(100,-1, 10, "Poison IV",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 9);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Poison V",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 12);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Poison VI",  ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, MobEffects.POISON.getColor(), false, 0.075F, MobEffects.POISON.getRegistryName(), 60, 12);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModSlownessCloud",  "mod_slowness_cloud", List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(100,-1, 10, "Slowness IV+",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 180, 3);
-                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Slowness V+",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 200, 4);
-                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Slowness VI+",  ResourceLocation.withDefaultNamespace("empty"), 360, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 240, 5);
+                            vaultGearModifierTiersBuilder.add(100,-1, 10, "Slowness IV",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 180, 3);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Slowness V",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 200, 4);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Slowness VI",  ResourceLocation.withDefaultNamespace("empty"), 360, 4.0f, MobEffects.MOVEMENT_SLOWDOWN.getColor(), false, 0.075F, MobEffects.MOVEMENT_SLOWDOWN.getRegistryName(), 240, 5);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModChillCloud",     "mod_chill_cloud",    List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(100,-1, 10, "Chilling IV+",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 1);
-                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Chilling V+",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 1);
-                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Chilling VI+",  ResourceLocation.withDefaultNamespace("empty"), 360, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 1);
+                            vaultGearModifierTiersBuilder.add(100,-1, 10, "Chilling IV",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 1);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Chilling V",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 1);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Chilling VI",  ResourceLocation.withDefaultNamespace("empty"), 360, 4.0f, ModEffects.CHILLED.getColor(), false, 0.075F, ModEffects.CHILLED.getRegistryName(), 140, 1);
                         });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT_CLOUD,         "ModFearCloud",      "mod_fear_cloud",     List.of(), vaultGearModifierTiersBuilder -> {
-                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Fear IV+",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
-                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Fear V+",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
-                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Fear VI+",  ResourceLocation.withDefaultNamespace("empty"), 360, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
+                            vaultGearModifierTiersBuilder.add(101,-1, 10, "Fear IV",  ResourceLocation.withDefaultNamespace("empty"), 240, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Fear V",   ResourceLocation.withDefaultNamespace("empty"), 300, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
+                            vaultGearModifierTiersBuilder.add(102,-1, 10, "Fear VI",  ResourceLocation.withDefaultNamespace("empty"), 360, 4.0f, ModEffects.TAUNT_REPEL_MOB.getColor(), false, 0.075F, ModEffects.TAUNT_REPEL_MOB.getRegistryName(), 120, 0);
                         });
             });
         });
