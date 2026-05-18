@@ -45,7 +45,7 @@ import java.util.Random;
 public class VaultDaggerSubItem extends SubSwordItem implements VaultGearItem, DyeableLeatherItem {
 
     public VaultDaggerSubItem(ResourceLocation id, Properties builder) {
-        super(VaultGearToolTier.INSTANCE, 0, 2.4F, builder);
+        super(VaultGearToolTier.INSTANCE, 0, -3.5F, builder);
         setRegistryName(id);
     }
 
@@ -62,7 +62,7 @@ public class VaultDaggerSubItem extends SubSwordItem implements VaultGearItem, D
 
     @Nullable
     public EquipmentSlot getIntendedSlot(ItemStack stack) {
-        return EquipmentSlot.OFFHAND;
+        return EquipmentSlot.MAINHAND;
     }
 
     @NotNull
@@ -79,7 +79,7 @@ public class VaultDaggerSubItem extends SubSwordItem implements VaultGearItem, D
 
     @Nonnull
     public ProficiencyType getCraftingProficiencyType(ItemStack stack) {
-        return ProficiencyType.WAND;
+        return ProficiencyType.SWORD;
     }
 
     public float getDestroySpeed(ItemStack stack, BlockState state) {
