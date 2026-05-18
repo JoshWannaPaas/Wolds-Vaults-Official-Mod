@@ -13,6 +13,7 @@ import iskallia.vault.gear.tooltip.GearTooltip;
 import iskallia.vault.init.ModConfigs;
 import iskallia.vault.init.ModGearAttributes;
 import iskallia.vault.init.ModItems;
+import iskallia.vault.item.gear.VaultSwordItem;
 import iskallia.vault.item.gear.WandItem;
 import iskallia.vault.world.data.DiscoveredModelsData;
 import net.minecraft.core.NonNullList;
@@ -34,6 +35,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolAction;
 import org.jetbrains.annotations.NotNull;
 import xyz.iwolfking.woldsvaults.items.SubSwordItem;
+import xyz.iwolfking.woldsvaults.mixins.vaulthunters.custom.enum_extension.MixinVaultGearTypeEnum;
 import xyz.iwolfking.woldsvaults.models.Daggers;
 
 import javax.annotation.Nonnull;
@@ -45,14 +47,14 @@ import java.util.Random;
 public class VaultDaggerSubItem extends SubSwordItem implements VaultGearItem, DyeableLeatherItem {
 
     public VaultDaggerSubItem(ResourceLocation id, Properties builder) {
-        super(VaultGearToolTier.INSTANCE, 0, -3.5F, builder);
+        super(VaultGearToolTier.INSTANCE, 0, -2.4F, builder);
         setRegistryName(id);
     }
 
     @Nullable
     public ResourceLocation getRandomModel(ItemStack stack, Random random, @Nullable Player player, @Nullable DiscoveredModelsData discoveredModelsData) {
         VaultGearData gearData = VaultGearData.read(stack);
-        EquipmentSlot intendedSlot = getIntendedSlot(stack);
+        EquipmentSlot intendedSlot = EquipmentSlot.OFFHAND;
         return ModConfigs.GEAR_MODEL_ROLL_RARITIES.getRandomRoll(stack, gearData, intendedSlot, random, player, discoveredModelsData);
     }
 
@@ -60,9 +62,11 @@ public class VaultDaggerSubItem extends SubSwordItem implements VaultGearItem, D
         return Daggers.REGISTRY.get(key);
     }
 
+
+
     @Nullable
     public EquipmentSlot getIntendedSlot(ItemStack stack) {
-        return EquipmentSlot.MAINHAND;
+        return EquipmentSlot.OFFHAND;
     }
 
     @NotNull
@@ -73,14 +77,16 @@ public class VaultDaggerSubItem extends SubSwordItem implements VaultGearItem, D
     @NotNull
     @Override
     public VaultGearType getGearType(ItemStack itemStack) {
-        return VaultGearType.WAND;
-    }
-
+        return VaultGearType.valueOf("DAGGER_SUB");
+    }       // This determines the slot for stats but might also determine whether attack speed does anything
 
     @Nonnull
     public ProficiencyType getCraftingProficiencyType(ItemStack stack) {
         return ProficiencyType.SWORD;
     }
+
+
+
 
     public float getDestroySpeed(ItemStack stack, BlockState state) {
         return 1.0F;

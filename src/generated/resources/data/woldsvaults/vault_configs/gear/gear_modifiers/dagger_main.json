@@ -1238,7 +1238,7 @@
             "maxLevel": -1,
             "weight": 4,
             "value": {
-              "tooltipDisplayName": "Bleed I+",
+              "tooltipDisplayName": "Bleed I",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1259,7 +1259,7 @@
             "maxLevel": -1,
             "weight": 4,
             "value": {
-              "tooltipDisplayName": "Bleed II+",
+              "tooltipDisplayName": "Bleed II",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1280,7 +1280,7 @@
             "maxLevel": -1,
             "weight": 4,
             "value": {
-              "tooltipDisplayName": "Bleed III+",
+              "tooltipDisplayName": "Bleed III",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1301,7 +1301,7 @@
             "maxLevel": -1,
             "weight": 4,
             "value": {
-              "tooltipDisplayName": "Bleed IV+",
+              "tooltipDisplayName": "Bleed IV",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1322,7 +1322,7 @@
             "maxLevel": -1,
             "weight": 4,
             "value": {
-              "tooltipDisplayName": "Bleed V+",
+              "tooltipDisplayName": "Bleed V",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1351,7 +1351,7 @@
             "maxLevel": -1,
             "weight": 4,
             "value": {
-              "tooltipDisplayName": "Healing I+",
+              "tooltipDisplayName": "Healing I",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1372,7 +1372,7 @@
             "maxLevel": -1,
             "weight": 4,
             "value": {
-              "tooltipDisplayName": "Healing II+",
+              "tooltipDisplayName": "Healing II",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1393,7 +1393,7 @@
             "maxLevel": -1,
             "weight": 4,
             "value": {
-              "tooltipDisplayName": "Healing III+",
+              "tooltipDisplayName": "Healing III",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1414,7 +1414,7 @@
             "maxLevel": -1,
             "weight": 4,
             "value": {
-              "tooltipDisplayName": "Healing IV+",
+              "tooltipDisplayName": "Healing IV",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1435,7 +1435,7 @@
             "maxLevel": -1,
             "weight": 4,
             "value": {
-              "tooltipDisplayName": "Healing V+",
+              "tooltipDisplayName": "Healing V",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1464,7 +1464,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Poison I+",
+              "tooltipDisplayName": "Poison I",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1485,7 +1485,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Poison II+",
+              "tooltipDisplayName": "Poison II",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1506,7 +1506,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Poison III+",
+              "tooltipDisplayName": "Poison III",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1527,7 +1527,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Poison IV+",
+              "tooltipDisplayName": "Poison IV",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1548,7 +1548,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Poison V+",
+              "tooltipDisplayName": "Poison V",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1577,7 +1577,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Slowness I+",
+              "tooltipDisplayName": "Slowness I",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1598,7 +1598,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Slowness II+",
+              "tooltipDisplayName": "Slowness II",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1619,7 +1619,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Slowness III+",
+              "tooltipDisplayName": "Slowness III",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1640,7 +1640,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Slowness IV+",
+              "tooltipDisplayName": "Slowness IV",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1661,7 +1661,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Slowness V+",
+              "tooltipDisplayName": "Slowness V",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1690,7 +1690,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Chilling I+",
+              "tooltipDisplayName": "Chilling I",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1711,7 +1711,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Chilling II+",
+              "tooltipDisplayName": "Chilling II",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1732,7 +1732,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Chilling III+",
+              "tooltipDisplayName": "Chilling III",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1753,7 +1753,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Chilling IV+",
+              "tooltipDisplayName": "Chilling IV",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1774,7 +1774,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Chilling V+",
+              "tooltipDisplayName": "Chilling V",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1803,7 +1803,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Fear I+",
+              "tooltipDisplayName": "Fear I",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1824,7 +1824,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Fear II+",
+              "tooltipDisplayName": "Fear II",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1845,7 +1845,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Fear III+",
+              "tooltipDisplayName": "Fear III",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1866,7 +1866,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Fear IV+",
+              "tooltipDisplayName": "Fear IV",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
@@ -1887,7 +1887,7 @@
             "maxLevel": -1,
             "weight": 10,
             "value": {
-              "tooltipDisplayName": "Fear V+",
+              "tooltipDisplayName": "Fear V",
               "potion": "minecraft:empty",
               "additionalEffects": [
                 {
