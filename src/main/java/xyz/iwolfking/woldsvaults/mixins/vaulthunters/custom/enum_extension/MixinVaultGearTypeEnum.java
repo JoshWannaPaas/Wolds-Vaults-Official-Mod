@@ -17,7 +17,7 @@ public class MixinVaultGearTypeEnum {
     @Mutable @SuppressWarnings("target")
     private static VaultGearType[] $VALUES;
 
-    private static final VaultGearType DAGGER_SUB = enumExpansion$addVariant("DAGGER_SUB", EquipmentSlot.MAINHAND, ModItems.DAGGER_SUB);
+    private static final VaultGearType DAGGER_SUB = enumExpansion$addVariant("DAGGER_SUB", EquipmentSlot.OFFHAND, ModItems.DAGGER_SUB);
 
     @Invoker("<init>")
     public static VaultGearType enumExpansion$invokeInit(String internalName, int internalId, EquipmentSlot equipmentSlot, Item item) {

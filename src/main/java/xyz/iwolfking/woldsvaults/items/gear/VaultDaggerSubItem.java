@@ -35,7 +35,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolAction;
 import org.jetbrains.annotations.NotNull;
 import xyz.iwolfking.woldsvaults.items.SubSwordItem;
-import xyz.iwolfking.woldsvaults.mixins.vaulthunters.custom.enum_extension.MixinVaultGearTypeEnum;
 import xyz.iwolfking.woldsvaults.models.Daggers;
 
 import javax.annotation.Nonnull;
@@ -44,7 +43,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-public class VaultDaggerSubItem extends SubSwordItem implements VaultGearItem, DyeableLeatherItem {
+public class VaultDaggerSubItem extends SwordItem implements VaultGearItem, DyeableLeatherItem {
 
     public VaultDaggerSubItem(ResourceLocation id, Properties builder) {
         super(VaultGearToolTier.INSTANCE, 0, -2.4F, builder);
@@ -54,7 +53,7 @@ public class VaultDaggerSubItem extends SubSwordItem implements VaultGearItem, D
     @Nullable
     public ResourceLocation getRandomModel(ItemStack stack, Random random, @Nullable Player player, @Nullable DiscoveredModelsData discoveredModelsData) {
         VaultGearData gearData = VaultGearData.read(stack);
-        EquipmentSlot intendedSlot = EquipmentSlot.OFFHAND;
+        EquipmentSlot intendedSlot = getGearType(stack).getEquipmentSlot();
         return ModConfigs.GEAR_MODEL_ROLL_RARITIES.getRandomRoll(stack, gearData, intendedSlot, random, player, discoveredModelsData);
     }
 
