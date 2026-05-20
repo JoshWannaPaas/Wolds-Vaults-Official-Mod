@@ -6,6 +6,6 @@ import net.minecraft.world.item.ItemStack;
 
 public interface DaggerVaultGearItem extends VaultGearItem {
     default boolean isIntendedForSlot(ItemStack stack, EquipmentSlot slotType) {
-        return this.getGearType(stack).getEquipmentSlot() == slotType;
+        return true;
     }
 }
