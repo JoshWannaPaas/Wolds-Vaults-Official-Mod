@@ -34,6 +34,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolAction;
 import org.jetbrains.annotations.NotNull;
+import xyz.iwolfking.woldsvaults.items.DaggerVaultGearItem;
 import xyz.iwolfking.woldsvaults.items.SubSwordItem;
 import xyz.iwolfking.woldsvaults.models.Daggers;
 
@@ -43,7 +44,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-public class VaultDaggerSubItem extends SwordItem implements VaultGearItem, DyeableLeatherItem {
+public class VaultDaggerSubItem extends SwordItem implements DaggerVaultGearItem, DyeableLeatherItem {
 
     public VaultDaggerSubItem(ResourceLocation id, Properties builder) {
         super(VaultGearToolTier.INSTANCE, 0, -2.4F, builder);

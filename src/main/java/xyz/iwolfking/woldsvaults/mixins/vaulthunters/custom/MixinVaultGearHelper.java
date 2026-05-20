@@ -37,21 +37,21 @@ public class MixinVaultGearHelper {
      * @author JoshWannaPaas
      * @reason Make exception for offhand daggers to accept attack speed in offhand
      */
-    @Overwrite
-    public static Multimap<Attribute, AttributeModifier> getModifiers(ItemStack stack, EquipmentSlot slot) {
-        VaultGearItem gearItem = VaultGearItem.of(stack);
-
-        if(gearItem.getGearType(stack).equals(VaultGearType.valueOf("DAGGER_SUB"))) {
-            return (Multimap)(gearItem.isBroken(stack) ? ImmutableMultimap.of() : VaultGearHelper.getModifiers(VaultGearData.read(stack)));
-        }
-
-
-        if (!gearItem.isIntendedForSlot(stack, slot)) {
-            return ImmutableMultimap.of();
-        } else {
-            return (Multimap)(gearItem.isBroken(stack) ? ImmutableMultimap.of() : VaultGearHelper.getModifiers(VaultGearData.read(stack)));
-        }
-    }
+//    @Overwrite
+//    public static Multimap<Attribute, AttributeModifier> getModifiers(ItemStack stack, EquipmentSlot slot) {
+//        VaultGearItem gearItem = VaultGearItem.of(stack);
+//
+//        if(gearItem.getGearType(stack) == VaultGearType.valueOf("DAGGER_SUB")) {
+//            return (Multimap)(gearItem.isBroken(stack) ? ImmutableMultimap.of() : VaultGearHelper.getModifiers(VaultGearData.read(stack)));
+//        }
+//
+//
+//        if (!gearItem.isIntendedForSlot(stack, slot)) {
+//            return ImmutableMultimap.of();
+//        } else {
+//            return (Multimap)(gearItem.isBroken(stack) ? ImmutableMultimap.of() : VaultGearHelper.getModifiers(VaultGearData.read(stack)));
+//        }
+//    }
 
 
 }
