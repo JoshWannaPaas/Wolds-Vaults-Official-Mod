@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import xyz.iwolfking.woldsvaults.WoldsVaults;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
