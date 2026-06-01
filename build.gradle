@@ -231,7 +231,7 @@ dependencies {
     implementation fg.deobf('curse.maven:angel-ring-333396:4641783') // angel rings
     implementation fg.deobf('curse.maven:the-wild-backport-537901:3988035') // darkness effect
     implementation fg.deobf("curse.maven:gateways-to-eternity-417802:4548643") // gateway pearls
-    implementation fg.deobf("curse.maven:vhat-can-i-roll-vault-hunters-3-addon-1098054:7320876")
+    implementation fg.deobf("curse.maven:vhat-can-i-roll-vault-hunters-3-addon-1098054:8061499")
     implementation fg.deobf('curse.maven:refined-storage-243076:4902316') // vaultarhud
     implementation fg.deobf("curse.maven:fruit-bag-vh-addon-1186313:6193420") // fruit bag
     implementation fg.deobf("curse.maven:botania-225643:3936568") // datagen
@@ -279,7 +279,7 @@ dependencies {
     implementation fg.deobf("curse.maven:vaultmapper-1099126:7326513")
     compileOnly fg.deobf("curse.maven:xaeros-minimap-263420:3778436")
     compileOnly fg.deobf('curse.maven:alexs-cloud-storage-606618:3757407')
-    compileOnly fg.deobf('curse.maven:atomicstrykers-infernal-mobs-227875:4149699')
+    implementation fg.deobf('curse.maven:atomicstrykers-infernal-mobs-227875:4149699')
     implementation fg.deobf('curse.maven:better-combat-by-daedelus-639842:4428885')
     compileOnly fg.deobf('curse.maven:cooking-for-blockheads-231484:4065856')
     implementation fg.deobf('curse.maven:ensorcellation-349447:4782920')
@@ -294,6 +294,9 @@ dependencies {
     implementation fg.deobf("curse.maven:effortless-building-302113:4369816")
     compileOnly fg.deobf("curse.maven:valkyrien-skies-258371:4991985")
     compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4445746")
+    compileOnly fg.deobf("curse.maven:jea-444941:3680036")
+    compileOnly fg.deobf("curse.maven:crafttweaker-239197:6256079")
+    compileOnly fg.deobf("curse.maven:powah-rearchitected-633483:4525198")
 
     // deps needed for runtime debug
     runtimeOnly fg.deobf("curse.maven:autoreglib-250363:3642382") // quark
@@ -338,7 +341,7 @@ dependencies {
     implementation fg.deobf("curse.maven:iron-generators-446489:3955850")
     implementation fg.deobf("curse.maven:toms-storage-378609:5211203") // vaultarhud
     implementation fg.deobf("curse.maven:rftools-storage-350006:4069708")
-    compileOnly fg.deobf("curse.maven:rftools-utility-342466:4938941")
+    implementation fg.deobf("curse.maven:rftools-utility-342466:4938941")
     compileOnly fg.deobf("curse.maven:thermal-foundation-222880:4788649")
     compileOnly fg.deobf("curse.maven:thermal-expansion-69163:4782927")
     implementation fg.deobf("curse.maven:common-capabilities-247007:4987177")

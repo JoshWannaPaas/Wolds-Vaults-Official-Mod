@@ -2,6 +2,7 @@ package xyz.iwolfking.woldsvaults.items.gear.rang;
 
 import com.google.common.collect.Multimap;
 import iskallia.vault.entity.entity.FloatingItemEntity;
+import iskallia.vault.entity.entity.PetEntity;
 import iskallia.vault.snapshot.AttributeSnapshotHelper;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.BlockPos;
@@ -344,7 +345,7 @@ public class VaultRangEntity extends Projectile {
         double nearestDistance = Double.MAX_VALUE;
 
         for (LivingEntity candidate : this.level.getEntitiesOfClass(LivingEntity.class, searchBox)) {
-            if (!candidate.isAlive() || candidate.isSpectator() || candidate instanceof Player) {
+            if (!candidate.isAlive() || candidate.isSpectator() || candidate instanceof Player || candidate instanceof PetEntity) {
                 continue;
             }
             if (candidate == thrower || candidate == lastHit) {
@@ -636,6 +637,7 @@ public class VaultRangEntity extends Projectile {
         this.noPhysics = true;
 
         List<ItemEntity> items = this.level.getEntitiesOfClass(ItemEntity.class, this.getBoundingBox().inflate(2));
+        items.removeIf(itemEntity -> itemEntity.getTags().contains("fake_item") || itemEntity.getTags().contains("PreventMagnetMovement"));
         List<ExperienceOrb> xp = this.level.getEntitiesOfClass(ExperienceOrb.class, this.getBoundingBox().inflate(2));
 
         Vec3 ourPos = this.position();
@@ -669,6 +671,9 @@ public class VaultRangEntity extends Projectile {
                     int placeholderSlot = this.findInFlightPlaceholderSlot(inventory);
                     if (placeholderSlot >= 0) {
                         inventory.setItem(placeholderSlot, stack);
+                        if(stack.getItem() instanceof VaultRangItem rangItem) {
+                            rangItem.addCooldown(stack, player);
+                        }
                     }
                 }
 
@@ -751,6 +756,10 @@ public class VaultRangEntity extends Projectile {
 
     @Override
     protected boolean canAddPassenger(@Nonnull Entity passenger) {
+        if (passenger.getTags().contains("fake_item") || passenger.getTags().contains("PreventMagnetMovement")) {
+            return false;
+        }
+
         return super.canAddPassenger(passenger) || passenger instanceof ItemEntity || passenger instanceof ExperienceOrb;
     }
 

@@ -95,6 +95,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.PRISMATIC_GLUE_BUCKET);
         simpleItem(ModItems.MOLTEN_TRINKET_BUCKET);
         simpleItem(ModItems.MOB_BINDING_STONE);
+        simpleItem(ModItems.GREED_TREE_RESET_ITEM);
+        simpleItem(ModItems.EXQUISITE_BOX);
         getBuilder(ModItems.RESEARCH_TOKEN.getRegistryName().getPath())
                 .parent(new ModelFile.UncheckedModelFile(
                         ResourceLocation.parse("builtin/entity")
@@ -256,6 +258,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         deckCore(WoldsVaults.id("arcane_deck_core"));
         deckCore(WoldsVaults.id("premium_deck_core"));
         deckCore(WoldsVaults.id("sparkling_deck_core"));
+        deckCore(WoldsVaults.id("construction_deck_core"));
 
         ModConfigs.RESEARCHES_GUI = new ResearchesGUIConfig().readConfig();
         ModConfigs.RESEARCHES_GUI.getStyles().forEach((name, s) -> {
