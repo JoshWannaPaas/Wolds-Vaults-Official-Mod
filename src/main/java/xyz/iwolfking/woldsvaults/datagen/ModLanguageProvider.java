@@ -67,6 +67,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModEntities.NEBULA_SENTINEL, "Nebula Sentinel");
         add(ModEntities.STAR_DEVOURER_ENTITY, "Star Beast");
         add(ModEntities.SINGULARITY_CREEPER, "Singularity Creeper");
+        add(ModEntities.CUSTOM_FANGS, "Fangs");
+        add(ModItems.GREED_TREE_RESET_ITEM, "Greed Infused Neuralizer");
         add("fix.woldsvaults.schematic_terminal_no_permission", "You do not have permission to place an Overworld Inscription here!");
         add("fluid.woldsvaults.molten_trinket", "Molten Trinket");
         add("block.woldsvaults.prismatic_glue", "Prismatic Glue");
@@ -138,6 +140,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("unlock_goal.woldsvaults.wizard_trinket_pouch", "Your arcane energy has enlightened you!");
         add("unlock_goal.woldsvaults.looters_trinket_pouch", "You are enlightened with a beautiful dream of boundless loot!");
         add("unlock_goal.woldsvaults.treasure_jewel", "You envision a better way of opening Treasure Chests!");
+        add("unlock_goal.woldsvaults.underwater_theme", "You ponder the thought of an entire vault under the sea...");
         add("vault_gear_modifiers.woldsvaults.safer_spaces_recharging_barrier", "Recharging Barrier");
         add("vault_gear_modifiers.woldsvaults.safer_spaces_improved_block", "Improved Block");
         add("key.woldsvaults.open_inventory_hud", "Open Inventory HUD Edit Screen");
@@ -374,8 +377,6 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.the_vault.trident", "Vault Trident");
         add("item.the_vault.battlestaff", "Vault Battlestaff");
         add("item.the_vault.map", "Vault Map");
-        add("item.the_vault.dagger_main", "Vault Dagger (Main)");
-        add("item.the_vault.dagger_sub", "Vault Dagger (Sub)");
         add("item.woldsvaults.layout_manipulator", "Etched Vault Layout");
         add("effect.woldsvaults.reaving", "Reaved");
         add("effect.woldsvaults.echoing", "Echoing");

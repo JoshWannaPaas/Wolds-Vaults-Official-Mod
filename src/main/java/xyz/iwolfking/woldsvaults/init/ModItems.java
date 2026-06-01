@@ -109,6 +109,7 @@ public class ModItems {
 
 
     public static final AltarResetItem ALTAR_DECATALYZER;
+    public static final GreedTreeResetItem GREED_TREE_RESET_ITEM;
 
     //Angel Rings
     public static final ChromaticIronAngelRing CHROMATIC_IRON_ANGEL_RING;
@@ -383,6 +384,7 @@ public class ModItems {
         registry.register(COMBINED_TRINKET);
         registry.register(PRISMATIC_GLUE_BUCKET);
         registry.register(MOLTEN_TRINKET_BUCKET);
+        registry.register(GREED_TREE_RESET_ITEM);
         COLORED_UNOBTANIUMS.forEach((s, bi) -> {
             registry.register(bi);
         });
@@ -564,5 +566,6 @@ public class ModItems {
 
         TIME_TRIAL_TROPHY = new TimeTrialTrophyItem(ModBlocks.TIME_TRIAL_TROPHY_BLOCK, new Item.Properties().stacksTo(1).tab(ModCreativeTabs.WOLDS_VAULTS));
         SCAVENGER_POUCH_ITEM = new ItemScavengerPouch(WoldsVaults.id("scavenger_pouch"));
+        GREED_TREE_RESET_ITEM = new GreedTreeResetItem(WoldsVaults.id("greed_neuralizer"));
     }
 }
