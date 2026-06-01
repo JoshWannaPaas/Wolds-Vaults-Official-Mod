@@ -39,7 +39,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-public class VaultDaggerSubItem extends SwordItem implements DaggerVaultGearItem, DyeableLeatherItem {
+public class VaultDaggerSubItem extends SwordItem implements VaultGearItem, DyeableLeatherItem {
 
     public VaultDaggerSubItem(ResourceLocation id, Properties builder) {
         super(VaultGearToolTier.INSTANCE, 0, -2.4F, builder);
@@ -70,7 +70,7 @@ public class VaultDaggerSubItem extends SwordItem implements DaggerVaultGearItem
     @NotNull
     @Override
     public VaultGearType getGearType(ItemStack itemStack) {
-    return VaultGearType.WAND;
+    return VaultGearType.SWORD;
     }
 
 
