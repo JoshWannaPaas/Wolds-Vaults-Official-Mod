@@ -57,6 +57,8 @@ public class ModItems {
     public static VaultLootSackItem LOOT_SACK;
     public static VaultRangItem RANG;
     public static VaultMapItem MAP;
+    public static VaultDaggerMainItem DAGGER_MAIN;
+    public static VaultDaggerSubItem DAGGER_SUB;
     //public static VaultBowItem BOW;
 
     public static CombinedTrinketItem COMBINED_TRINKET;
@@ -331,6 +333,8 @@ public class ModItems {
         registry.register(ECCENTRIC_FOCUS);
         registry.register(RANG);
         registry.register(MAP);
+        registry.register(DAGGER_MAIN);
+        registry.register(DAGGER_SUB);
         registry.register(LAYOUT_MANIPULATOR);
         registry.register(WEAPON_TYPE_FOCUS);
         registry.register(GREEDY_VAULT_ROCK);
@@ -411,6 +415,8 @@ public class ModItems {
         LOOT_SACK = new VaultLootSackItem(VaultMod.id("loot_sack"), (new Item.Properties()).tab(GEAR_GROUP).tab(ModCreativeTabs.WOLDS_VAULTS).stacksTo(1));
         RANG = new VaultRangItem(VaultMod.id("rang"), new Item.Properties().stacksTo(1).tab(GEAR_GROUP).tab(ModCreativeTabs.WOLDS_VAULTS));
         MAP = new VaultMapItem(VaultMod.id("map"), (new Item.Properties()).tab(GEAR_GROUP).tab(ModCreativeTabs.WOLDS_VAULTS).stacksTo(1));
+        DAGGER_MAIN = new VaultDaggerMainItem(VaultMod.id("dagger_main"), new Item.Properties().stacksTo(1).tab(GEAR_GROUP).tab(ModCreativeTabs.WOLDS_VAULTS));
+        DAGGER_SUB = new VaultDaggerSubItem(VaultMod.id("dagger_sub"), new Item.Properties().stacksTo(1).tab(GEAR_GROUP).tab(ModCreativeTabs.WOLDS_VAULTS));
 
         GEM_BOX = new LootableItem(WoldsVaults.id("gem_box"), (new Item.Properties()).tab(ModCreativeTabs.WOLDS_VAULTS), () -> (ModConfigs.GEM_BOX.POOL.getRandom(rand).generateItemStack()));
         SUPPLY_BOX = new LootableItem(WoldsVaults.id("supply_box"), (new Item.Properties()).tab(ModCreativeTabs.WOLDS_VAULTS), () -> (ModConfigs.SUPPLY_BOX.POOL.getRandom(rand).generateItemStack()));
