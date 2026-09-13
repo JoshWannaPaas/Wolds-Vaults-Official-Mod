@@ -29,10 +29,7 @@ import iskallia.vault.core.vault.stat.StatCollector;
 import iskallia.vault.core.world.storage.VirtualWorld;
 import iskallia.vault.init.ModConfigs;
 import iskallia.vault.init.ModKeybinds;
-import iskallia.vault.task.BingoTask;
-import iskallia.vault.task.ProgressConfiguredTask;
-import iskallia.vault.task.Task;
-import iskallia.vault.task.TaskContext;
+import iskallia.vault.task.*;
 import iskallia.vault.task.counter.TargetTaskCounter;
 import iskallia.vault.task.counter.TaskCounter;
 import iskallia.vault.task.renderer.context.TaskRendererContext;
@@ -50,9 +47,12 @@ import xyz.iwolfking.woldsvaults.api.util.ObjectiveHelper;
 import xyz.iwolfking.woldsvaults.api.util.VaultModifierUtils;
 import xyz.iwolfking.woldsvaults.mixins.vaulthunters.accessors.BingoObjectiveAccessor;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
+import xyz.iwolfking.woldsvaults.WoldsVaults;
+import xyz.iwolfking.woldsvaults.objectives.hyper.HyperModifierPolicy;
 
 public class BallisticBingoObjective extends BingoObjective {
     public static final SupplierKey<Objective> KEY;
@@ -64,6 +64,8 @@ public class BallisticBingoObjective extends BingoObjective {
     public static final FieldKey<BingoObjective.TaskMap> TASKS;
     private boolean pvp;
     private int lastScaledJoined = -1;
+    private boolean taskSyncStateInitialized;
+    private long lastTaskSyncState;
 
     protected BallisticBingoObjective() {
     }
@@ -251,6 +253,7 @@ public class BallisticBingoObjective extends BingoObjective {
             }
         }
 
+        boolean forceTaskSync = false;
         if (this.getBingos() > previousBingos) {
             VaultModifierUtils.getModifiersOfType(vault, ObjectiveShuffleModifier.class).stream().findFirst().ifPresent(modifier -> {
                 if (modifier.shouldRegenerate()) {
@@ -274,6 +277,7 @@ public class BallisticBingoObjective extends BingoObjective {
                     bingo.shuffleIncomplete();
                 }
             });
+            forceTaskSync = true;
         }
 
         if (world.getTickCount() % 20 == 0) {
@@ -348,6 +352,28 @@ public class BallisticBingoObjective extends BingoObjective {
             }
         }
 
+        this.markTaskProgressDirtyIfChanged(forceTaskSync);
+    }
+    private void markTaskProgressDirtyIfChanged(boolean force) {
+        long syncState = this.getTaskSyncState();
+        if (force || !this.taskSyncStateInitialized || this.lastTaskSyncState != syncState) {
+            this.taskSyncStateInitialized = true;
+            this.lastTaskSyncState = syncState;
+            this.markTaskProgressDirty();
+        }
+    }
+
+    private long getTaskSyncState() {
+        return this.pvp ? TaskSyncState.hashTaskMap(this.get(TASKS)) : TaskSyncState.hash(this.get(TASK));
+    }
+
+    private void markTaskProgressDirty() {
+        if (this.pvp) {
+            BingoObjective.TaskMap tasks = this.get(TASKS);
+            new ArrayList<>(tasks.entrySet()).forEach(entry -> tasks.put(entry.getKey(), entry.getValue()));
+        } else {
+            this.markDirty(TASK);
+        }
     }
 
     @Override
@@ -445,6 +471,11 @@ public class BallisticBingoObjective extends BingoObjective {
 
             while(modIter.hasNext()) {
                 VaultModifier<?> mod = modIter.next();
+                if (!vault.get(Vault.OBJECTIVES).getAll(HyperVaultObjective.class).isEmpty()
+                        && HyperModifierPolicy.isBannedCastOnKill(mod.getId())) {
+                    WoldsVaults.LOGGER.info("Dropped the {} bingo task reward - cast-on-kill effects are banned in Hyper.", mod.getId());
+                    continue;
+                }
                 TextComponent suffix = (TextComponent) mod.getChatDisplayNameComponent(1);
                 text.append("The task completion").append((new TextComponent(" added ")).withStyle(ChatFormatting.GRAY)).append(suffix).append((new TextComponent(".")).withStyle(ChatFormatting.GRAY));
                 if(modIter.hasNext()) {
@@ -465,12 +496,14 @@ public class BallisticBingoObjective extends BingoObjective {
                 Task t = (Task)(this.get(TASKS)).get(player.getUUID());
                 if (t instanceof BingoTask board) {
                     board.progressBingoLine(player.getUUID(), delta < (double)0.0F ? 1 : -1);
+                    this.markTaskProgressDirtyIfChanged(true);
                 }
             }
         } else {
             Object var7 = this.get(TASK);
             if (var7 instanceof BingoTask bingo) {
                 bingo.progressBingoLine(player.getUUID(), delta < (double)0.0F ? 1 : -1);
+                this.markTaskProgressDirtyIfChanged(true);
             }
         }
 
