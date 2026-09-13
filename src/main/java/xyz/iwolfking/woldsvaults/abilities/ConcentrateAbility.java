@@ -9,10 +9,12 @@ import iskallia.vault.entity.entity.PetEntity;
 import iskallia.vault.gear.attribute.VaultGearAttributeInstance;
 import iskallia.vault.gear.etching.EtchingGearAttributes;
 import iskallia.vault.gear.etching.EtchingHelper;
+import iskallia.vault.mana.ManaAction;
 import iskallia.vault.skill.ability.effect.spi.core.InstantManaAbility;
 import iskallia.vault.skill.base.SkillContext;
 import iskallia.vault.util.calc.AreaOfEffectHelper;
 import iskallia.vault.util.calc.EffectDurationHelper;
+import iskallia.vault.world.data.PlayerAbilitiesData;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
@@ -26,7 +28,10 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.tuple.Pair;
+import xyz.iwolfking.woldsvaults.WoldsVaults;
+import xyz.iwolfking.woldsvaults.api.util.AbilityHelper;
 import xyz.iwolfking.woldsvaults.api.util.DelayedExecutionHelper;
+import xyz.iwolfking.woldsvaults.events.HyperVaultEvents;
 import xyz.iwolfking.woldsvaults.init.ModEffects;
 import xyz.iwolfking.woldsvaults.init.ModEtchingGearAttributes;
 
@@ -44,6 +49,9 @@ public class ConcentrateAbility extends InstantManaAbility {
     private float amplitudeScaleChance;
     private int particleSteps;
     private int particleDelay;
+
+    private final int MAX_EFFECT_DURATION = 600;
+    private static final List<MobEffect> EFFECTS = List.of(ModEffects.QUICKENING, ModEffects.EMPOWER, ModEffects.STEADFAST, ModEffects.ARMORED, ModEffects.BLITZ);
 
     public ConcentrateAbility(int unlockLevel, int learnPointCost, int regretPointCost, int cooldownTicks, float manaCost, double radius, int baseEffectDuration, int baseAmplitude, float amplitudeScaleChance, int particleSteps, int particleDelay) {
         super(unlockLevel, learnPointCost, regretPointCost, cooldownTicks, manaCost);
@@ -72,7 +80,7 @@ public class ConcentrateAbility extends InstantManaAbility {
             List<LivingEntity> entities = level.getEntitiesOfClass(
                     LivingEntity.class,
                     serverPlayer.getBoundingBox().inflate(AreaOfEffectHelper.adjustAreaOfEffect(serverPlayer, this, (float)getRadius())),
-                    e -> !(e instanceof ServerPlayer || e instanceof PetEntity)
+                    e -> !(e instanceof ServerPlayer || e instanceof PetEntity || HyperVaultEvents.isHyperBoss(e))
             );
 
             if(entities.isEmpty()) {
@@ -95,7 +103,7 @@ public class ConcentrateAbility extends InstantManaAbility {
                 for(MobEffect effect : effectsToRemove) {
                     entity.removeEffect(effect);
                     if(drainEtchingAttribute != null) {
-                        entity.hurt(DamageSource.MAGIC, Math.min(entity.getHealth() * drainEtchingAttribute.getValue(), 3 * context.getLevel()));
+                        entity.hurt(DamageSource.MAGIC, Math.min(entity.getHealth() * drainEtchingAttribute.getValue(), 3 * AbilityHelper.getAbilityLevel(serverPlayer, "Concentrate_Base")));
                         serverPlayer.heal(1);
                     }
                 }
@@ -115,7 +123,9 @@ public class ConcentrateAbility extends InstantManaAbility {
                         }
 
                         int currentAmp = currentEffectInstance.getAmplifier();
-                        float currentAmplitudeScaleChance = amplitudeScaleChance;
+
+                        float currentAmplitudeScaleChance = amplitudeScaleChance / (1.0F + (0.1F * currentAmp));
+
                         if (currentAmplitudeScaleChance > 1.0F) {
                             for (float i = 1.0F; currentAmplitudeScaleChance >= 1.0F; i += 1.0F) {
                                 currentAmp += 1;
@@ -127,17 +137,32 @@ public class ConcentrateAbility extends InstantManaAbility {
                             currentAmp += 1;
                         }
 
-                        serverPlayer.forceAddEffect(new MobEffectInstance(
-                                effect,
-                                currentEffectInstance.getDuration() + (int)EffectDurationHelper.adjustEffectDuration(serverPlayer, baseEffectDuration),
-                                currentAmp,
-                                false,
-                                true
-                        ), serverPlayer);
+                        int incomingDuration = (int) EffectDurationHelper.adjustEffectDuration(serverPlayer, baseEffectDuration);
+                        int currentDuration = currentEffectInstance.getDuration();
+
+                        if (currentDuration < MAX_EFFECT_DURATION) {
+                            double fullness = (double) currentDuration / MAX_EFFECT_DURATION;
+
+                            double diminishingMultiplier = Math.max(0.0, 1.0 - fullness);
+
+                            int modifiedIncoming = (int) Math.max(1, incomingDuration * diminishingMultiplier);
+
+                            int finalDuration = Math.min(MAX_EFFECT_DURATION, currentDuration + modifiedIncoming);
+
+                            serverPlayer.forceAddEffect(new MobEffectInstance(
+                                    effect,
+                                    finalDuration,
+                                    currentAmp,
+                                    false,
+                                    true
+                            ), serverPlayer);
+                        }
+
                     } else {
+                        int initialDuration = Math.min(MAX_EFFECT_DURATION, (int) EffectDurationHelper.adjustEffectDuration(serverPlayer, baseEffectDuration));
                         serverPlayer.addEffect(new MobEffectInstance(
                                 effect,
-                                (int) EffectDurationHelper.adjustEffectDuration(serverPlayer, baseEffectDuration),
+                                initialDuration,
                                 baseAmplitude,
                                 false,
                                 true
@@ -145,6 +170,10 @@ public class ConcentrateAbility extends InstantManaAbility {
                     }
                 });
             }
+
+            context.getSource().getMana().ifPresent(manaPlayer -> {
+                manaPlayer.decreaseMana(ManaAction.PLAYER_ACTION, this.getManaCost());
+            });
 
             this.putOnCooldown(context);
             return ActionResult.successCooldownImmediate();
@@ -203,17 +232,8 @@ public class ConcentrateAbility extends InstantManaAbility {
     }
 
     private static MobEffect getEffectConversion(MobEffect effect, Random random) {
-        if (effect == MobEffects.MOVEMENT_SLOWDOWN || effect == iskallia.vault.init.ModEffects.CHILLED || effect == MobEffects.MOVEMENT_SPEED) return ModEffects.QUICKENING;
-        if (effect == MobEffects.WEAKNESS || effect == iskallia.vault.init.ModEffects.BLEED || effect == MobEffects.DAMAGE_BOOST) return ModEffects.EMPOWER;
-        if (effect == iskallia.vault.init.ModEffects.VULNERABLE) return ModEffects.EMPOWER;
-        if (effect == iskallia.vault.init.ModEffects.FREEZE || effect == iskallia.vault.init.ModEffects.HYPOTHERMIA) return ModEffects.QUICKENING;
-        if (effect == iskallia.vault.init.ModEffects.TAUNT_REPEL_MOB) return random.nextBoolean() ? AMEffectRegistry.SOULSTEAL : MobEffects.NIGHT_VISION;
-        if (effect == MobEffects.UNLUCK) return MobEffects.LUCK;
-        if (effect == MobEffects.HUNGER) return MobEffects.SATURATION;
-        if (effect == ModEffects.SHRINKING) return ModEffects.GROWING;
-        if (effect == MobEffects.LEVITATION) return MobEffects.CONDUIT_POWER;
-        if (effect == MobEffects.DIG_SPEED) return MobEffects.SATURATION;
-        return random.nextBoolean() ? ModEffects.EMPOWER : ModEffects.QUICKENING;
+        int value = random.nextInt(0, EFFECTS.size());
+        return EFFECTS.get(value);
     }
 
     private static Vector3f[] getEffectColors(MobEffect effect) {

@@ -1,6 +1,7 @@
 package xyz.iwolfking.woldsvaults.datagen;
 
 import me.dinnerbeef.compressium.Compressium;
+import net.mcreator.buildingmod.init.DavebuildingmodModBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -14,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import xyz.iwolfking.woldsvaults.WoldsVaults;
 import xyz.iwolfking.woldsvaults.init.ModBlocks;
 import xyz.iwolfking.woldsvaults.init.ModCompressibleBlocks;
+import xyz.iwolfking.woldsvaults.init.ModTags;
 
 import java.util.List;
 import java.util.Map;
@@ -28,6 +30,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags() {
+
+        tag(ModTags.MINEABLE_WITH_SWORD).addOptionalTag(ModTags.CHIPPED_COBWEB.location());
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.GRAVEYARD_LOOT_BLOCK)
@@ -58,6 +62,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.TIME_TRIAL_TROPHY_BLOCK)
                 .add(ModBlocks.TRINKET_FUSION_BLOCK)
                 .add(iskallia.vault.init.ModBlocks.CRYSTAL_BLOCK)
+                .add(DavebuildingmodModBlocks.VANTA_BLACK.get())
+                .add(DavebuildingmodModBlocks.STARS.get())
 
                 .add(ModBlocks.TENOS_BRICKS_SLAB)
                 .add(ModBlocks.TENOS_BRICK_CHISELED_SLAB)
@@ -102,7 +108,11 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.IDONA_DARK_SMOOTH_BRICKS_STAIRS)
                 .add(ModBlocks.IDONA_LIGHT_SMOOTH_BRICKS_STAIRS)
                 .add(ModBlocks.IDONA_GEM_BLOCK_STAIRS)
-                .add(ModBlocks.IDONA_GEM_BLOCK_SLAB);
+                .add(ModBlocks.IDONA_GEM_BLOCK_SLAB)
+                .add(ModBlocks.DECO_IDONA_ALTAR_BLOCK)
+                .add(ModBlocks.DECO_TENOS_ALTAR_BLOCK)
+                .add(ModBlocks.DECO_WENDARR_ALTAR_BLOCK)
+                .add(ModBlocks.DECO_VELARA_ALTAR_BLOCK);
         tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(ModBlocks.ISKALLIAN_LEAVES_BLOCK)
                 .add(ModBlocks.PRISMATIC_FIBER_BLOCK);

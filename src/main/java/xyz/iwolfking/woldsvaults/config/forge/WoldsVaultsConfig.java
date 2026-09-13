@@ -16,6 +16,7 @@ public class WoldsVaultsConfig
         public final ForgeConfigSpec.ConfigValue<OutputFormat> tooltipOutputFormat;
         public final ForgeConfigSpec.BooleanValue hideVaultLootInfoTooltip;
         public final ForgeConfigSpec.BooleanValue serverTransferReloadSkip;
+        public final ForgeConfigSpec.BooleanValue coloredStatisticsScreen;
 
         public Client(ForgeConfigSpec.Builder builder)
         {
@@ -23,11 +24,12 @@ public class WoldsVaultsConfig
             this.hideXaerosMinimapInVaults = builder.comment("Whether to hide Xaero's Minimap while in Vaults.").define("hideXaerosMinimapInVaults", false);
             this.playVaultMusic = builder.comment("Whether to play special tracks while inside the Vault").define("playVaultMusic", false);
             this.weaponsShouldntBeBetter = builder.comment("Whether to enable Better Combat or not (default: false)").define("weaponsShouldntBeBetter", false);
+            this.serverTransferReloadSkip = builder.comment("Skip reloading of certain parts of the game when transferring to different server").define("serverTransferReloadSkip", true);
+            this.coloredStatisticsScreen = builder.comment("Display gear attributes in color on the Statistics screen").define("coloredStatisticsScreen", false);
             builder.push("Mining Speedometer");
             this.tooltipOutputFormat = builder.comment("The Output Format for the speedometer jade tooltip")
                     .defineEnum("Jade Output Format", OutputFormat.NEXT_MINING_SPEED_BREAKPOINT);
             this.hideVaultLootInfoTooltip = builder.comment("Hide vault loot info tooltip").define("hideVaultLootInfoTooltip", true);
-            this.serverTransferReloadSkip = builder.comment("skip reloading of certain parts of the game when transferring to different server").define("serverTransferReloadSkip", true);
             builder.pop();
         }
     }
@@ -89,7 +91,7 @@ public class WoldsVaultsConfig
             builder.pop();
             builder.push("Gameplay Settings");
             this.enableNormalGatewayPearls = builder.comment("Whether Gateway Pearls should be able to be used normally (right-clicking to use them on ground) (default: false)").define("enableNormalGatewayPearls", false);
-            this.scannableScannerCooldown = builder.comment("How long the cooldown for Scannable scanner should be, in ticks (default: 1200)").define("scannableScannerCooldown", 1200);
+            this.scannableScannerCooldown = builder.comment("How long the cooldown for Scannable scanner should be, in ticks (default: 1200)").define("scannableScannerCooldown", 600);
             builder.pop();
             builder.push("Admin Settings");
             this.enableServerKiller = builder.comment("Whether to enable Server Killer that will automatically shut down server after 30 seconds, useful if your server is hanging on shutdown. (default: false)").define("enableServerKiller", false);

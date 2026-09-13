@@ -1,28 +1,226 @@
 package xyz.iwolfking.woldsvaults.datagen;
 
 import iskallia.vault.VaultMod;
+import iskallia.vault.config.TalentsConfig;
+import iskallia.vault.config.TalentsGUIConfig;
 import iskallia.vault.config.entry.IntRollRangeEntry;
 import iskallia.vault.config.gear.VaultGearTierConfig;
 import iskallia.vault.gear.attribute.ability.AbilityFloatValueAttribute;
 import iskallia.vault.gear.attribute.ability.AbilityLevelAttribute;
 import iskallia.vault.gear.attribute.custom.effect.EffectCloudAttribute;
+import iskallia.vault.gear.attribute.custom.effect.EffectGearAttribute;
 import iskallia.vault.gear.attribute.talent.TalentLevelAttribute;
+import iskallia.vault.init.ModConfigs;
 import iskallia.vault.init.ModEffects;
+import iskallia.vault.init.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import xyz.iwolfking.vhapi.api.datagen.AbstractVaultGearConfigProvider;
 import xyz.iwolfking.woldsvaults.WoldsVaults;
+import xyz.iwolfking.woldsvaults.api.data.gear.lib.UnusualModifierLib;
+import xyz.iwolfking.woldsvaults.datagen.lib.AbstractWoldsVaultGearConfigProvider;
 import xyz.iwolfking.woldsvaults.init.ModGearAttributes;
 import java.util.List;
 
-public class ModVaultGearTiersProvider extends AbstractVaultGearConfigProvider {
+public class ModVaultGearTiersProvider extends AbstractWoldsVaultGearConfigProvider {
     public ModVaultGearTiersProvider(DataGenerator generator) {
-        super(generator, WoldsVaults.MOD_ID);
+        super(generator);
     }
 
     @Override
     public void registerConfigs() {
+        addToAllOffhands(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_PREFIX"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.LEECH);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.MANA_ADDITIVE);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.MANA_REGEN);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.COOLDOWN_REDUCTION);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.AXE_CLEAVE);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.EFFECT_CLOUD_CHANCE);
+        });
+
+        addToAllOffhands(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_SUFFIX"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.EFFECT_DURATION);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.EFFECT_RADIUS);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.KINETIC_IMMUNITY);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.KNOCKBACK_RESISTANCE);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.DURABILITY_WEAR_REDUCTION);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.HEALING_EFFECTIVENESS);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.DODGE_CHANCE);
+        });
+
+        addToAllOffhandsExcept(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_SUFFIX"), List.of("loot_sack", "magnet"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.ITEM_QUANTITY);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.ITEM_RARITY);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.COPIOUSLY);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.TRAP_DISARMING);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.REACH);
+        });
+
+        addToAllOffhandsExcept(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_PREFIX"), List.of("wand"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.ABILITY_POWER_PERCENTILE);
+        });
+
+        addToAllOffhandsExcept(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_PREFIX"), List.of("plushie", "shield"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.RESISTANCE);
+        });
+
+        addToAllOffhandsExcept(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_PREFIX"), List.of("plushie"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.DAMAGE_INCREASE);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.MOVEMENT_SPEED);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.ABILITY_POWER);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.CHAINING);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.CRITICAL_HIT_MITIGATION);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.DAMAGE_INCREASE);
+        });
+
+        addToAllNonAxeMainHands(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_PREFIX"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.AXE_BLEED_CLOUD);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.AXE_REAVING);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.AXE_CLEAVE);
+        });
+
+        addToAllMainHands(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_PREFIX"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.MOVEMENT_SPEED);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.RESISTANCE);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.DAMAGE_INCREASE);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.LEECH);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.CRITICAL_HIT_MITIGATION);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.MANA_ADDITIVE);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.MANA_REGEN);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.COOLDOWN_REDUCTION);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.EFFECT_CLOUD_CHANCE);
+        });
+
+        addToAllMainHands(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_SUFFIX"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.EFFECT_DURATION);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.EFFECT_RADIUS);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.KINETIC_IMMUNITY);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.KNOCKBACK_RESISTANCE);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.DURABILITY_WEAR_REDUCTION);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.ABILITY_POWER_PERCENTILE);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.HEALING_EFFECTIVENESS);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.HEXING_HIT);
+        });
+
+        addToJewel(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_SUFFIX"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.HEALING_EFFECTIVENESS_JEWEL);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.MANA_REGEN_JEWEL);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.KNOCKBACK_RESISTANCE_JEWEL);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.VEIN_MINER_LEVEL_JEWEL);
+        });
+
+        addToMaps(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_PREFIX"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.CORROSIVE);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.EXTRA_REINFORCED);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.TIRED);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.LEECH);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.BLESSED);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.FRENZY);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.JUMPY);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.KILL_NOVA);
+        });
+
+        addToMaps(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_SUFFIX"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.NON_LETHAL);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.DOOR_HUNTER);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.SWEET_RETRO);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.HUNGER);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.HAUNTED_MANSION);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.KILL_FROST_NOVA);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.BACKWARDS);
+        });
+
+        addToAllArmor(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_PREFIX"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.MOVEMENT_SPEED);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.COPIOUSLY);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.POISON_CLOUD_ON_HIT);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.VULNERABLE_CLOUD_ON_HIT);
+        });
+
+        addToAllArmor(VaultGearTierConfig.ModifierAffixTagGroup.valueOf("UNUSUAL_SUFFIX"), vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.KINETIC_IMMUNITY);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.DURABILITY_WEAR_REDUCTION);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.LUCKY_HIT_CHANCE);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.HEALING_CLOUD_ON_HIT);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.WEAKNESS_CLOUD_ON_HIT);
+            vaultGearAttributeGroupBuilder.addModifier(UnusualModifierLib.SLOWNESS_CLOUD_ON_HIT);
+        });
+
+        addToAllOffhands(VaultGearTierConfig.ModifierAffixTagGroup.CORRUPTED_IMPLICIT, vaultGearAttributeGroupBuilder -> {
+            vaultGearAttributeGroupBuilder.addModifier(iskallia.vault.init.ModGearAttributes.TALENT_LEVEL, "ModTalentLevel", "u_all_talent_levels", List.of(), vaultGearModifierTiersBuilder -> {
+                vaultGearModifierTiersBuilder.add(50, -1, 200, new TalentLevelAttribute.Config(TalentLevelAttribute.ALL_TALENTS, 1));
+            });
+        });
+
+        ModConfigs.TALENTS_GUI = new TalentsGUIConfig().readConfig();
+        addTo(ModItems.VAULT_NECKLACE, VaultGearTierConfig.ModifierAffixTagGroup.CORRUPTED_IMPLICIT, vaultGearAttributeGroupBuilder -> {
+            ModConfigs.TALENTS_GUI.getStyles().keySet().forEach(skill -> {
+                vaultGearAttributeGroupBuilder.addModifier(iskallia.vault.init.ModGearAttributes.TALENT_LEVEL, "ModTalentLevel", "u_talent_level_" + skill.toLowerCase(), List.of(), vaultGearModifierTiersBuilder -> {
+                    vaultGearModifierTiersBuilder.add(0, -1, 200, new TalentLevelAttribute.Config(skill, 2));
+                    vaultGearModifierTiersBuilder.add(50, -1, 200, new TalentLevelAttribute.Config(skill, 3));
+                    vaultGearModifierTiersBuilder.add(90, -1, 200, new TalentLevelAttribute.Config(skill, 4));
+                });
+            });
+        });
+
+        addToAllStandardGearConfigs(VaultGearTierConfig.ModifierAffixTagGroup.CORRUPTED_IMPLICIT, vaultGearAttributeGroupBuilder -> {
+            //U22 Additions
+            vaultGearAttributeGroupBuilder.addModifier(iskallia.vault.init.ModGearAttributes.PHOENIX, "ModPhoenix", "u_phoenix", List.of(), vaultGearModifierTiersBuilder -> {
+                vaultGearModifierTiersBuilder.add(0, -1, 500, 1, 3, 1);
+            });
+            vaultGearAttributeGroupBuilder
+                    .addModifier(iskallia.vault.init.ModGearAttributes.ABILITY_LEVEL, "ModAbility", "mod_jav_scatter_level", List.of(), vaultGearModifierTiersBuilder -> {
+                        vaultGearModifierTiersBuilder.add(0, -1, 166, new AbilityLevelAttribute.Config("Javelin_Scatter", 1));
+                        vaultGearModifierTiersBuilder.add(25, -1, 166, new AbilityLevelAttribute.Config("Javelin_Scatter", 2));
+                        vaultGearModifierTiersBuilder.add(50, -1, 166, new AbilityLevelAttribute.Config("Javelin_Scatter", 3));
+                    });
+
+            vaultGearAttributeGroupBuilder.addModifier(iskallia.vault.init.ModGearAttributes.JESTER_LUCKY_HIT_CHANCE_PERCENTILE, "BaseBonusPool", "jester_lucky_hit", List.of(), vaultGearModifierTiersBuilder -> {
+                vaultGearModifierTiersBuilder.add(0, -1, 250, 0.05, 0.1, 0.01);
+                vaultGearModifierTiersBuilder.add(50, -1, 250, 0.06, 0.15, 0.01);
+            });
+
+            vaultGearAttributeGroupBuilder.addModifier(iskallia.vault.init.ModGearAttributes.BROODMOTHER_WEB, "ModEnhancement", "u_broodmother_web", List.of(), vaultGearModifierTiersBuilder -> {
+               addBroodmotherWeb(vaultGearModifierTiersBuilder, 0, -1, 250, 0.2f, 0.7f, 0.05f, 0.2f, 0.6f, 0.05f);
+               addBroodmotherWeb(vaultGearModifierTiersBuilder, 65, -1, 250, 0.2f, 0.7f, 0.05f, 0.6f, 1.2f, 0.05f);
+            });
+
+            vaultGearAttributeGroupBuilder.addModifier(iskallia.vault.init.ModGearAttributes.EFFECT, "uSaturation", "u_saturation", List.of(), vaultGearModifierTiersBuilder -> {
+                vaultGearModifierTiersBuilder.add(0, -1, 500, MobEffects.SATURATION, 1);
+            });
+
+            vaultGearAttributeGroupBuilder.addModifier(iskallia.vault.init.ModGearAttributes.CRITICAL_HIT_TAKEN_REDUCTION, "uCritHitImplicit", "u_critical_hit_mitigation", List.of(), vaultGearModifierTiersBuilder -> {
+                vaultGearModifierTiersBuilder.add(0, -1, 250, 0.05, 0.2, 0.01);
+                vaultGearModifierTiersBuilder.add(0, -1, 250, 0.21, 0.5, 0.01);
+            });
+
+            //Wold's Additions
+            vaultGearAttributeGroupBuilder
+                    .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT, "ModEffect", "u_lucky_lucky", List.of(), vaultGearModifierTiersBuilder -> {
+                        vaultGearModifierTiersBuilder.add(0, -1, 10, MobEffects.LUCK.getRegistryName(), 1);
+                    });
+            vaultGearAttributeGroupBuilder.addModifier(iskallia.vault.init.ModGearAttributes.IMMORTALITY, "ModImmortality", "u_immortal_durability", List.of(), vaultGearModifierTiersBuilder -> {
+                vaultGearModifierTiersBuilder.add(0, -1, 100, 1.0F, 1.0F, 0.01F);
+            });
+
+            vaultGearAttributeGroupBuilder.addModifier(ModGearAttributes.EXECUTION_DAMAGE, "ModOnHitType", "mod_corrupt_execution_damage", List.of(), vaultGearModifierTiersBuilder -> {
+                vaultGearModifierTiersBuilder.add(0, -1, 100, 0.03F, 0.05F, 0.01F);
+                vaultGearModifierTiersBuilder.add(50, -1, 100, 0.05F, 0.07F, 0.01F);
+                vaultGearModifierTiersBuilder.add(90, -1, 100, 0.07F, 0.1F, 0.01F);
+            });
+            vaultGearAttributeGroupBuilder
+                    .addModifier(ModGearAttributes.BURNING_HIT_CHANCE, "ModBurningHit", "mod_corrupt_burning_hit", List.of(), vaultGearModifierTiersBuilder -> {
+                        vaultGearModifierTiersBuilder.add(0, 40, 100, 0.06F, 0.12F, 0.01F);
+                        vaultGearModifierTiersBuilder.add(25, 65, 100, 0.12F, 0.14F, 0.01F);
+                        vaultGearModifierTiersBuilder.add(50, -1, 100, 0.14F, 0.16F, 0.01F);
+                        vaultGearModifierTiersBuilder.add(75, -1, 100, 0.16F, 0.2F, 0.01F);
+            });
+            vaultGearAttributeGroupBuilder
+                    .addModifier(iskallia.vault.init.ModGearAttributes.SOUL_QUANTITY_PERCENTILE, "ModSoulQuantity", "mod_corrupt_soul_quantity", List.of(), vaultGearModifierTiersBuilder -> {
+                        vaultGearModifierTiersBuilder.add(0, -1, 100, 0.25F, 0.25F, 0F);
+            });
+        });
         add("unique", builder -> {
             builder.key(VaultMod.id("unique")).add(VaultGearTierConfig.ModifierAffixTagGroup.IMPLICIT, vaultGearAttributeGroupBuilder -> {
                 vaultGearAttributeGroupBuilder
@@ -73,6 +271,14 @@ public class ModVaultGearTiersProvider extends AbstractVaultGearConfigProvider {
                         });
             }).build();
             builder.key(VaultMod.id("unique")).add(VaultGearTierConfig.ModifierAffixTagGroup.PREFIX, vaultGearAttributeGroupBuilder -> {
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT, "ModEffect", "u_lucky_lucky_tm", List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0, -1, 10, MobEffects.LUCK.getRegistryName(), 1);
+                        });
+                vaultGearAttributeGroupBuilder
+                        .addModifier(iskallia.vault.init.ModGearAttributes.EFFECT, "ModEffect", "u_cursed_unlucky", List.of(), vaultGearModifierTiersBuilder -> {
+                            vaultGearModifierTiersBuilder.add(0, -1, 10, MobEffects.UNLUCK.getRegistryName(), 1);
+                        });
                 vaultGearAttributeGroupBuilder
                         .addModifier(iskallia.vault.init.ModGearAttributes.TALENT_LEVEL, "ModPrimeAmpLevel", "mod_prime_amp_level", List.of(), vaultGearModifierTiersBuilder -> {
                             vaultGearModifierTiersBuilder.add(0, -1, 10, new TalentLevelAttribute.Config("Prime_Amplification", 1));
