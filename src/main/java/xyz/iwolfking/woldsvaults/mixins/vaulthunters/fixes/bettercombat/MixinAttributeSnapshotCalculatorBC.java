@@ -42,6 +42,8 @@ public abstract class MixinAttributeSnapshotCalculatorBC {
                 if(offhandGear.isIntendedForSlot(offhandStack, EquipmentSlot.MAINHAND) && mainGear.isIntendedForSlot(mainhandStack, EquipmentSlot.MAINHAND)) {
                     gear.add(offhandStack);
                 }
+
+//                if()
             }
         }
     }

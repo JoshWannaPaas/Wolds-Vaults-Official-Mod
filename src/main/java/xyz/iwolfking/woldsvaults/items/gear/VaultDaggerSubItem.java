@@ -2,6 +2,7 @@ package xyz.iwolfking.woldsvaults.items.gear;
 
 import iskallia.vault.dynamodel.DynamicModel;
 import iskallia.vault.gear.VaultGearClassification;
+import iskallia.vault.gear.VaultGearType;
 import iskallia.vault.gear.item.VaultGearItem;
 import iskallia.vault.item.gear.VaultSwordItem;
 import net.minecraft.resources.ResourceLocation;
@@ -16,7 +17,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Optional;
 
-public class VaultDaggerSubItem extends VaultSwordItem implements VaultGearItem, DyeableLeatherItem {
+public class VaultDaggerSubItem extends VaultSwordItem implements DaggerVaultGearItem, DyeableLeatherItem {
 
 
     public VaultDaggerSubItem(ResourceLocation id, Properties builder) {
@@ -28,21 +29,21 @@ public class VaultDaggerSubItem extends VaultSwordItem implements VaultGearItem,
         return Daggers.REGISTRY.get(key);
     }
 
-//    @Nullable
-//    public EquipmentSlot getIntendedSlot(ItemStack stack) {
-//        return EquipmentSlot.OFFHAND;
-//    }
-//
-//    @NotNull
-//    public VaultGearClassification getClassification(ItemStack stack) {
-//        return VaultGearClassification.WAND;
-//    }
+    @Nullable
+    public EquipmentSlot getIntendedSlot(ItemStack stack) {
+        return EquipmentSlot.OFFHAND;
+    }
 
-//    @NotNull
-//    @Override
-//    public VaultGearType getGearType(ItemStack itemStack) {
+    @NotNull
+    public VaultGearClassification getClassification(ItemStack stack) {
+        return VaultGearClassification.WAND;
+    }
+
+    @NotNull
+    @Override
+    public VaultGearType getGearType(ItemStack itemStack) {
 //        return VaultGearType.valueOf("DAGGER_SUB");
-//        return VaultGearType.SWORD;
-//    }
+        return VaultGearType.WAND;
+    }
 
 }
